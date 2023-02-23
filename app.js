@@ -37,7 +37,7 @@ let player = {
   height: 78,
 };
 
-let fallingBlocks = [
+let blocks = [
   { x_axis: 0, y_axis: 0, width: 182, height: 78 },
   { x_axis: 0, y_axis: 0, width: 182, height: 78 },
   { x_axis: 0, y_axis: 0, width: 182, height: 78 },
@@ -58,7 +58,7 @@ playerUno.style.width = player.width + "px";
 playerUno.style.height = player.height + "px";
 playerUno.style.backgroundColor = "black";
 
-fallingBlocks.forEach((createblock) => {
+blocks.forEach((createblock) => {
   let block = document.createElement("div");
   block.setAttribute("class", "createdBlock");
   block.style.left = createblock.x_axis + "px";
@@ -69,8 +69,8 @@ fallingBlocks.forEach((createblock) => {
   boardOne.appendChild(block);
 });
 
-// fallingBlocks.forEach((moveBlocks) => {
-//     for (let index = 0 ; index < fallingBlocks.length; index++){
+// blocks.forEach((moveBlocks) => {
+//     for (let index = 0 ; index < blocks.length; index++){
 //         moveBlocks.y_axis += 50;
 //   }
 // });
@@ -81,10 +81,12 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowRight") {
     player.x_axis += 50;
     playerUno.style.left = player.x_axis + "px";
-    fallingBlocks.forEach((moveBlocks) => {
+    b
+  locks.forEach((moveBlocks) => {
       moveBlocks.y_axis += 50;
       let blockMove = document.querySelector(".createdBlock");
-      for (let index = 0; index < fallingBlocks.length; index++) {
+      for (let index = 0; index < b
+      locks.length; index++) {
         blockMove.style.top = moveBlocks.y_axis + "px";
       }
       boardOne.append(blockMove)
@@ -103,13 +105,14 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowUp") {
     player.y_axis -= 50;
     playerUno.style.top = player.y_axis + "px";
+    if (checkCollision(player, block))
   }
 };
 
 let checkCollision =(objA, objB)=>{
   return (
     objA.x_axis >= objB.x_axis + objB.width||
-    objA.x_axis + objA.width < objB.x_axis ||
+    objA.x_axis + objA.width <= objB.x_axis ||
     objA.y_axis >= objB.y_axis + objB.height ||
     objA.y_axis + objA.height < objB.y_axis
   )
