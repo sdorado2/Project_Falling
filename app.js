@@ -31,7 +31,7 @@ let board = {
 };
 
 let player = {
-  x_axis: 230, y_axis: 675, width: 182, height: 78,
+  x_axis: 560, y_axis: 675, width: 182, height: 78,
 };
 
 let blocks = [
@@ -109,7 +109,7 @@ document.onkeydown = (movePlayer) => {
     });
   }
 
-  if (movePlayer.key == "ArrowLeft" && player.x_axis > 0) {
+  if (movePlayer.key == "ArrowLeft" && player.x_axis > 345) {
     player.x_axis -= 10;
     playerUno.style.left = player.x_axis + "px";
   }
