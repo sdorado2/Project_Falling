@@ -1,0 +1,59 @@
+.logo{
+    border : solid black;
+    height : 10vh;
+}
+
+.score {
+    border : solid blue;
+    height : 10vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+.leftScore{
+    border: solid lime;
+    width: 50%;
+}
+.rightScore{
+    border : solid gold;
+    width: 50%;
+}
+
+
+.mainScreen{
+    border : solid red;
+    height : 40vh;
+    display: flex;
+}
+
+.playerMove{
+    background-color: blueviolet;
+}
+
+.playerOne{
+    border : solid green;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    background-color: lightcoral;
+}
+
+.playerTwo{
+    border : solid purple;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    background-color: lightskyblue;
+}
+
+.grid {
+    border : solid brown;
+    width : 30%;
+
+}
+
+.grid14 { 
+    position: absolute;
+    transition: all 100ms;
+}
