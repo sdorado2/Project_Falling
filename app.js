@@ -27,7 +27,7 @@
 
 let board = {
   width: 610,
-  height: 510,
+  height: 525,
 };
 
 let player = {
@@ -79,14 +79,14 @@ blocks.forEach((createblock) => {
 //   }
 // });
 
-boardOne.addEventListener("pointerdown", (e) => {
+// boardOne.addEventListener("pointerdown", (e) => {
   // const dot =document.createElement('div');
   // dot.classList.add('dot');
   // dot.id = e.pointerID;
   // positionLoc(e, dot)
   // document.body.append(dot)
-  console.log(e);
-});
+//   console.log(e);
+// });
 
 // function positionLoc (e, dot){
 //   dot.style.width = (e.width * 10) + 'px';
@@ -101,6 +101,7 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowRight" && player.x_axis < 770) {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + "px";
+   
     blocks.forEach((moveBlocks) => {
       moveBlocks.y_axis += 50;
       let blockMove = document.querySelector(".createdBlock");
