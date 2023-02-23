@@ -72,6 +72,14 @@ blocks.forEach((createblock) => {
   boardOne.appendChild(newBlock);
 });
 
+function moveBlock(){
+  let blockMove = document.querySelector(".createdBlock");
+      for (let index = 0; index < blocks.length; index++) {
+        blockMove.style.top = moveBlocks.y_axis + "px";
+      }
+      boardOne.append(blockMove);
+}
+
 // blocks.forEach((moveBlocks) => {
 //     for (let index = 0 ; index < blocks.length; index++){
 //         moveBlocks.y_axis += 50;
@@ -91,11 +99,7 @@ document.onkeydown = (movePlayer) => {
    
     blocks.forEach((moveBlocks) => {
       moveBlocks.y_axis += 50;
-      let blockMove = document.querySelector(".createdBlock");
-      for (let index = 0; index < blocks.length; index++) {
-        blockMove.style.top = moveBlocks.y_axis + "px";
-      }
-      boardOne.append(blockMove);
+      
     });
   }
 
