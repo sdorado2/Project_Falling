@@ -45,50 +45,56 @@ let player = {
 
 let boardOne = document.querySelector(".playerOne");
 let boardTwo = document.querySelector(".playerTwo");
-let playerUno = document.querySelector(".grid14")
+let playerUno = document.querySelector(".grid14");
 
-boardOne.style.width = board.width + 'px';
-boardOne.style.height= board.height + 'px';
-boardOne.style.backgroundColor = 'red';
+boardOne.style.width = board.width + "px";
+boardOne.style.height = board.height + "px";
+boardOne.style.backgroundColor = "red";
 
-boardTwo.style.width = board.width + 'px';
-boardTwo.style.height = board.height + 'px';
+boardTwo.style.width = board.width + "px";
+boardTwo.style.height = board.height + "px";
 
-playerUno.style.width = player.width +'px';
-playerUno.style.height = player.height + 'px';
-playerUno.style.backgroundColor = 'black';
+playerUno.style.width = player.width + "px";
+playerUno.style.height = player.height + "px";
+playerUno.style.backgroundColor = "black";
 
-fallingBlocks.forEach(createblock => {
-    let block = document.createElement('div');
-    block.style.left = createblock.x_axis + 'px';
-    block.style.top = createblock.y_axis +'px';
-    block.style.width = createblock.width + 'px';
-    block.style.height = createblock.height + 'px';
-    block.style.backgroundColor = 'blue';
-    boardOne.appendChild(block);
-}
-    )
+fallingBlocks.forEach((createblock) => {
+  let block = document.createElement("div");
+  block.setAttribute("class", 'createdBlock');
+  block.style.left = createblock.x_axis + "px";
+  block.style.top = createblock.y_axis + "px";
+  block.style.width = createblock.width + "px";
+  block.style.height = createblock.height + "px";
+  block.style.backgroundColor = "blue";
+  boardOne.appendChild(block);
+});
 
-document.onkeydown = (movePlayer) =>{
-    console.log (movePlayer);
+fallingBlocks.forEach((moveBlocks)=>{
+    if (player.x_axis == 50){
+    let block = document.querySelector()
+    block.style.top = moveBlocks.y_axis +=50 ;}
+})
 
-    if(movePlayer.key == 'ArrowRight'){
-        player.x_axis += 50;
-        playerUno.style.left = player.x_axis + 'px';
-    }
 
-    if(movePlayer.key == 'ArrowLeft' && player.x_axis > 0){
-        player.x_axis -= 50;
-        playerUno.style.left = player.x_axis +'px';
-    }
-    if(movePlayer.key == 'ArrowDown'){
-        player.y_axis += 50;
-        playerUno.style.top = player.y_axis + 'px';
-    }
+document.onkeydown = (movePlayer) => {
+  console.log(movePlayer);
 
-    if(movePlayer.key == 'ArrowUp'){
-        player.y_axis -= 50;
-        playerUno.style.top = player.y_axis + 'px';
-    }
-} 
+  if (movePlayer.key == "ArrowRight") {
+    player.x_axis += 50;
+    playerUno.style.left = player.x_axis + "px";
+  }
 
+  if (movePlayer.key == "ArrowLeft" && player.x_axis > 0) {
+    player.x_axis -= 50;
+    playerUno.style.left = player.x_axis + "px";
+  }
+  if (movePlayer.key == "ArrowDown") {
+    player.y_axis += 50;
+    playerUno.style.top = player.y_axis + "px";
+  }
+
+  if (movePlayer.key == "ArrowUp") {
+    player.y_axis -= 50;
+    playerUno.style.top = player.y_axis + "px";
+  }
+};
