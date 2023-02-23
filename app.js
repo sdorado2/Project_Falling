@@ -105,3 +105,12 @@ document.onkeydown = (movePlayer) => {
     playerUno.style.top = player.y_axis + "px";
   }
 };
+
+let checkCollision =(objA, objB)=>{
+  return (
+    objA.x_axis >= objB.x_axis + objB.width||
+    objA.x_axis + objA.width < objB.x_axis ||
+    objA.y_axis >= objB.y_axis + objB.height ||
+    objA.y_axis + objA.height < objB.y_axis
+  )
+}
