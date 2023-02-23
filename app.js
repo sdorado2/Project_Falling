@@ -39,7 +39,7 @@ let player = {
 
 let blocks = [
   { x_axis: 0, y_axis: 0, width: 182, height: 78 },
-  { x_axis: 0, y_axis: 0, width: 182, height: 78 },
+  { x_axis: 200, y_axis: 0, width: 182, height: 78 },
   { x_axis: 0, y_axis: 0, width: 182, height: 78 },
 ];
 
@@ -67,7 +67,7 @@ blocks.forEach((createblock) => {
   newBlock.style.top = createblock.y_axis + "px";
   newBlock.style.width = createblock.width + "px";
   newBlock.style.height = createblock.height + "px";
-  newBlock.style.display = 'absolute';
+  newBlock.style.position = 'absolute';
   newBlock.style.backgroundColor = "blue";
   boardOne.appendChild(newBlock);
 });
@@ -81,13 +81,6 @@ blocks.forEach((createblock) => {
 boardOne.addEventListener("pointerdown", (e) => {
   console.log(e);
 });
-
-// function positionLoc (e, dot){
-//   dot.style.width = (e.width * 10) + 'px';
-//   dot.style.height = (e.height *10) + 'px';
-//   dot.style.left = e.pageX + 'px';
-//   dot.style.top = e.pageY + 'px';
-// }
 
 document.onkeydown = (movePlayer) => {
   console.log(movePlayer);
