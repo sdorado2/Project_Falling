@@ -79,11 +79,6 @@ blocks.forEach((createblock) => {
 // });
 
 boardOne.addEventListener("pointerdown", (e) => {
-  // const dot =document.createElement('div');
-  // dot.classList.add('dot');
-  // dot.id = e.pointerID;
-  // positionLoc(e, dot)
-  // document.body.append(dot)
   console.log(e);
 });
 
