@@ -50,8 +50,6 @@ let playerUno = document.querySelector(".grid14");
 boardOne.style.width = board.width + "px";
 boardOne.style.height = board.height + "px";
 boardOne.style.backgroundColor = "red";
-boardOne.style.display = "flex";
-boardOne.style.justifyContent = "space-around";
 
 boardTwo.style.width = board.width + "px";
 boardTwo.style.height = board.height + "px";
@@ -69,6 +67,7 @@ blocks.forEach((createblock) => {
   newBlock.style.top = createblock.y_axis + "px";
   newBlock.style.width = createblock.width + "px";
   newBlock.style.height = createblock.height + "px";
+  newBlock.style.display = 'absolute';
   newBlock.style.backgroundColor = "blue";
   boardOne.appendChild(newBlock);
 });
