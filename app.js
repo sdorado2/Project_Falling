@@ -43,7 +43,7 @@ let blocks = [
   { x_axis: 0, y_axis: 0, width: 182, height: 78 },
 ];
 
-let boardOne = document.querySelector(".playerOne");
+let boardOne = document.querySelector(".gridBlock");
 let boardTwo = document.querySelector(".playerTwo");
 let playerUno = document.querySelector(".grid14");
 
@@ -81,8 +81,7 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowRight") {
     player.x_axis += 50;
     playerUno.style.left = player.x_axis + "px";
-    b
-  locks.forEach((moveBlocks) => {
+    blocks.forEach((moveBlocks) => {
       moveBlocks.y_axis += 50;
       let blockMove = document.querySelector(".createdBlock");
       for (let index = 0; index < blocks.length; index++) {
@@ -104,14 +103,25 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowUp") {
     player.y_axis -= 50;
     playerUno.style.top = player.y_axis + "px";
-    if (checkCollision(player, block)){
+    if (checkCollision(player, blocks)){
       let changeColor = document.querySelector('createdBlock')
       changeColor.style.backgroundColor = 'green';
     }
   }
 };
 
-let checkCollision =(objA, objB)=>{
+function checkDetection{
+  let arr = blocks.length, confirm;
+  for (let index = 0; index < arr; index++){
+    if (!checkDetection(objA, objB)){
+      return confirm = false;
+  }
+    return true
+  }
+}
+
+
+let collisionDetect =(objA, objB)=>{
   return (
     objA.x_axis >= objB.x_axis + objB.width||
     objA.x_axis + objA.width <= objB.x_axis ||

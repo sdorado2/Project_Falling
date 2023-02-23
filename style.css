@@ -52,7 +52,9 @@
     width : 30%;
 
 }
-
+.gridBlock{
+    border: thick;
+}
 .grid14 { 
     position: absolute;
     transition: all 100ms;
