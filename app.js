@@ -71,7 +71,7 @@ document.onkeydown = (movePlayer) =>{
         playerUno.style.left = player.x_axis +'px';
     }
     if(movePlayer.key == 'ArrowDown'){
-        player.y_axis -= 50;
+        player.y_axis += 50;
         playerUno.style.top = player.y_axis + 'px';
     }
 
