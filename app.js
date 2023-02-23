@@ -50,6 +50,8 @@ let playerUno = document.querySelector(".grid14");
 boardOne.style.width = board.width + "px";
 boardOne.style.height = board.height + "px";
 boardOne.style.backgroundColor = "red";
+boardOne.style.display = 'flex';
+boardOne.style.justifyContent = 'space-around';
 
 boardTwo.style.width = board.width + "px";
 boardTwo.style.height = board.height + "px";
@@ -74,6 +76,21 @@ blocks.forEach((createblock) => {
 //         moveBlocks.y_axis += 50;
 //   }
 // });
+
+document.addEventListener('pointerdown', e => {
+  const dot =document.createElement('div');
+  dot.classList.add('location');
+  positionLoc(e, location)
+  document.body.append(location)
+})
+
+function positionLoc (e, location){
+  location.style.width = e.width + 'px';
+  location.style.height = e.height + 'px';
+  location.style.left = e.pageX + 'px';
+  location.style.top = e.pageY + 'px';
+}
+
 
 document.onkeydown = (movePlayer) => {
   console.log(movePlayer);
@@ -106,6 +123,7 @@ document.onkeydown = (movePlayer) => {
     if (checkDetection(player, blocks)){
       let changeColor = document.querySelector('.createdBlock')
       changeColor.style.backgroundColor = 'green';
+
     }
   }
 };

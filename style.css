@@ -63,3 +63,9 @@
 .createdBlock{
     border: dotted yellow;
 }
+
+.location{
+    border : solid magenta;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
