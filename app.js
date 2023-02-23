@@ -79,7 +79,7 @@ function moveBlock() {
     blockMove.style.top = moveBlocks.y_axis + "px";
     boardOne.appendChild(blockMove);
   }); 
-  return blocks;
+  // return blocks;
   // for (let index = 0; index < blocks.length; index++) {
   //   blockMove.style.top = moveBlocks.y_axis + "px";
   // }
