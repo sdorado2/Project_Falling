@@ -59,14 +59,14 @@ playerUno.style.height = player.height + "px";
 playerUno.style.backgroundColor = "black";
 
 blocks.forEach((createblock) => {
-  let block = document.createElement("div");
-  block.setAttribute("class", "createdBlock");
-  block.style.left = createblock.x_axis + "px";
-  block.style.top = createblock.y_axis + "px";
-  block.style.width = createblock.width + "px";
-  block.style.height = createblock.height + "px";
-  block.style.backgroundColor = "blue";
-  boardOne.appendChild(block);
+  let newBlock = document.createElement("div");
+  newblock.setAttribute("class", "createdBlock");
+  newblock.style.left = createblock.x_axis + "px";
+  newblock.style.top = createblock.y_axis + "px";
+  newblock.style.width = createblock.width + "px";
+  newblock.style.height = createblock.height + "px";
+  newblock.style.backgroundColor = "blue";
+  boardOne.appendChild(newblock);
 });
 
 // blocks.forEach((moveBlocks) => {
@@ -85,8 +85,7 @@ document.onkeydown = (movePlayer) => {
   locks.forEach((moveBlocks) => {
       moveBlocks.y_axis += 50;
       let blockMove = document.querySelector(".createdBlock");
-      for (let index = 0; index < b
-      locks.length; index++) {
+      for (let index = 0; index < blocks.length; index++) {
         blockMove.style.top = moveBlocks.y_axis + "px";
       }
       boardOne.append(blockMove)
