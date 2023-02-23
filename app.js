@@ -121,6 +121,10 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowLeft" && player.x_axis > 350) {
     player.x_axis -= 10;
     playerUno.style.left = player.x_axis + "px";
+    if (checkDetection(player, blocks)){
+      let changeColor = document.querySelector('.createdBlock');
+      changeColor.style.backgroundColor = 'green';
+    }
   }
 
   // if (movePlayer.key == "ArrowDown") {
