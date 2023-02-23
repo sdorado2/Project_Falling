@@ -1,5 +1,5 @@
 // draw player's avatar into last grid
-// location of player : center
+// dot of player : center
 
 // Scoreboard
 // Round : Collect 10 objects
@@ -31,8 +31,8 @@ let board = {
 };
 
 let player = {
-  x_axis: 0,
-  y_axis: 0,
+  x_axis: 215,
+  y_axis: 375,
   width: 182,
   height: 78,
 };
@@ -56,6 +56,8 @@ boardOne.style.justifyContent = 'space-around';
 boardTwo.style.width = board.width + "px";
 boardTwo.style.height = board.height + "px";
 
+playerUno.style.left = player.x_axis + 'px';
+playerUno.style.top = player.y_axis + 'px';
 playerUno.style.width = player.width + "px";
 playerUno.style.height = player.height + "px";
 playerUno.style.backgroundColor = "black";
@@ -77,19 +79,21 @@ blocks.forEach((createblock) => {
 //   }
 // });
 
-document.addEventListener('pointerdown', e => {
-  const dot =document.createElement('div');
-  dot.classList.add('location');
-  positionLoc(e, location)
-  document.body.append(location)
+boardOne.addEventListener('pointerdown', e => {
+  // const dot =document.createElement('div');
+  // dot.classList.add('dot');
+  // dot.id = e.pointerID;
+  // positionLoc(e, dot)
+  // document.body.append(dot)
+  console.log(e)
 })
 
-function positionLoc (e, location){
-  location.style.width = e.width + 'px';
-  location.style.height = e.height + 'px';
-  location.style.left = e.pageX + 'px';
-  location.style.top = e.pageY + 'px';
-}
+// function positionLoc (e, dot){
+//   dot.style.width = (e.width * 10) + 'px';
+//   dot.style.height = (e.height *10) + 'px';
+//   dot.style.left = e.pageX + 'px';
+//   dot.style.top = e.pageY + 'px';
+// }
 
 
 document.onkeydown = (movePlayer) => {
