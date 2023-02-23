@@ -30,18 +30,18 @@ let board = {
   height: 510,
 };
 
-let fallingBlocks = [
-  { x_axis: 0, y_axis: 0, width: 182, height: 78 },
-  { x_axis: 0, y_axis: 0, width: 182, height: 78 },
-  { x_axis: 0, y_axis: 0, width: 182, height: 78 },
-];
-
 let player = {
   x_axis: 0,
   y_axis: 0,
   width: 182,
   height: 78,
 };
+
+let fallingBlocks = [
+  { x_axis: 0, y_axis: 0, width: 182, height: 78 },
+  { x_axis: 0, y_axis: 0, width: 182, height: 78 },
+  { x_axis: 0, y_axis: 0, width: 182, height: 78 },
+];
 
 let boardOne = document.querySelector(".playerOne");
 let boardTwo = document.querySelector(".playerTwo");
@@ -60,7 +60,7 @@ playerUno.style.backgroundColor = "black";
 
 fallingBlocks.forEach((createblock) => {
   let block = document.createElement("div");
-  block.setAttribute("class", 'createdBlock');
+  block.setAttribute("class", "createdBlock");
   block.style.left = createblock.x_axis + "px";
   block.style.top = createblock.y_axis + "px";
   block.style.width = createblock.width + "px";
@@ -69,12 +69,11 @@ fallingBlocks.forEach((createblock) => {
   boardOne.appendChild(block);
 });
 
-fallingBlocks.forEach((moveBlocks)=>{
-    if (player.x_axis == 50){
-    let block = document.querySelector()
-    block.style.top = moveBlocks.y_axis +=50 ;}
-})
-
+fallingBlocks.forEach((moveBlocks) => {
+    for (let index = 0 ; index < fallingBlocks.length; index++){
+        moveBlocks.y_axis += 50;
+  }
+});
 
 document.onkeydown = (movePlayer) => {
   console.log(movePlayer);
@@ -82,6 +81,13 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowRight") {
     player.x_axis += 50;
     playerUno.style.left = player.x_axis + "px";
+    fallingBlocks.forEach((moveBlocks) => {
+        for (let index = 0 ; index < fallingBlocks.length; index++){
+            let blockMove = document.querySelector('.crearedBlock');
+            moveBlocks.y_axis += 50;
+            blockMove.style.top = moveBlocks.y_axis + 'px';
+      }
+    });
   }
 
   if (movePlayer.key == "ArrowLeft" && player.x_axis > 0) {
