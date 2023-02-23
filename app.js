@@ -67,18 +67,20 @@ blocks.forEach((createblock) => {
   newBlock.style.top = createblock.y_axis + "px";
   newBlock.style.width = createblock.width + "px";
   newBlock.style.height = createblock.height + "px";
-  newBlock.style.position = 'absolute';
+  newBlock.style.position = "absolute";
   newBlock.style.backgroundColor = "blue";
   boardOne.appendChild(newBlock);
 });
 
-function moveBlock(){
+function moveBlock() {
   let blockMove = document.querySelector(".createdBlock");
-      for (let index = 0; index < blocks.length; index++) {
-        blockMove.style.top = moveBlocks.y_axis + "px";
-      }
-      boardOne.append(blockMove);
+  for (let index = 0; index < blocks.length; index++) {
+    blockMove.style.top = moveBlocks.y_axis + "px";
+  }
+  boardOne.append(blockMove);
 }
+
+setInterval(moveBlock(), 30);
 
 // blocks.forEach((moveBlocks) => {
 //     for (let index = 0 ; index < blocks.length; index++){
@@ -96,10 +98,9 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowRight" && player.x_axis < 770) {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + "px";
-   
+
     blocks.forEach((moveBlocks) => {
       moveBlocks.y_axis += 50;
-      
     });
   }
 
