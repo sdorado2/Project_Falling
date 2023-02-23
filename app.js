@@ -78,14 +78,14 @@ blocks.forEach((createblock) => {
 //   }
 // });
 
-// boardOne.addEventListener("pointerdown", (e) => {
+boardOne.addEventListener("pointerdown", (e) => {
   // const dot =document.createElement('div');
   // dot.classList.add('dot');
   // dot.id = e.pointerID;
   // positionLoc(e, dot)
   // document.body.append(dot)
-//   console.log(e);
-// });
+  console.log(e);
+});
 
 // function positionLoc (e, dot){
 //   dot.style.width = (e.width * 10) + 'px';
