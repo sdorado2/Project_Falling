@@ -39,7 +39,7 @@ let player = {
 
 let blocks = [
   { x_axis: 350, y_axis: 300, width: 182, height: 78 },
-  { x_axis: 200, y_axis: 0, width: 182, height: 78 },
+  { x_axis: 550, y_axis: 300, width: 182, height: 78 },
   { x_axis: 0, y_axis: 0, width: 182, height: 78 },
 ];
 
