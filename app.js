@@ -77,10 +77,9 @@ function moveBlock() {
   blocks.forEach((moveBlocks) => {
     moveBlocks.y_axis += 50;
     blockMove.style.top = moveBlocks.y_axis + "px";
-    boardOne.append(blockMove);
-  });
-  
-
+    boardOne.appendChild(blockMove);
+  }); 
+  return blocks;
   // for (let index = 0; index < blocks.length; index++) {
   //   blockMove.style.top = moveBlocks.y_axis + "px";
   // }
