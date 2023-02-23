@@ -86,7 +86,9 @@ function moveBlock() {
   // boardOne.append(blockMove);
 }
 
-setInterval(moveBlock(), 30);
+moveBlock();
+
+// setInterval(moveBlock(), 30);
 
 // blocks.forEach((moveBlocks) => {
 //     for (let index = 0 ; index < blocks.length; index++){
