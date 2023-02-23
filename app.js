@@ -90,6 +90,9 @@ moveBlock();
 moveBlock();
 moveBlock();
 moveBlock();
+moveBlock();
+moveBlock();
+moveBlock();
 
 // setInterval(moveBlock(), 30);
 
