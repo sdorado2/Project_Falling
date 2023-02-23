@@ -96,7 +96,7 @@ boardOne.addEventListener('pointerdown', e => {
 document.onkeydown = (movePlayer) => {
   console.log(movePlayer);
 
-  if (movePlayer.key == "ArrowRight") {
+  if (movePlayer.key == "ArrowRight" && player.x_axis <770) {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + "px";
     blocks.forEach((moveBlocks) => {
@@ -124,7 +124,6 @@ document.onkeydown = (movePlayer) => {
     if (checkDetection(player, blocks)){
       let changeColor = document.querySelector('.createdBlock')
       changeColor.style.backgroundColor = 'green';
-
     }
   }
 };
