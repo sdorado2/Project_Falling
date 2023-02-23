@@ -146,10 +146,12 @@ function checkDetection(objA, objB) {
   let response;
   for (let index = 0; index < blocks.length; index++) {
     if (!collisionDetect(objA, objB[index])) {
-      return (response = false);
+      response = false;
+
     }
-    return (response = true);
+    response = true;
   }
+  return response;
 }
 
 let collisionDetect = (objA, objB) => {
