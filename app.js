@@ -109,7 +109,7 @@ document.onkeydown = (movePlayer) => {
     });
   }
 
-  if (movePlayer.key == "ArrowLeft" && player.x_axis > 345) {
+  if (movePlayer.key == "ArrowLeft" && player.x_axis > 350) {
     player.x_axis -= 10;
     playerUno.style.left = player.x_axis + "px";
   }
@@ -139,7 +139,6 @@ function checkDetection(objA,objB){
     return response = true;
   }
 }
-
 
 let collisionDetect =(objA, objB)=>{
   return (
