@@ -31,7 +31,10 @@ let board = {
 };
 
 let player = {
-  x_axis: 560, y_axis: 675, width: 182, height: 78,
+  x_axis: 560,
+  y_axis: 675,
+  width: 182,
+  height: 78,
 };
 
 let blocks = [
@@ -47,14 +50,14 @@ let playerUno = document.querySelector(".grid14");
 boardOne.style.width = board.width + "px";
 boardOne.style.height = board.height + "px";
 boardOne.style.backgroundColor = "red";
-boardOne.style.display = 'flex';
-boardOne.style.justifyContent = 'space-around';
+boardOne.style.display = "flex";
+boardOne.style.justifyContent = "space-around";
 
 boardTwo.style.width = board.width + "px";
 boardTwo.style.height = board.height + "px";
 
-playerUno.style.left = player.x_axis + 'px';
-playerUno.style.top = player.y_axis + 'px';
+playerUno.style.left = player.x_axis + "px";
+playerUno.style.top = player.y_axis + "px";
 playerUno.style.width = player.width + "px";
 playerUno.style.height = player.height + "px";
 playerUno.style.backgroundColor = "black";
@@ -76,14 +79,14 @@ blocks.forEach((createblock) => {
 //   }
 // });
 
-boardOne.addEventListener('pointerdown', e => {
+boardOne.addEventListener("pointerdown", (e) => {
   // const dot =document.createElement('div');
   // dot.classList.add('dot');
   // dot.id = e.pointerID;
   // positionLoc(e, dot)
   // document.body.append(dot)
-  console.log(e)
-})
+  console.log(e);
+});
 
 // function positionLoc (e, dot){
 //   dot.style.width = (e.width * 10) + 'px';
@@ -92,11 +95,10 @@ boardOne.addEventListener('pointerdown', e => {
 //   dot.style.top = e.pageY + 'px';
 // }
 
-
 document.onkeydown = (movePlayer) => {
   console.log(movePlayer);
 
-  if (movePlayer.key == "ArrowRight" && player.x_axis <770) {
+  if (movePlayer.key == "ArrowRight" && player.x_axis < 770) {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + "px";
     blocks.forEach((moveBlocks) => {
@@ -105,7 +107,7 @@ document.onkeydown = (movePlayer) => {
       for (let index = 0; index < blocks.length; index++) {
         blockMove.style.top = moveBlocks.y_axis + "px";
       }
-      boardOne.append(blockMove)
+      boardOne.append(blockMove);
     });
   }
 
@@ -113,37 +115,38 @@ document.onkeydown = (movePlayer) => {
     player.x_axis -= 10;
     playerUno.style.left = player.x_axis + "px";
   }
-  if (movePlayer.key == "ArrowDown") {
-    player.y_axis += 50;
-    playerUno.style.top = player.y_axis + "px";
-  }
 
-  if (movePlayer.key == "ArrowUp") {
-    player.y_axis -= 50;
-    playerUno.style.top = player.y_axis + "px";
-    if (checkDetection(player, blocks)){
-      let changeColor = document.querySelector('.createdBlock')
-      changeColor.style.backgroundColor = 'green';
-    }
-  }
+  // if (movePlayer.key == "ArrowDown") {
+  //   player.y_axis += 50;
+  //   playerUno.style.top = player.y_axis + "px";
+  // }
+
+  // if (movePlayer.key == "ArrowUp") {
+  //   player.y_axis -= 50;
+  //   playerUno.style.top = player.y_axis + "px";
+  //   if (checkDetection(player, blocks)) {
+  //     let changeColor = document.querySelector(".createdBlock");
+  //     changeColor.style.backgroundColor = "green";
+  //   }
+  // }
 };
 
-function checkDetection(objA,objB){
-  // let arr = blocks.length(); 
+function checkDetection(objA, objB) {
+  // let arr = blocks.length();
   let response;
-  for (let index = 0; index < blocks.length; index++){
-    if (!collisionDetect(objA, objB[index])){
-      return response = false;
-  }
-    return response = true;
+  for (let index = 0; index < blocks.length; index++) {
+    if (!collisionDetect(objA, objB[index])) {
+      return (response = false);
+    }
+    return (response = true);
   }
 }
 
-let collisionDetect =(objA, objB)=>{
+let collisionDetect = (objA, objB) => {
   return (
-    objA.x_axis >= objB.x_axis + objB.width||
+    objA.x_axis >= objB.x_axis + objB.width ||
     objA.x_axis + objA.width <= objB.x_axis ||
     objA.y_axis >= objB.y_axis + objB.height ||
     objA.y_axis + objA.height < objB.y_axis
-  )
-}
+  );
+};
