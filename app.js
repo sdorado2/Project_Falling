@@ -104,7 +104,10 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowUp") {
     player.y_axis -= 50;
     playerUno.style.top = player.y_axis + "px";
-    if (checkCollision(player, block))
+    if (checkCollision(player, block)){
+      let changeColor = document.querySelector('createdBlock')
+      changeColor.style.backgroundColor = 'green';
+    }
   }
 };
 
