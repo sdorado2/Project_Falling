@@ -74,10 +74,16 @@ blocks.forEach((createblock) => {
 
 function moveBlock() {
   let blockMove = document.querySelector(".createdBlock");
-  for (let index = 0; index < blocks.length; index++) {
+  blocks.forEach((moveBlocks) => {
+    moveBlocks.y_axis += 50;
     blockMove.style.top = moveBlocks.y_axis + "px";
-  }
+  });
   boardOne.append(blockMove);
+
+  // for (let index = 0; index < blocks.length; index++) {
+  //   blockMove.style.top = moveBlocks.y_axis + "px";
+  // }
+  // boardOne.append(blockMove);
 }
 
 setInterval(moveBlock(), 30);
@@ -98,10 +104,6 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowRight" && player.x_axis < 770) {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + "px";
-
-    blocks.forEach((moveBlocks) => {
-      moveBlocks.y_axis += 50;
-    });
   }
 
   if (movePlayer.key == "ArrowLeft" && player.x_axis > 350) {
