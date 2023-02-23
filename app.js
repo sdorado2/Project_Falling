@@ -103,20 +103,21 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowUp") {
     player.y_axis -= 50;
     playerUno.style.top = player.y_axis + "px";
-    if (checkCollision(player, blocks)){
+    if (checkDetection(player, blocks)){
       let changeColor = document.querySelector('createdBlock')
       changeColor.style.backgroundColor = 'green';
     }
   }
 };
 
-function checkDetection{
-  let arr = blocks.length, confirm;
-  for (let index = 0; index < arr; index++){
-    if (!checkDetection(objA, objB)){
-      return confirm = false;
+function checkDetection(objA,objB){
+  // let arr = blocks.length(); 
+  let response;
+  for (let index = 0; index < blocks.length; index++){
+    if (!collisionDetect(objA, objB)){
+      return response = false;
   }
-    return true
+    return response = true;
   }
 }
 
