@@ -60,13 +60,13 @@ playerUno.style.backgroundColor = "black";
 
 blocks.forEach((createblock) => {
   let newBlock = document.createElement("div");
-  newblock.setAttribute("class", "createdBlock");
-  newblock.style.left = createblock.x_axis + "px";
-  newblock.style.top = createblock.y_axis + "px";
-  newblock.style.width = createblock.width + "px";
-  newblock.style.height = createblock.height + "px";
-  newblock.style.backgroundColor = "blue";
-  boardOne.appendChild(newblock);
+  newBlock.setAttribute("class", "createdBlock");
+  newBlock.style.left = createblock.x_axis + "px";
+  newBlock.style.top = createblock.y_axis + "px";
+  newBlock.style.width = createblock.width + "px";
+  newBlock.style.height = createblock.height + "px";
+  newBlock.style.backgroundColor = "blue";
+  boardOne.appendChild(newBlock);
 });
 
 // blocks.forEach((moveBlocks) => {
