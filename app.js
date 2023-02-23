@@ -31,9 +31,9 @@ let board = {
 };
 
 let fallingBlocks = [
-  { x_axis: 0, y_axis: 0, width: 0, height: 0 },
-  { x_axis: 0, y_axis: 0, width: 0, height: 0 },
-  { x_axis: 0, y_axis: 0, width: 0, height: 0 },
+  { x_axis: 0, y_axis: 0, width: 182, height: 78 },
+  { x_axis: 0, y_axis: 0, width: 182, height: 78 },
+  { x_axis: 0, y_axis: 0, width: 182, height: 78 },
 ];
 
 let player = {
@@ -58,6 +58,17 @@ playerUno.style.width = player.width +'px';
 playerUno.style.height = player.height + 'px';
 playerUno.style.backgroundColor = 'black';
 
+fallingBlocks.forEach(createblock => {
+    let block = document.createElement('div');
+    block.style.left = createblock.x_axis + 'px';
+    block.style.top = createblock.y_axis +'px';
+    block.style.width = createblock.width + 'px';
+    block.style.height = createblock.height + 'px';
+    block.style.backgroundColor = 'blue';
+    boardOne.appendChild(block);
+}
+    )
+
 document.onkeydown = (movePlayer) =>{
     console.log (movePlayer);
 
@@ -76,7 +87,7 @@ document.onkeydown = (movePlayer) =>{
     }
 
     if(movePlayer.key == 'ArrowUp'){
-        player.y_axis += 50;
+        player.y_axis -= 50;
         playerUno.style.top = player.y_axis + 'px';
     }
 } 
