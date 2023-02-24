@@ -80,14 +80,8 @@ function moveBlock() {
     boardOne.append(blockMove);
     
   });
-  console.log(`I've been called.`)
-  // return blocks;
-  // for (let index = 0; index < blocks.length; index++) {
-  //   blockMove.style.top = moveBlocks.y_axis + "px";
-  // }
-  // boardOne.append(blockMove);
   setTimeout(()=> moveBlock() , 1*1000);
-  moveBlock
+  moveBlock();
 }
 
 // moveBlock();
@@ -100,7 +94,7 @@ function moveBlock() {
 
 // setInterval(moveBlock(), 30);
 
-setTimeout(()=> moveBlock() , 1*1000);
+// setTimeout(()=> moveBlock() , 1*1000);
 
 // blocks.forEach((moveBlocks) => {
 //     for (let index = 0 ; index < blocks.length; index++){
