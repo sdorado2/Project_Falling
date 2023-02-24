@@ -105,7 +105,7 @@ function movingBlock() {
     ) {
       console.log('No Collision Detected!');
     } else {
-      console.log(`Collision with ${blocks[0]})`);
+      console.log(`Collision with ${blocks[0]} and ${board})`);
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].classList.remove('createdBlock');
       blocks.splice(index, 1);
@@ -117,10 +117,7 @@ function movingBlock() {
 
   //outBound
   for (index = 0; index < blocks.length; index++) {
-    if (
-      blocks[index].y_axis >= board.height ||
-      blocks[index].x_axis >= board.width
-    ) {
+    if (blocks[index].y_axis <= 750) {
       console.log('No Collision Detected!');
     } else {
       console.log(`Collision with ${blocks[0]})`);
