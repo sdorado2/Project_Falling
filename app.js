@@ -117,6 +117,7 @@ document.onkeydown = (movePlayer) => {
     if (checkDetection(blocks, player )) {
       let changeColor = document.querySelector(".createdBlock");
       changeColor.style.backgroundColor = "green";
+      blocks.append(changeColor);
     }
   }
 
@@ -126,6 +127,7 @@ document.onkeydown = (movePlayer) => {
     if (checkDetection(blocks, player)) {
       let changeColor = document.querySelector(".createdBlock");
       changeColor.style.backgroundColor = "green";
+      boardOne.append(changeColor);
     }
   }
 
