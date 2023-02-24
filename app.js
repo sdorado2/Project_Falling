@@ -82,10 +82,12 @@ function moveBlock() {
     // setTimeout(() => moveBlock(), 10 * 1000);
     // moveBlock();
 }
+let timer;
 
-if (blocks[0].y_axis < 680){
-  setInterval(moveBlock, 150);  
+if (blocks[0].y_axis <= 680){
+  timer = setInterval(moveBlock, 150);  
 }else{
+  clearInterval(timer);
   console.log('It went over the limit.')
 }
 
