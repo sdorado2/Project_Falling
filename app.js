@@ -83,9 +83,10 @@ function moveBlock() {
     moveBlock();
 }
 
-// if (moveBlock.y_axis < 676) {}
-//else{break;}
-if (blocks[0].y_axis < 675){moveBlock()}else {console.log(`It's over!`); blocks.removed();} ;
+setInterval(moveBlock(), 30);
+
+
+// if (blocks[0].y_axis < 675){moveBlock()}else {console.log(`It's over!`); blocks.removed();} ;
 
 // moveBlock();
 // moveBlock();
@@ -93,8 +94,6 @@ if (blocks[0].y_axis < 675){moveBlock()}else {console.log(`It's over!`); blocks.
 // moveBlock();
 // moveBlock();
 // moveBlock();
-
-// setInterval(moveBlock(), 30);
 
 // setTimeout(()=> moveBlock() , 1*1000);
 
