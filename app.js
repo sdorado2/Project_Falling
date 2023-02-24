@@ -85,8 +85,8 @@ function moveBlock() {
 
 // if (moveBlock.y_axis < 676) {}
 //else{break;}
+if (blocks.y_axis < 675){moveBlock()}else {return `It's over!`} ;
 
-// moveBlock();
 // moveBlock();
 // moveBlock();
 // moveBlock();
