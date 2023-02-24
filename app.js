@@ -78,12 +78,16 @@ function moveBlock() {
     moveBlocks.y_axis += 50;
     blockMove.style.top = moveBlocks.y_axis + "px";
     boardOne.append(blockMove);
-  }); 
+    
+  });
+  console.log(`I've been called.`)
   // return blocks;
   // for (let index = 0; index < blocks.length; index++) {
   //   blockMove.style.top = moveBlocks.y_axis + "px";
   // }
   // boardOne.append(blockMove);
+  setTimeout(()=> moveBlock() , 1*1000);
+  moveBlock
 }
 
 // moveBlock();
