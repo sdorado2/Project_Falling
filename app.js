@@ -134,12 +134,12 @@ function movingBlock() {
   }
 }
 
-if (blocks[0].y_axis <= 650) {
-  timer = setInterval(movingBlock, 250);
-} else {
-  clearInterval(timer);
-  console.log('It went over the limit.');
-}
+// if (blocks[0].y_axis <= 650) {
+//   timer = setInterval(movingBlock, 250);
+// } else {
+//   clearInterval(timer);
+//   console.log('It went over the limit.');
+// }
 
 boardOne.addEventListener('pointerdown', (e) => {
   console.log(e);
