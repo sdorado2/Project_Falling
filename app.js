@@ -86,15 +86,15 @@ function moveBlock() {
   // boardOne.append(blockMove);
 }
 
-moveBlock();
-moveBlock();
-moveBlock();
-moveBlock();
-moveBlock();
-moveBlock();
-moveBlock();
+// moveBlock();
+// moveBlock();
+// moveBlock();
+// moveBlock();
+// moveBlock();
+// moveBlock();
+// moveBlock();
 
-// setInterval(moveBlock(), 30);
+setInterval(moveBlock(), 30);
 
 // blocks.forEach((moveBlocks) => {
 //     for (let index = 0 ; index < blocks.length; index++){
