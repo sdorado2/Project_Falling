@@ -37,8 +37,8 @@ let player = {
   height: 78,
 };
 
-class makeBlock{
-  constructor(x_axis,y_axis, width, height){
+class makeBlock {
+  constructor(x_axis, y_axis, width, height) {
     this.x_axis = x_axis;
     this.y_axis = y_axis;
     this.width = width;
@@ -47,9 +47,9 @@ class makeBlock{
 }
 
 let blocks = [
-  new makeBlock(350,300, 180, 80),
+  new makeBlock(350, 300, 180, 80),
   new makeBlock(550, 300, 180, 80),
-  new makeBlock(750, 300, 180,  80),
+  new makeBlock(750, 300, 180, 80),
   // { x_axis: 350, y_axis: 300, width: 182, height: 78 },
   // { x_axis: 550, y_axis: 300, width: 182, height: 78 },
   // { x_axis: 750, y_axis: 300, width: 182, height: 78 },
@@ -87,11 +87,10 @@ blocks.forEach((createblock) => {
 });
 
 function movingBlock() {
-
   blocks.forEach((movingBlock) => {
     let blockMove = document.querySelector(".createdBlock");
-    movingBlock.y_axis += Math.floor(Math.random()*50);
-    console.log (movingBlock);
+    movingBlock.y_axis += Math.floor(Math.random() * 50);
+    console.log(movingBlock);
     blockMove.style.top = movingBlock.y_axis + "px";
     boardOne.append(blockMove);
   });
@@ -103,10 +102,9 @@ function movingBlock() {
       blocks[index].x_axis >= player.x_axis + player.width ||
       blocks[index].x_axis + blocks[index].width <= player.x_axis
     ) {
-      console.log ('No Collision Detected!')
-    }
-    else{
-      console.log(`Collision with ${blocks[0]})` )
+      console.log("No Collision Detected!");
+    } else {
+      console.log(`Collision with ${blocks[0]})`);
       clearInterval(timer);
       blocks[0].style.backgroundColor = "yellow";
       boardOne.append(blocks[index]);
@@ -131,9 +129,10 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowRight" && player.x_axis < 770) {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + "px";
+
     if (checkDetection(blocks, player)) {
-      console.log('No Collision')}
-      else{
+      console.log("No Collision");
+    } else {
       let changeColor = document.querySelector(".createdBlock");
       changeColor.style.backgroundColor = "green";
       blocks.append(changeColor);
@@ -143,10 +142,13 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowLeft" && player.x_axis > 350) {
     player.x_axis -= 10;
     playerUno.style.left = player.x_axis + "px";
+
     if (checkDetection(blocks, player)) {
+      console.log("No Collision");
+    } else {
       let changeColor = document.querySelector(".createdBlock");
       changeColor.style.backgroundColor = "green";
-      boardOne.append(changeColor);
+      blocks.append(changeColor);
     }
   }
 
