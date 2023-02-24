@@ -147,7 +147,7 @@ document.onkeydown = (movePlayer) => {
 function checkDetection(objA, objB) {
   let response;
   for (let index = 0; index < blocks.length; index++) {
-    if (!collisionDetect(objA, objB[index])) {
+    if (!collisionDetect(objA[index], objB)) {
       response = false;
     }
     response = true;
