@@ -110,9 +110,6 @@ function movingBlock() {
       blockDisplay[index].style.backgroundColor = 'green';
       blockDisplay[index].classList.remove('createdBlock');
       blocks.splice(index, 1);
-      // clearInterval(timer);
-      // blocks[0].style.backgroundColor = "yellow";
-      // boardOne.append(blocks[index]);
     }
   }
 
