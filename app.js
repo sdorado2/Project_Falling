@@ -50,9 +50,6 @@ let blocks = [
   new makeBlock(350, 300, 180, 80),
   new makeBlock(550, 300, 180, 80),
   new makeBlock(750, 300, 180, 80),
-  // { x_axis: 350, y_axis: 300, width: 182, height: 78 },
-  // { x_axis: 550, y_axis: 300, width: 182, height: 78 },
-  // { x_axis: 750, y_axis: 300, width: 182, height: 78 },
 ];
 
 let timer;
