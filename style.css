@@ -59,7 +59,8 @@
 }
 
 .createdBlock{
-    border: dotted yellow;
+    position: absolute;
+    border: dotted blue;
     transition: all 100ms;
 }
 

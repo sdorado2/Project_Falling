@@ -52,11 +52,12 @@ let blocks = [
   new makeBlock(750, 300, 180, 80),
 ];
 
-let timer;
+let scoreBoard = 0;
 
 let boardOne = document.querySelector('.gridBlock');
 let boardTwo = document.querySelector('.playerTwo');
 let playerUno = document.querySelector('.grid14');
+let scoreBoardOne = document.querySelector('.leftScore')
 
 boardOne.style.width = board.width + 'px';
 boardOne.style.height = board.height + 'px';
@@ -71,6 +72,8 @@ playerUno.style.width = player.width + 'px';
 playerUno.style.height = player.height + 'px';
 playerUno.style.backgroundColor = 'black';
 
+scoreBoardOne.innerHTML = `${scoreBoard} pts.`
+
 blocks.forEach((createblock) => {
   let newBlock = document.createElement('div');
   newBlock.setAttribute('class', 'createdBlock');
@@ -78,8 +81,6 @@ blocks.forEach((createblock) => {
   newBlock.style.top = createblock.y_axis + 'px';
   newBlock.style.width = createblock.width + 'px';
   newBlock.style.height = createblock.height + 'px';
-  newBlock.style.position = 'absolute';
-  newBlock.style.backgroundColor = 'blue';
   boardOne.appendChild(newBlock);
 });
 
@@ -103,10 +104,14 @@ function movingBlock() {
       console.log('No Collision Detected!');
     } else {
       console.log(`Collision with ${blocks[0]} and ${board})`);
+      
+      scoreBoard += 10;
+
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].style.backgroundColor = 'green';
+      boardOne.append(blockDisplay[index]);
       blockDisplay[index].classList.remove('createdBlock');
-      blocks.splice(index, 1);
+      blocks.splice(index, 1);      
     }
   }
 
@@ -116,10 +121,13 @@ function movingBlock() {
       console.log('No Collision Detected!');
     } else {
       console.log(`Collision with ${blocks[0]})`);
+      
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].style.backgroundColor = 'brown';
       blockDisplay[index].classList.remove('createdBlock');
       blocks.splice(index, 1);
+
+      scoreBoard -= 10;
     }
   }
 }
