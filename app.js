@@ -93,14 +93,15 @@ function moveBlock() {
       console.log ('No Collision Detected!')
     }
     else{
-      console.log('Collison')
-      blocks[index].style.backgroundColor = "yellow";
+      console.log(`Collision with ${blocks[0]}, ${blocks})` )
+      clearInterval(timer);
+      blocks[0].style.backgroundColor = "yellow";
       boardOne.append(block[index]);
     }
   }
 }
 
-if (blocks[0].y_axis <= 680) {
+if (blocks[0].y_axis <= 650) {
   timer = setInterval(moveBlock, 150);
 } else {
   clearInterval(timer);
