@@ -90,7 +90,8 @@ function movingBlock() {
 
   blocks.forEach((movingBlock) => {
     let blockMove = document.querySelector(".createdBlock");
-    movingBlock.y_axis += 50;
+    movingBlock.y_axis += Math.floor(Math.random()*50);
+    console.log (movingBlock);
     blockMove.style.top = movingBlock.y_axis + "px";
     boardOne.append(blockMove);
   });
@@ -114,7 +115,7 @@ function movingBlock() {
 }
 
 if (blocks[0].y_axis <= 650) {
-  timer = setInterval(movingBlock, 150);
+  timer = setInterval(movingBlock, 250);
 } else {
   clearInterval(timer);
   console.log("It went over the limit.");
@@ -131,6 +132,8 @@ document.onkeydown = (movePlayer) => {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + "px";
     if (checkDetection(blocks, player)) {
+      console.log('No Collision')}
+      else{
       let changeColor = document.querySelector(".createdBlock");
       changeColor.style.backgroundColor = "green";
       blocks.append(changeColor);
