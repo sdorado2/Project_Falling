@@ -43,6 +43,8 @@ let blocks = [
   { x_axis: 750, y_axis: 300, width: 182, height: 78 },
 ];
 
+let timer;
+
 let boardOne = document.querySelector(".gridBlock");
 let boardTwo = document.querySelector(".playerTwo");
 let playerUno = document.querySelector(".grid14");
@@ -80,12 +82,8 @@ function moveBlock() {
     boardOne.append(blockMove);
     checkDetection(moveBlock, playerUno)
   });
-  
-    // setTimeout(() => moveBlock(), 10 * 1000);
-    // moveBlock();
 }
 
-let timer;
 
 if (blocks[0].y_axis <= 680){
   timer = setInterval(moveBlock, 150);  
@@ -93,23 +91,6 @@ if (blocks[0].y_axis <= 680){
   clearInterval(timer);
   console.log('It went over the limit.')
 }
-
-// if (blocks[0].y_axis < 675){moveBlock()}else {console.log(`It's over!`); blocks.removed();} ;
-
-// moveBlock();
-// moveBlock();
-// moveBlock();
-// moveBlock();
-// moveBlock();
-// moveBlock();
-
-// setTimeout(()=> moveBlock() , 1*1000);
-
-// blocks.forEach((moveBlocks) => {
-//     for (let index = 0 ; index < blocks.length; index++){
-//         moveBlocks.y_axis += 50;
-//   }
-// });
 
 boardOne.addEventListener("pointerdown", (e) => {
   console.log(e);
