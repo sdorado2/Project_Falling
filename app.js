@@ -37,6 +37,15 @@ let player = {
   height: 78,
 };
 
+class makeBlock{
+  constructor(x_axis,y_axis, width, height){
+    this.x_axis = x_axis;
+    this.y_axis = y_axis;
+    this.width = width;
+    this.height = height;
+  }
+}
+
 let blocks = [
   { x_axis: 350, y_axis: 300, width: 182, height: 78 },
   { x_axis: 550, y_axis: 300, width: 182, height: 78 },
@@ -93,7 +102,7 @@ function moveBlock() {
       console.log ('No Collision Detected!')
     }
     else{
-      console.log(`Collision with ${blocks[0]}, ${blocks})` )
+      console.log(`Collision with ${blocks[0]})` )
       clearInterval(timer);
       blocks[0].style.backgroundColor = "yellow";
       boardOne.append(block[index]);
