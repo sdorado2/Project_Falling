@@ -107,6 +107,7 @@ function movingBlock() {
     } else {
       console.log(`Collision with ${blocks[0]} and ${board})`);
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
+      blockDisplay[index].style.backgroundColor = 'green';
       blockDisplay[index].classList.remove('createdBlock');
       blocks.splice(index, 1);
       // clearInterval(timer);
@@ -122,6 +123,7 @@ function movingBlock() {
     } else {
       console.log(`Collision with ${blocks[0]})`);
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
+      blockDisplay[index].style.backgroundColor = 'brown';
       blockDisplay[index].classList.remove('createdBlock');
       blocks.splice(index, 1);
     }
