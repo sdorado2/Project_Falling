@@ -75,6 +75,7 @@ blocks.forEach((createblock) => {
 });
 
 function moveBlock() {
+
   blocks.forEach((moveBlocks) => {
     let blockMove = document.querySelector(".createdBlock");
     moveBlocks.y_axis += 50;
@@ -89,8 +90,12 @@ function moveBlock() {
       blocks[index].x_axis >= player.x_axis + player.width ||
       blocks[index].x_axis + blocks[index].width <= player.x_axis
     ) {
-      moveBlocks.style.changeColor = "yellow";
-      boardOne.append(blockMove);
+      console.log ('No Collision Detected!')
+    }
+    else{
+      console.log('Collison')
+      blocks[index].style.backgroundColor = "yellow";
+      boardOne.append(block[index]);
     }
   }
 }
