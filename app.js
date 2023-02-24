@@ -88,10 +88,10 @@ blocks.forEach((createblock) => {
 
 function movingBlock() {
 
-  blocks.forEach((moveBlocks) => {
+  blocks.forEach((movingBlock) => {
     let blockMove = document.querySelector(".createdBlock");
-    moveBlocks.y_axis += 50;
-    blockMove.style.top = moveBlocks.y_axis + "px";
+    movingBlock.y_axis += 50;
+    blockMove.style.top = movingBlock.y_axis + "px";
     boardOne.append(blockMove);
   });
 
