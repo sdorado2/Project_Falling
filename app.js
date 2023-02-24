@@ -105,9 +105,10 @@ function movingBlock() {
       console.log("No Collision Detected!");
     } else {
       console.log(`Collision with ${blocks[0]})`);
+      blocks.splice(index,1);
       clearInterval(timer);
-      blocks[0].style.backgroundColor = "yellow";
-      boardOne.append(blocks[index]);
+      // blocks[0].style.backgroundColor = "yellow";
+      // boardOne.append(blocks[index]);
     }
   }
 }
@@ -133,6 +134,7 @@ document.onkeydown = (movePlayer) => {
     if (checkDetection(blocks, player)) {
       console.log("No Collision");
     } else {
+      console.log ('collision!!!')
       let changeColor = document.querySelector(".createdBlock");
       changeColor.style.backgroundColor = "green";
       blocks.append(changeColor);
@@ -144,7 +146,7 @@ document.onkeydown = (movePlayer) => {
     playerUno.style.left = player.x_axis + "px";
 
     if (checkDetection(blocks, player)) {
-      console.log("No Collision");
+      console.log("Collision");
     } else {
       let changeColor = document.querySelector(".createdBlock");
       changeColor.style.backgroundColor = "green";
