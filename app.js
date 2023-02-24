@@ -78,10 +78,13 @@ function moveBlock() {
     moveBlocks.y_axis += 50;
     blockMove.style.top = moveBlocks.y_axis + "px";
     boardOne.append(blockMove);
-    
   });
-  setTimeout(()=> moveBlock() , 1*1000);
-  moveBlock();
+  if (!moveBlock.y_axis > 676) {
+    setTimeout(() => moveBlock(), 1 * 1000);
+    moveBlock();
+  }else{
+    blocks.remove();
+  }
 }
 
 // moveBlock();
@@ -112,18 +115,18 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowRight" && player.x_axis < 770) {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + "px";
-    if (checkDetection(player, blocks)){
-      let changeColor = document.querySelector('.createdBlock');
-      changeColor.style.backgroundColor = 'green';
+    if (checkDetection(player, blocks)) {
+      let changeColor = document.querySelector(".createdBlock");
+      changeColor.style.backgroundColor = "green";
     }
   }
 
   if (movePlayer.key == "ArrowLeft" && player.x_axis > 350) {
     player.x_axis -= 10;
     playerUno.style.left = player.x_axis + "px";
-    if (checkDetection(player, blocks)){
-      let changeColor = document.querySelector('.createdBlock');
-      changeColor.style.backgroundColor = 'green';
+    if (checkDetection(player, blocks)) {
+      let changeColor = document.querySelector(".createdBlock");
+      changeColor.style.backgroundColor = "green";
     }
   }
 
@@ -147,7 +150,6 @@ function checkDetection(objA, objB) {
   for (let index = 0; index < blocks.length; index++) {
     if (!collisionDetect(objA, objB[index])) {
       response = false;
-
     }
     response = true;
   }
