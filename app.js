@@ -84,7 +84,7 @@ function moveBlock() {
 }
 
 if (blocks[0].y_axis < 680){
-  setInterval(moveBlock, 45);  
+  setInterval(moveBlock, 150);  
 }else{
   console.log('It went over the limit.')
 }
