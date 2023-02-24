@@ -73,17 +73,17 @@ blocks.forEach((createblock) => {
 });
 
 function moveBlock() {
-  let blockMove = document.querySelector(".createdBlock");
   blocks.forEach((moveBlocks) => {
+    let blockMove = document.querySelector(".createdBlock");
     moveBlocks.y_axis += 50;
     blockMove.style.top = moveBlocks.y_axis + "px";
-    // boardOne.appendChild(blockMove);
+    boardOne.append(blockMove);
   }); 
   // return blocks;
   // for (let index = 0; index < blocks.length; index++) {
   //   blockMove.style.top = moveBlocks.y_axis + "px";
   // }
-  boardOne.append(blockMove);
+  // boardOne.append(blockMove);
 }
 
 moveBlock();
