@@ -96,7 +96,7 @@ function moveBlock() {
 
 // setInterval(moveBlock(), 30);
 
-setTimeout(()=> moveBlock() , 10*1000);
+setTimeout(()=> moveBlock() , 1*1000);
 
 // blocks.forEach((moveBlocks) => {
 //     for (let index = 0 ; index < blocks.length; index++){
