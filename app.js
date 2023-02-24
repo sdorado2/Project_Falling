@@ -152,27 +152,27 @@ document.onkeydown = (movePlayer) => {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + 'px';
 
-    if (checkDetection(blocks, player)) {
-      console.log('No Collision');
-    } else {
-      console.log('collision!!!');
-      let changeColor = document.querySelector('.createdBlock');
-      changeColor.style.backgroundColor = 'green';
-      blocks.append(changeColor);
-    }
+    // if (checkDetection(blocks, player)) {
+    //   console.log('No Collision');
+    // } else {
+    //   console.log('collision!!!');
+    //   let changeColor = document.querySelector('.createdBlock');
+    //   changeColor.style.backgroundColor = 'green';
+    //   blocks.append(changeColor);
+    // }
   }
 
   if (movePlayer.key == 'ArrowLeft' && player.x_axis > 350) {
     player.x_axis -= 10;
     playerUno.style.left = player.x_axis + 'px';
 
-    if (checkDetection(blocks, player)) {
-      console.log('Collision');
-    } else {
-      let changeColor = document.querySelector('.createdBlock');
-      changeColor.style.backgroundColor = 'green';
-      blocks.append(changeColor);
-    }
+    // if (checkDetection(blocks, player)) {
+    //   console.log('Collision');
+    // } else {
+    //   let changeColor = document.querySelector('.createdBlock');
+    //   changeColor.style.backgroundColor = 'green';
+    //   blocks.append(changeColor);
+    // }
   }
 
   // if (movePlayer.key == "ArrowDown") {
