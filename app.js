@@ -86,7 +86,7 @@ blocks.forEach((createblock) => {
   boardOne.appendChild(newBlock);
 });
 
-function moveBlock() {
+function movingBlock() {
 
   blocks.forEach((moveBlocks) => {
     let blockMove = document.querySelector(".createdBlock");
@@ -108,13 +108,13 @@ function moveBlock() {
       console.log(`Collision with ${blocks[0]})` )
       clearInterval(timer);
       blocks[0].style.backgroundColor = "yellow";
-      boardOne.append(block[index]);
+      boardOne.append(blocks[index]);
     }
   }
 }
 
 if (blocks[0].y_axis <= 650) {
-  timer = setInterval(moveBlock, 150);
+  timer = setInterval(movingBlock, 150);
 } else {
   clearInterval(timer);
   console.log("It went over the limit.");
