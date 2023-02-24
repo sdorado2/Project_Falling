@@ -80,16 +80,23 @@ function moveBlock() {
     moveBlocks.y_axis += 50;
     blockMove.style.top = moveBlocks.y_axis + "px";
     boardOne.append(blockMove);
-    checkDetection(moveBlock, playerUno)
+
+    if (
+      moveBlocks.y_axis >= player.y_axis + player.height ||
+      moveBlocks.y_axis + moveBlocks.height < player.y_axis ||
+      moveBlocks.x_axis >= player.x_axis + player.width ||
+      moveBlocks.x_axis + moveBlocks.width <= player.x_axis
+    ) {
+      moveBlocks.style.changeColor = 'yellow';
+    }
   });
 }
 
-
-if (blocks[0].y_axis <= 680){
-  timer = setInterval(moveBlock, 150);  
-}else{
+if (blocks[0].y_axis <= 680) {
+  timer = setInterval(moveBlock, 150);
+} else {
   clearInterval(timer);
-  console.log('It went over the limit.')
+  console.log("It went over the limit.");
 }
 
 boardOne.addEventListener("pointerdown", (e) => {
@@ -102,7 +109,7 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == "ArrowRight" && player.x_axis < 770) {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + "px";
-    if (checkDetection(blocks, player )) {
+    if (checkDetection(blocks, player)) {
       let changeColor = document.querySelector(".createdBlock");
       changeColor.style.backgroundColor = "green";
       blocks.append(changeColor);
@@ -134,10 +141,10 @@ document.onkeydown = (movePlayer) => {
   // }
 };
 
-function checkDetection(objA, objB) {
+function checkDetection(objA, ObjB) {
   let response;
   for (let index = 0; index < blocks.length; index++) {
-    if (!collisionDetect(objA[index], objB)) {
+    if (!collisionDetect(objA[index], ObjB)) {
       response = false;
     }
     response = true;
@@ -145,11 +152,11 @@ function checkDetection(objA, objB) {
   return response;
 }
 
-let collisionDetect = (objA, objB) => {
+let collisionDetect = (objA, ObjB) => {
   return (
-    objA.y_axis >= objB.y_axis + objB.height ||
-    objA.y_axis + objA.height < objB.y_axis ||
-    objA.x_axis >= objB.x_axis + objB.width ||
-    objA.x_axis + objA.width <= objB.x_axis
+    objA.y_axis >= ObjB.y_axis + ObjB.height ||
+    objA.y_axis + objA.height < ObjB.y_axis ||
+    objA.x_axis >= ObjB.x_axis + ObjB.width ||
+    objA.x_axis + objA.width <= ObjB.x_axis
   );
 };
