@@ -81,6 +81,7 @@ blocks.forEach((createblock) => {
   newBlock.style.top = createblock.y_axis + 'px';
   newBlock.style.width = createblock.width + 'px';
   newBlock.style.height = createblock.height + 'px';
+  newBlock.style.position = 'absolute';
   boardOne.appendChild(newBlock);
 });
 
