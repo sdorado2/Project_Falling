@@ -107,10 +107,10 @@ function movingBlock() {
       console.log(`Collision with ${blocks[0]} and ${board})`);
       
       scoreBoard += 10;
+      scoreBoardOne.innerHTML = `${scoreBoard} pts`
 
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].style.backgroundColor = 'green';
-      boardOne.append(blockDisplay[index]);
       blockDisplay[index].classList.remove('createdBlock');
       blocks.splice(index, 1);      
     }
@@ -128,7 +128,8 @@ function movingBlock() {
       blockDisplay[index].classList.remove('createdBlock');
       blocks.splice(index, 1);
 
-      scoreBoard -= 10;
+      console.log(scoreBoard -= 10);
+      scoreBoardOne.innerHTML = `${scoreBoard} pts`
     }
   }
 }

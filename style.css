@@ -59,7 +59,7 @@
 }
 
 .createdBlock{
-    border: dotted blue;
+    background-color: blue;
     transition: all 100ms;
 }
 
