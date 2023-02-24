@@ -105,8 +105,10 @@ function movingBlock() {
       console.log("No Collision Detected!");
     } else {
       console.log(`Collision with ${blocks[0]})`);
+      let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
+      blockDisplay[index].classList.remove('createdBlock')
       blocks.splice(index,1);
-      clearInterval(timer);
+      // clearInterval(timer);
       // blocks[0].style.backgroundColor = "yellow";
       // boardOne.append(blocks[index]);
     }

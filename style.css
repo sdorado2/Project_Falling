@@ -60,6 +60,7 @@
 
 .createdBlock{
     border: dotted yellow;
+    transition: all 100ms;
 }
 
 .location{
