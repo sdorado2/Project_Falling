@@ -96,6 +96,8 @@ function moveBlock() {
 
 setInterval(moveBlock(), 30);
 
+setTimeout(()=> moveBlock() , 30*1000);
+
 // blocks.forEach((moveBlocks) => {
 //     for (let index = 0 ; index < blocks.length; index++){
 //         moveBlocks.y_axis += 50;
