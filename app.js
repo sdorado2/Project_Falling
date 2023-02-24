@@ -80,16 +80,19 @@ function moveBlock() {
     moveBlocks.y_axis += 50;
     blockMove.style.top = moveBlocks.y_axis + "px";
     boardOne.append(blockMove);
-
-    if (
-      moveBlocks.y_axis >= player.y_axis + player.height ||
-      moveBlocks.y_axis + moveBlocks.height < player.y_axis ||
-      moveBlocks.x_axis >= player.x_axis + player.width ||
-      moveBlocks.x_axis + moveBlocks.width <= player.x_axis
-    ) {
-      moveBlocks.style.changeColor = 'yellow';
-    }
   });
+
+  for (index = 0; index < blocks.length; index++) {
+    if (
+      blocks[index].y_axis >= player.y_axis + player.height ||
+      blocks[index].y_axis + blocks[index].height < player.y_axis ||
+      blocks[index].x_axis >= player.x_axis + player.width ||
+      blocks[index].x_axis + blocks[index].width <= player.x_axis
+    ) {
+      moveBlocks.style.changeColor = "yellow";
+      boardOne.append(blockMove);
+    }
+  }
 }
 
 if (blocks[0].y_axis <= 680) {
