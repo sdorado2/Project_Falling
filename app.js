@@ -78,10 +78,13 @@ function moveBlock() {
     moveBlocks.y_axis += 50;
     blockMove.style.top = moveBlocks.y_axis + "px";
     boardOne.append(blockMove);
+    checkDetection(moveBlock, playerUno)
   });
+  
     // setTimeout(() => moveBlock(), 10 * 1000);
     // moveBlock();
 }
+
 let timer;
 
 if (blocks[0].y_axis <= 680){
