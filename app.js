@@ -59,21 +59,26 @@ let boardTwo = document.querySelector('.playerTwo');
 let playerUno = document.querySelector('.grid14');
 let scoreBoardOne = document.querySelector('.leftScore')
 
+//Properties for player one board
 boardOne.style.width = board.width + 'px';
 boardOne.style.height = board.height + 'px';
 boardOne.style.backgroundColor = 'red';
 
+//Properties for player two board
 boardTwo.style.width = board.width + 'px';
 boardTwo.style.height = board.height + 'px';
 
+//Drawing player one into HTML
 playerUno.style.left = player.x_axis + 'px';
 playerUno.style.top = player.y_axis + 'px';
 playerUno.style.width = player.width + 'px';
 playerUno.style.height = player.height + 'px';
 playerUno.style.backgroundColor = 'black';
 
+//Scoreboard for player one 
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`
 
+//Creating div, class, and properties to each block
 blocks.forEach((createblock) => {
   let newBlock = document.createElement('div');
   newBlock.setAttribute('class', 'createdBlock');
@@ -85,7 +90,9 @@ blocks.forEach((createblock) => {
   boardOne.appendChild(newBlock);
 });
 
+
 function movingBlock() {
+  //Block moving speed
   blocks.forEach((movingBlock) => {
     let blockMove = document.querySelector('.createdBlock');
     movingBlock.y_axis += Math.floor(Math.random() * 50);
@@ -116,7 +123,7 @@ function movingBlock() {
     }
   }
 
-  //outBound
+  //Out of Bound
   for (index = 0; index < blocks.length; index++) {
     if (blocks[index].y_axis <= 750) {
       console.log('No Collision Detected!');
@@ -126,12 +133,23 @@ function movingBlock() {
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].style.backgroundColor = 'brown';
       blockDisplay[index].classList.remove('createdBlock');
+      blockDisplay[index].remove()
       blocks.splice(index, 1);
 
       console.log(scoreBoard -= 10);
       scoreBoardOne.innerHTML = `${scoreBoard} pts`
     }
   }
+}
+
+timer = setInterval(movingBlock, 250);
+
+//Generate New Blocks
+function newBlocks() {
+  if (blocks.length < 1){
+
+  }
+
 }
 
 // if (blocks[0].y_axis <= 650) {
@@ -145,6 +163,7 @@ boardOne.addEventListener('pointerdown', (e) => {
   console.log(e);
 });
 
+//Player movement
 document.onkeydown = (movePlayer) => {
   console.log(movePlayer);
 
