@@ -79,13 +79,13 @@ function moveBlock() {
     blockMove.style.top = moveBlocks.y_axis + "px";
     boardOne.append(blockMove);
   });
-    setTimeout(() => moveBlock(), 1 * 1000);
+    setTimeout(() => moveBlock(), 10 * 1000);
     moveBlock();
 }
 
 // if (moveBlock.y_axis < 676) {}
 //else{break;}
-if (blocks.y_axis < 675){moveBlock()}else {return `It's over!`} ;
+if (blocks[0].y_axis < 675){moveBlock()}else {console.log(`It's over!`); blocks.removed();} ;
 
 // moveBlock();
 // moveBlock();
