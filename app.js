@@ -158,14 +158,14 @@ function newBlocks() {
   let createBlockTwo = new makeBlock(550, 300, 180, 80);
   let createBlockThree = new makeBlock(750, 300, 180, 80);
 
-  if (blocks.length <= 2) {
+  if (blocks.length <= 3) {
     for (index = 0; index < blocks.length; index++) {
       if (
         blocks[index].x_axis === createBlockOne.x_axis &&
         blocks[index].x_axis === createBlockTwo.x_axis
       ) {
         blocks.push(createBlockThree);
-        console.log(blocks);
+        console.log('This is the list in the array', blocks);
 
         let recreateBlock = document.createElement("div");
         recreateBlock.setAttribute("class", "createdBlock");
