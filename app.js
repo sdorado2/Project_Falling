@@ -94,7 +94,7 @@ function movingBlock() {
   //Block moving speed
   blocks.forEach((movingBlock) => {
     let blockMove = document.querySelector('.createdBlock');
-    movingBlock.y_axis += Math.floor(Math.random() * 50);
+    movingBlock.y_axis += Math.floor((Math.random() * 5) + 1) * 10;
     console.log(movingBlock);
     blockMove.style.top = movingBlock.y_axis + 'px';
     boardOne.append(blockMove);
