@@ -148,6 +148,7 @@ function startGame() {
 }
 
 startGame();
+newBlocks();
 
 //Generate New Blocks
 function newBlocks() {
@@ -158,8 +159,8 @@ function newBlocks() {
   if (blocks.length === 2) {
     for (index = 0; index < blocks.length; i++) {
       if (
-        blocks[index].x_axis !== createBlockOne.x_axis ||
-        blocks[index].x_axis !== createBlockTwo.x_axis
+        blocks[index].x_axis === createBlockOne.x_axis ||
+        blocks[index].x_axis === createBlockTwo.x_axis
       ) {
         let recreateBlock = document.createElement('div');
         recreateBlock.setAttribute('class', 'createdBlock');
