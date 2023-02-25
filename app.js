@@ -164,6 +164,9 @@ function newBlocks() {
         blocks[index].x_axis === createBlockOne.x_axis &&
         blocks[index].x_axis === createBlockTwo.x_axis
       ) {
+        blocks.push(createBlockThree);
+        console.log(blocks);
+
         let recreateBlock = document.createElement("div");
         recreateBlock.setAttribute("class", "createdBlock");
         recreateBlock.style.left = createBlockThree.x_axis + "px";
