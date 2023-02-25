@@ -164,8 +164,8 @@ function newBlocks() {
         blocks[index].x_axis === createBlockOne.x_axis &&
         blocks[index].x_axis === createBlockThree.x_axis
       ) {
-        blocks.push(createBlockTwo);
-        console.log('This is the list in the array', blocks);
+        // blocks.push(createBlockTwo);
+        // console.log('This is the list in the array', blocks);
 
         let recreateBlock = document.createElement("div");
         recreateBlock.setAttribute("class", "createdBlock");
@@ -174,7 +174,7 @@ function newBlocks() {
         recreateBlock.style.width = createBlockTwo.width + "px";
         recreateBlock.style.height = createBlockTwo.height + "px";
         recreateBlock.style.position = "absolute";
-        boardOne.appendChild(recreateBlock);
+        boardOne.append(recreateBlock);
       }
     }
   }
