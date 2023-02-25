@@ -145,10 +145,13 @@ function movingBlock() {
 function startGame() {
   let startButton = document.querySelector('.start');
   
-  startButton.addEventListener('onclick', (begin) => {
+  startButton.addEventListener('click', (begin) => {
     timer = setInterval(movingBlock, 250);
   });
 }
+
+startGame() 
+
 //Generate New Blocks
 // function newBlocks() {
 //   if (blocks.length === 2){
