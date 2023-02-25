@@ -164,7 +164,7 @@ function newBlocks() {
         blocks[index].x_axis === createBlockOne.x_axis &&
         blocks[index].x_axis === createBlockThree.x_axis
       ) {
-        blocks.pushcreateBlockTwo;
+        blocks.push(createBlockTwo);
         console.log('This is the list in the array', blocks);
 
         let recreateBlock = document.createElement("div");
