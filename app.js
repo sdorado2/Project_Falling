@@ -150,14 +150,29 @@ function startGame() {
 startGame();
 
 //Generate New Blocks
-// function newBlocks() {
-//   if (blocks.length === 2){
-//     if (index = 0; index < blocks.length; i++;){
-//       blocks[index].x_axis === 3 50
-//     }
-//   }
+function newBlocks() {
+  let createBlockOne = new makeBlock(350, 300, 180, 80);
+  let createBlockTwo = new makeBlock(550, 300, 180, 80);
+  let createBlockThree = new makeBlock(750, 300, 180, 80);
 
-// }
+  if (blocks.length === 2) {
+    for (index = 0; index < blocks.length; i++) {
+      if (
+        blocks[index].x_axis !== createBlockOne.x_axis ||
+        blocks[index].x_axis !== createBlockTwo.x_axis
+      ) {
+        let recreateBlock = document.createElement('div');
+        recreateBlock.setAttribute('class', 'createdBlock');
+        recreateBlock.style.left = createBlockThree.x_axis + 'px';
+        recreateBlock.style.top = createBlockThree.y_axis + 'px';
+        recreateBlock.style.width = createBlockThree.width + 'px';
+        recreateBlock.style.height = createBlockThree.height + 'px';
+        recreateBlock.style.position = 'absolute';
+        boardOne.appendChild(recreateBlock);
+      }
+    }
+  }
+}
 
 // if (blocks[0].y_axis <= 650) {
 //   timer = setInterval(movingBlock, 250);
