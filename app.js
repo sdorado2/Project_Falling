@@ -147,6 +147,8 @@ function startGame() {
   });
 }
 
+function restartGame(){};
+
 startGame();
 newBlocks();
 
