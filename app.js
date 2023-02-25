@@ -94,7 +94,7 @@ function movingBlock() {
   //Block moving speed
   blocks.forEach((movingBlock) => {
     let blockMove = document.querySelector('.createdBlock');
-    movingBlock.y_axis += Math.floor((Math.random() * 5) + 1) * 10;
+    movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10;
     console.log(movingBlock);
     blockMove.style.top = movingBlock.y_axis + 'px';
     boardOne.append(blockMove);
@@ -126,13 +126,14 @@ function movingBlock() {
     if (blocks[index].y_axis <= 750) {
       console.log('No Collision Detected!');
     } else {
-      console.log((scoreBoard -= 10));
+      scoreBoard -= 10;
       scoreBoardOne.innerHTML = `${scoreBoard} pts`;
+
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].style.backgroundColor = 'brown';
       blockDisplay[index].classList.remove('createdBlock');
       blockDisplay[index].remove();
-      blocks.splice(index, 1);     
+      blocks.splice(index, 1);
     }
   }
 }
@@ -140,13 +141,13 @@ function movingBlock() {
 //Start Game Button
 function startGame() {
   let startButton = document.querySelector('.start');
-  
+
   startButton.addEventListener('click', (begin) => {
     timer = setInterval(movingBlock, 250);
   });
 }
 
-startGame() 
+startGame();
 
 //Generate New Blocks
 // function newBlocks() {
