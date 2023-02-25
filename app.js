@@ -116,6 +116,7 @@ function movingBlock() {
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].style.backgroundColor = 'green';
       blockDisplay[index].classList.remove('createdBlock');
+      blockDisplay[index].remove();
       blocks.splice(index, 1);
     }
   }
@@ -127,7 +128,6 @@ function movingBlock() {
     } else {
       console.log((scoreBoard -= 10));
       scoreBoardOne.innerHTML = `${scoreBoard} pts`;
-      
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].style.backgroundColor = 'brown';
       blockDisplay[index].classList.remove('createdBlock');
