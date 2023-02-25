@@ -12,10 +12,24 @@
 .leftScore{
     border: solid lime;
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: 400;
+    font-family: Impact;
 }
 .rightScore{
     border : solid gold;
     width: 50%;
+    border: solid lime;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: 400;
+    font-family: Impact;
 }
 
 
@@ -70,7 +84,6 @@
 }
 
 .startBtn{
-    border : solid purple;
     width : 300px;
     height: 5vh;
     margin-left : 70em;
