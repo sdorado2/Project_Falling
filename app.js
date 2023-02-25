@@ -57,7 +57,7 @@ let scoreBoard = 0;
 let boardOne = document.querySelector('.gridBlock');
 let boardTwo = document.querySelector('.playerTwo');
 let playerUno = document.querySelector('.grid14');
-let scoreBoardOne = document.querySelector('.leftScore')
+let scoreBoardOne = document.querySelector('.leftScore');
 
 //Properties for player one board
 boardOne.style.width = board.width + 'px';
@@ -75,8 +75,8 @@ playerUno.style.width = player.width + 'px';
 playerUno.style.height = player.height + 'px';
 playerUno.style.backgroundColor = 'black';
 
-//Scoreboard for player one 
-scoreBoardOne.innerHTML = `${scoreBoard} pts.`
+//Scoreboard for player one
+scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 
 //Creating div, class, and properties to each block
 blocks.forEach((createblock) => {
@@ -89,7 +89,6 @@ blocks.forEach((createblock) => {
   newBlock.style.position = 'absolute';
   boardOne.appendChild(newBlock);
 });
-
 
 function movingBlock() {
   //Block moving speed
@@ -112,14 +111,14 @@ function movingBlock() {
       console.log('No Collision Detected!');
     } else {
       console.log(`Collision with ${blocks[0]} and ${board})`);
-      
+
       scoreBoard += 10;
-      scoreBoardOne.innerHTML = `${scoreBoard} pts`
+      scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].style.backgroundColor = 'green';
       blockDisplay[index].classList.remove('createdBlock');
-      blocks.splice(index, 1);      
+      blocks.splice(index, 1);
     }
   }
 
@@ -129,28 +128,36 @@ function movingBlock() {
       console.log('No Collision Detected!');
     } else {
       console.log(`Collision with ${blocks[0]})`);
-      
+
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].style.backgroundColor = 'brown';
       blockDisplay[index].classList.remove('createdBlock');
-      blockDisplay[index].remove()
+      blockDisplay[index].remove();
       blocks.splice(index, 1);
 
-      console.log(scoreBoard -= 10);
-      scoreBoardOne.innerHTML = `${scoreBoard} pts`
+      console.log((scoreBoard -= 10));
+      scoreBoardOne.innerHTML = `${scoreBoard} pts`;
     }
   }
 }
 
-timer = setInterval(movingBlock, 250);
-
-//Generate New Blocks
-function newBlocks() {
-  if (blocks.length < 1){
-
-  }
-
+//Start Game Button
+function startGame() {
+  let startButton = document.querySelector('.start');
+  
+  startButton.addEventListener('onclick', (begin) => {
+    timer = setInterval(movingBlock, 250);
+  });
 }
+//Generate New Blocks
+// function newBlocks() {
+//   if (blocks.length === 2){
+//     if (index = 0; index < blocks.length; i++;){
+//       blocks[index].x_axis === 3 50
+//     }
+//   }
+
+// }
 
 // if (blocks[0].y_axis <= 650) {
 //   timer = setInterval(movingBlock, 250);

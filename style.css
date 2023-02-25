@@ -68,3 +68,19 @@
     position: absolute;
     transform: translate(-50%, -50%);
 }
+
+.startBtn{
+    border : solid purple;
+    width : 300px;
+    height: 5vh;
+    margin-left : 70em;
+    margin-top : 2em;
+    display : flex;
+    justify-content: center;
+}
+
+.start {
+    width : 30%;
+    height : 50%;
+    margin-top : 1em;
+}
