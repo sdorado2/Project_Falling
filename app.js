@@ -54,49 +54,49 @@ let blocks = [
 
 let scoreBoard = 0;
 
-let boardOne = document.querySelector('.gridBlock');
-let boardTwo = document.querySelector('.playerTwo');
-let playerUno = document.querySelector('.grid14');
-let scoreBoardOne = document.querySelector('.leftScore');
+let boardOne = document.querySelector(".gridBlock");
+let boardTwo = document.querySelector(".playerTwo");
+let playerUno = document.querySelector(".grid14");
+let scoreBoardOne = document.querySelector(".leftScore");
 
 //Properties for player one board
-boardOne.style.width = board.width + 'px';
-boardOne.style.height = board.height + 'px';
-boardOne.style.backgroundColor = 'red';
+boardOne.style.width = board.width + "px";
+boardOne.style.height = board.height + "px";
+boardOne.style.backgroundColor = "red";
 
 //Properties for player two board
-boardTwo.style.width = board.width + 'px';
-boardTwo.style.height = board.height + 'px';
+boardTwo.style.width = board.width + "px";
+boardTwo.style.height = board.height + "px";
 
 //Drawing player one into HTML
-playerUno.style.left = player.x_axis + 'px';
-playerUno.style.top = player.y_axis + 'px';
-playerUno.style.width = player.width + 'px';
-playerUno.style.height = player.height + 'px';
-playerUno.style.backgroundColor = 'black';
+playerUno.style.left = player.x_axis + "px";
+playerUno.style.top = player.y_axis + "px";
+playerUno.style.width = player.width + "px";
+playerUno.style.height = player.height + "px";
+playerUno.style.backgroundColor = "black";
 
 //Scoreboard for player one
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 
 //Creating div, class, and properties to each block
 blocks.forEach((createblock) => {
-  let newBlock = document.createElement('div');
-  newBlock.setAttribute('class', 'createdBlock');
-  newBlock.style.left = createblock.x_axis + 'px';
-  newBlock.style.top = createblock.y_axis + 'px';
-  newBlock.style.width = createblock.width + 'px';
-  newBlock.style.height = createblock.height + 'px';
-  newBlock.style.position = 'absolute';
+  let newBlock = document.createElement("div");
+  newBlock.setAttribute("class", "createdBlock");
+  newBlock.style.left = createblock.x_axis + "px";
+  newBlock.style.top = createblock.y_axis + "px";
+  newBlock.style.width = createblock.width + "px";
+  newBlock.style.height = createblock.height + "px";
+  newBlock.style.position = "absolute";
   boardOne.appendChild(newBlock);
 });
 
 function movingBlock() {
   //Block moving speed
   blocks.forEach((movingBlock) => {
-    let blockMove = document.querySelector('.createdBlock');
+    let blockMove = document.querySelector(".createdBlock");
     movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10;
     console.log(movingBlock);
-    blockMove.style.top = movingBlock.y_axis + 'px';
+    blockMove.style.top = movingBlock.y_axis + "px";
     boardOne.append(blockMove);
   });
 
@@ -108,14 +108,14 @@ function movingBlock() {
       blocks[index].x_axis >= player.x_axis + player.width ||
       blocks[index].x_axis + blocks[index].width <= player.x_axis
     ) {
-      console.log('No Collision Detected!');
+      console.log("No Collision Detected!");
     } else {
       scoreBoard += 10;
       scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
-      let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
-      blockDisplay[index].style.backgroundColor = 'green';
-      blockDisplay[index].classList.remove('createdBlock');
+      let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
+      blockDisplay[index].style.backgroundColor = "green";
+      blockDisplay[index].classList.remove("createdBlock");
       blockDisplay[index].remove();
       blocks.splice(index, 1);
     }
@@ -124,33 +124,33 @@ function movingBlock() {
   //Out of Bound
   for (index = 0; index < blocks.length; index++) {
     if (blocks[index].y_axis <= 750) {
-      console.log('No Collision Detected!');
+      console.log("No Collision Detected!");
     } else {
       scoreBoard -= 10;
       scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
-      let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
-      blockDisplay[index].style.backgroundColor = 'brown';
-      blockDisplay[index].classList.remove('createdBlock');
+      let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
+      blockDisplay[index].style.backgroundColor = "brown";
+      blockDisplay[index].classList.remove("createdBlock");
       blockDisplay[index].remove();
       blocks.splice(index, 1);
     }
   }
+  newBlocks();
 }
 
 //Start Game Button
 function startGame() {
-  let startButton = document.querySelector('.start');
+  let startButton = document.querySelector(".start");
 
-  startButton.addEventListener('click', (begin) => {
+  startButton.addEventListener("click", (begin) => {
     timer = setInterval(movingBlock, 250);
   });
 }
 
-function restartGame(){};
+function restartGame() {}
 
 startGame();
-newBlocks();
 
 //Generate New Blocks
 function newBlocks() {
@@ -158,19 +158,19 @@ function newBlocks() {
   let createBlockTwo = new makeBlock(550, 300, 180, 80);
   let createBlockThree = new makeBlock(750, 300, 180, 80);
 
-  if (blocks.length === 2) {
+  if (blocks.length <= 2) {
     for (index = 0; index < blocks.length; i++) {
       if (
-        blocks[index].x_axis === createBlockOne.x_axis ||
+        blocks[index].x_axis === createBlockOne.x_axis &&
         blocks[index].x_axis === createBlockTwo.x_axis
       ) {
-        let recreateBlock = document.createElement('div');
-        recreateBlock.setAttribute('class', 'createdBlock');
-        recreateBlock.style.left = createBlockThree.x_axis + 'px';
-        recreateBlock.style.top = createBlockThree.y_axis + 'px';
-        recreateBlock.style.width = createBlockThree.width + 'px';
-        recreateBlock.style.height = createBlockThree.height + 'px';
-        recreateBlock.style.position = 'absolute';
+        let recreateBlock = document.createElement("div");
+        recreateBlock.setAttribute("class", "createdBlock");
+        recreateBlock.style.left = createBlockThree.x_axis + "px";
+        recreateBlock.style.top = createBlockThree.y_axis + "px";
+        recreateBlock.style.width = createBlockThree.width + "px";
+        recreateBlock.style.height = createBlockThree.height + "px";
+        recreateBlock.style.position = "absolute";
         boardOne.appendChild(recreateBlock);
       }
     }
@@ -184,7 +184,7 @@ function newBlocks() {
 //   console.log('It went over the limit.');
 // }
 
-boardOne.addEventListener('pointerdown', (e) => {
+boardOne.addEventListener("pointerdown", (e) => {
   console.log(e);
 });
 
@@ -192,9 +192,9 @@ boardOne.addEventListener('pointerdown', (e) => {
 document.onkeydown = (movePlayer) => {
   console.log(movePlayer);
 
-  if (movePlayer.key == 'ArrowRight' && player.x_axis < 770) {
+  if (movePlayer.key == "ArrowRight" && player.x_axis < 770) {
     player.x_axis += 10;
-    playerUno.style.left = player.x_axis + 'px';
+    playerUno.style.left = player.x_axis + "px";
 
     // if (checkDetection(blocks, player)) {
     //   console.log('No Collision');
@@ -206,9 +206,9 @@ document.onkeydown = (movePlayer) => {
     // }
   }
 
-  if (movePlayer.key == 'ArrowLeft' && player.x_axis > 350) {
+  if (movePlayer.key == "ArrowLeft" && player.x_axis > 350) {
     player.x_axis -= 10;
-    playerUno.style.left = player.x_axis + 'px';
+    playerUno.style.left = player.x_axis + "px";
 
     // if (checkDetection(blocks, player)) {
     //   console.log('Collision');
