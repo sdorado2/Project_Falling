@@ -159,7 +159,7 @@ function newBlocks() {
   let createBlockThree = new makeBlock(750, 300, 180, 80);
 
   if (blocks.length <= 2) {
-    for (index = 0; index < blocks.length; i++) {
+    for (index = 0; index < blocks.length; index++) {
       if (
         blocks[index].x_axis === createBlockOne.x_axis &&
         blocks[index].x_axis === createBlockTwo.x_axis
