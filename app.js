@@ -160,6 +160,7 @@ function newBlocks() {
 
   if (blocks.length <= 3) {
     for (index = 0; index < blocks.length; index++) {
+      console.log (`The value of blocks ${index} is ${blocks[index]}`)
       if (
         blocks[index].x_axis === createBlockOne.x_axis &&
         blocks[index].x_axis === createBlockThree.x_axis
