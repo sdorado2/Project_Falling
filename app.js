@@ -162,17 +162,17 @@ function newBlocks() {
     for (index = 0; index < blocks.length; index++) {
       if (
         blocks[index].x_axis === createBlockOne.x_axis &&
-        blocks[index].x_axis === createBlockTwo.x_axis
+        blocks[index].x_axis === createBlockThree.x_axis
       ) {
-        blocks.push(createBlockThree);
+        blocks.pushcreateBlockTwo;
         console.log('This is the list in the array', blocks);
 
         let recreateBlock = document.createElement("div");
         recreateBlock.setAttribute("class", "createdBlock");
-        recreateBlock.style.left = createBlockThree.x_axis + "px";
-        recreateBlock.style.top = createBlockThree.y_axis + "px";
-        recreateBlock.style.width = createBlockThree.width + "px";
-        recreateBlock.style.height = createBlockThree.height + "px";
+        recreateBlock.style.left = createBlockTwo.x_axis + "px";
+        recreateBlock.style.top = createBlockTwo.y_axis + "px";
+        recreateBlock.style.width = createBlockTwo.width + "px";
+        recreateBlock.style.height = createBlockTwo.height + "px";
         recreateBlock.style.position = "absolute";
         boardOne.appendChild(recreateBlock);
       }
