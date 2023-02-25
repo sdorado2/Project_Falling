@@ -110,8 +110,6 @@ function movingBlock() {
     ) {
       console.log('No Collision Detected!');
     } else {
-      console.log(`Collision with ${blocks[0]} and ${board})`);
-
       scoreBoard += 10;
       scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
@@ -127,16 +125,14 @@ function movingBlock() {
     if (blocks[index].y_axis <= 750) {
       console.log('No Collision Detected!');
     } else {
-      console.log(`Collision with ${blocks[0]})`);
-
+      console.log((scoreBoard -= 10));
+      scoreBoardOne.innerHTML = `${scoreBoard} pts`;
+      
       let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
       blockDisplay[index].style.backgroundColor = 'brown';
       blockDisplay[index].classList.remove('createdBlock');
       blockDisplay[index].remove();
-      blocks.splice(index, 1);
-
-      console.log((scoreBoard -= 10));
-      scoreBoardOne.innerHTML = `${scoreBoard} pts`;
+      blocks.splice(index, 1);     
     }
   }
 }
