@@ -117,8 +117,6 @@ console.log (blockPosition);
 //function to display block to HTML
 function displayBlock(block) {
   drawBlocks(block);
-  movingBlock(block);
-
   // for (let index = 0; index < 2; index++) {
   //   if (blocks.length == 0 || blocks.length === null) {
   //     break;
@@ -136,9 +134,10 @@ function displayBlock(block) {
 }
 
 //Moving blocks in the screen
-function movingBlock(movingBlock) {
+function movingBlock() {
   //Block moving speed
   // blocks.forEach((movingBlock) => {
+  let movingBlock = block;
   let blockMove = document.querySelector(".createdBlock");
   movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10;
   console.log(movingBlock);
@@ -146,9 +145,9 @@ function movingBlock(movingBlock) {
   boardOne.append(blockMove);
   // });
 
-  collisionToPlayer(block);
+  collisionToPlayer(movingBlock);
 
-  collisionToFloor(block);
+  collisionToFloor(movingBlock);
 
   //Out of Bound
 
@@ -165,7 +164,7 @@ function collisionToPlayer(block) {
     blocks[index].x_axis >= player.x_axis + player.width ||
     block.x_axis + block.width <= player.x_axis
   ) {
-    console.log("No Collision Detected!");
+    console.log("No Collision Detected To Player!");
   } else {
     scoreBoard += 10;
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
@@ -180,7 +179,7 @@ function collisionToPlayer(block) {
 
 function collisionToFloor(block) {
   if (block.y_axis <= 750) {
-    console.log("No Collision Detected!");
+    console.log("No Collision Detected To Floor!");
   } else {
     console.log("Collision to the floor");
     scoreBoard -= 10;
@@ -201,7 +200,7 @@ function startGame() {
   displayBlock(block);
 
   startButton.addEventListener("click", (begin) => {
-    timer = setInterval(movingBlock, 500);
+    timer = setInterval(movingBlock(block), 500);
   });
 }
 
@@ -238,12 +237,6 @@ function resetGame() {
 // }
 // }
 
-// if (blocks[0].y_axis <= 650) {
-//   timer = setInterval(movingBlock, 250);
-// } else {
-//   clearInterval(timer);
-//   console.log('It went over the limit.');
-// }
 
 boardOne.addEventListener("pointerdown", (e) => {
   console.log(e);
