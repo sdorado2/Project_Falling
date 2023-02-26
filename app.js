@@ -104,15 +104,18 @@ function drawBlocks(object) {
 
 //Moving blocks in the screen
 function movingBlock() {
-  for (let index = 0; index < 9; index++) {
+  for (let index = 0; index < 3; index++) {
     if (index === 0) {
       drawBlocks(blocks[index]);
+      break;
     }
     if (blocks[index].x_axis === 350) {
       drawBlocks(blocks[index + 1]);
+      break;
     }
     if (blocks[index].x_axis === 350 && blocks[index + 1].x_axis === 550) {
       drawBlocks(blocks[index + 2]);
+      break;
     }
   }
 
