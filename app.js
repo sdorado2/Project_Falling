@@ -104,9 +104,12 @@ function drawBlocks(object) {
 
 //function to display block to HTML
 function displayBlock() {
-  drawBlocks(blocks[0]);
-  
-  for (let index = 0; index < 3; index++) {
+  drawBlocks(blocks[1]);
+
+  for (let index = 0; index < 2; index++) {
+    if (blocks.length == 0 || blocks.length === null) {
+      break;
+    }
     if (blocks[index].x_axis === 550) {
       drawBlocks(blocks[index]);
       break;
@@ -170,6 +173,7 @@ function collisionToFloor() {
     if (blocks[index].y_axis <= 750) {
       console.log("No Collision Detected!");
     } else {
+      console.log("Collision to the floor");
       scoreBoard -= 10;
       scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
@@ -196,10 +200,9 @@ function startGame() {
 function resetGame() {
   let resetButton = document.querySelector(".reset");
 
-  resetButton.addEventListener("click"),
-    (again) => {
-      window.location = "/";
-    };
+  resetButton.addEventListener("click", () => {
+    window.location = "/";
+  });
 }
 
 startGame();
