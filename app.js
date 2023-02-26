@@ -102,8 +102,8 @@ function drawBlocks(object) {
   boardOne.appendChild(newBlock);
 }
 
-//Moving blocks in the screen
-function movingBlock() {
+//function to display block to HTML
+function displayBlock() {
   for (let index = 0; index < 3; index++) {
     if (index === 0) {
       drawBlocks(blocks[index]);
@@ -118,7 +118,10 @@ function movingBlock() {
       break;
     }
   }
+}
 
+//Moving blocks in the screen
+function movingBlock() {
   //Block moving speed
   blocks.forEach((movingBlock) => {
     let blockMove = document.querySelector(".createdBlock");
@@ -128,6 +131,28 @@ function movingBlock() {
     boardOne.append(blockMove);
   });
 
+  
+  //Out of Bound
+  for (index = 0; index < blocks.length; index++) {
+    if (blocks[index].y_axis <= 750) {
+      console.log("No Collision Detected!");
+    } else {
+      scoreBoard -= 10;
+      scoreBoardOne.innerHTML = `${scoreBoard} pts`;
+
+      let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
+      blockDisplay[index].style.backgroundColor = "brown";
+      blockDisplay[index].classList.remove("createdBlock");
+      blockDisplay[index].remove();
+      blocks.splice(index, 1);
+    }
+  }
+  // if (blocks.length == 2) {
+  //   newBlocks();
+  // }
+}
+
+function collisionToPlayer(){
   //Collision with player's Block
   for (index = 0; index < blocks.length; index++) {
     if (
@@ -149,25 +174,8 @@ function movingBlock() {
     }
   }
 
-  //Out of Bound
-  for (index = 0; index < blocks.length; index++) {
-    if (blocks[index].y_axis <= 750) {
-      console.log("No Collision Detected!");
-    } else {
-      scoreBoard -= 10;
-      scoreBoardOne.innerHTML = `${scoreBoard} pts`;
-
-      let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
-      blockDisplay[index].style.backgroundColor = "brown";
-      blockDisplay[index].classList.remove("createdBlock");
-      blockDisplay[index].remove();
-      blocks.splice(index, 1);
-    }
-  }
-  // if (blocks.length == 2) {
-  //   newBlocks();
-  // }
 }
+
 
 //Start Game Button
 function startGame() {
@@ -200,18 +208,18 @@ resetGame();
 //   console.log(createBlockOne);
 
 //   blocks.push(createBlockOne);
-  // if (blocks.length == 2) {
-  //   console.log("This comment loaded.");
+// if (blocks.length == 2) {
+//   console.log("This comment loaded.");
 
-  //   let recreateBlock = document.createElement("div");
-  //   recreateBlock.setAttribute("class", "createdBlock");
-  //   recreateBlock.style.left = createBlockTwo.x_axis + "px";
-  //   recreateBlock.style.top = createBlockTwo.y_axis + "px";
-  //   recreateBlock.style.width = createBlockTwo.width + "px";
-  //   recreateBlock.style.height = createBlockTwo.height + "px";
-  //   recreateBlock.style.position = "absolute";
-  //   boardOne.append(recreateBlock);
-  // }
+//   let recreateBlock = document.createElement("div");
+//   recreateBlock.setAttribute("class", "createdBlock");
+//   recreateBlock.style.left = createBlockTwo.x_axis + "px";
+//   recreateBlock.style.top = createBlockTwo.y_axis + "px";
+//   recreateBlock.style.width = createBlockTwo.width + "px";
+//   recreateBlock.style.height = createBlockTwo.height + "px";
+//   recreateBlock.style.position = "absolute";
+//   boardOne.append(recreateBlock);
+// }
 // }
 
 // if (blocks[0].y_axis <= 650) {
