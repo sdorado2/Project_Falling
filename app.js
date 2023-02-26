@@ -158,27 +158,21 @@ function newBlocks() {
   let createBlockTwo = new makeBlock(550, 300, 180, 80);
   let createBlockThree = new makeBlock(750, 300, 180, 80);
 
-  if (blocks.length <= 3) {
-    for (index = 0; index < blocks.length; index++) {
-      console.log(`The value of blocks ${index} is ${blocks[index]}`);
-      if (
-        blocks[index].x_axis === createBlockOne.x_axis ||
-        blocks[index].x_axis === createBlockThree.x_axis
-      ) {
-        // blocks.push(createBlockTwo);
-        console.log('This comment loaded.');
+  console.log (createBlockOne);
+  console.log (createBlockTwo);
+  console.log (createBlockThree);
+  // if (blocks.length == 2) {
+  //   console.log("This comment loaded.");
 
-        let recreateBlock = document.createElement("div");
-        recreateBlock.setAttribute("class", "createdBlock");
-        recreateBlock.style.left = createBlockTwo.x_axis + "px";
-        recreateBlock.style.top = createBlockTwo.y_axis + "px";
-        recreateBlock.style.width = createBlockTwo.width + "px";
-        recreateBlock.style.height = createBlockTwo.height + "px";
-        recreateBlock.style.position = "absolute";
-        boardOne.append(recreateBlock);
-      }
-    }
-  }
+  //   let recreateBlock = document.createElement("div");
+  //   recreateBlock.setAttribute("class", "createdBlock");
+  //   recreateBlock.style.left = createBlockTwo.x_axis + "px";
+  //   recreateBlock.style.top = createBlockTwo.y_axis + "px";
+  //   recreateBlock.style.width = createBlockTwo.width + "px";
+  //   recreateBlock.style.height = createBlockTwo.height + "px";
+  //   recreateBlock.style.position = "absolute";
+  //   boardOne.append(recreateBlock);
+  // }
 }
 
 // if (blocks[0].y_axis <= 650) {
