@@ -104,7 +104,7 @@ function drawBlocks(object) {
 
 //function to display block to HTML
 function displayBlock() {
-  drawBlocks(blocks[index + 1]);
+  drawBlocks(blocks[0]);
   
   for (let index = 0; index < 3; index++) {
     if (blocks[index].x_axis === 550) {
