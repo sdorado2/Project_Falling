@@ -147,7 +147,7 @@ function movingBlock() {
 
   collisionToPlayer(movingBlock);
 
-  collisionToFloor(movingBlock);
+  collisionToFloor(movingmovingBlocklock);
 
   //Out of Bound
 
@@ -156,13 +156,13 @@ function movingBlock() {
   // }
 }
 
-function collisionToPlayer(block) {
+function collisionToPlayer(movingBlock) {
   //Collision with player's Block
   if (
-    block.y_axis >= player.y_axis + player.height ||
-    block.y_axis + block.height < player.y_axis ||
-    blocks[index].x_axis >= player.x_axis + player.width ||
-    block.x_axis + block.width <= player.x_axis
+    movingBlock.y_axis >= player.y_axis + player.height ||
+    movingBlock.y_axis + movingBlock.height < player.y_axis ||
+    movingBlock[index].x_axis >= player.x_axis + player.width ||
+    movingBlock.x_axis + movingBlock.width <= player.x_axis
   ) {
     console.log("No Collision Detected To Player!");
   } else {
@@ -170,15 +170,15 @@ function collisionToPlayer(block) {
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
     let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
-    block.style.backgroundColor = "green";
-    block.classList.remove("createdBlock");
-    block.remove();
-    blocks.splice(index, 1);
+    blockDisplay.style.backgroundColor = "green";
+    blockDisplay.classList.remove("createdBlock");
+    blockDisplay.remove();
+    movingBlock.splice(index, 1);
   }
 }
 
-function collisionToFloor(block) {
-  if (block.y_axis <= 750) {
+function collisionToFloor(movingBlock) {
+  if (movingBlock.y_axis <= 750) {
     console.log("No Collision Detected To Floor!");
   } else {
     console.log("Collision to the floor");
@@ -186,10 +186,10 @@ function collisionToFloor(block) {
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
     let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
-    block.style.backgroundColor = "brown";
-    block.classList.remove("createdBlock");
-    block.remove();
-    block.splice(index, 1);
+    blockDisplay.style.backgroundColor = "brown";
+    blockDisplay.classList.remove("createdBlock");
+    blockDisplay.remove();
+    blockDisplay.splice(index, 1);
   }
 }
 
