@@ -106,11 +106,11 @@ function drawBlocks(object) {
 function displayBlock() {
   for (let index = 0; index < 3; index++) {
     if (index === 0) {
-      drawBlocks(blocks[index]);
+      drawBlocks(blocks[index + 1]);
       break;
     }
-    if (blocks[index].x_axis === 350) {
-      drawBlocks(blocks[index + 1]);
+    if (blocks[index].x_axis === 550) {
+      drawBlocks(blocks[index]);
       break;
     }
     if (blocks[index].x_axis === 350 && blocks[index + 1].x_axis === 550) {
@@ -131,28 +131,18 @@ function movingBlock() {
     boardOne.append(blockMove);
   });
 
-  
-  //Out of Bound
-  for (index = 0; index < blocks.length; index++) {
-    if (blocks[index].y_axis <= 750) {
-      console.log("No Collision Detected!");
-    } else {
-      scoreBoard -= 10;
-      scoreBoardOne.innerHTML = `${scoreBoard} pts`;
+  collisionToPlayer();
 
-      let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
-      blockDisplay[index].style.backgroundColor = "brown";
-      blockDisplay[index].classList.remove("createdBlock");
-      blockDisplay[index].remove();
-      blocks.splice(index, 1);
-    }
-  }
+  collisionToFloor();
+
+  //Out of Bound
+
   // if (blocks.length == 2) {
   //   newBlocks();
   // }
 }
 
-function collisionToPlayer(){
+function collisionToPlayer() {
   //Collision with player's Block
   for (index = 0; index < blocks.length; index++) {
     if (
@@ -173,13 +163,30 @@ function collisionToPlayer(){
       blocks.splice(index, 1);
     }
   }
-
 }
 
+function collisionToFloor() {
+  for (index = 0; index < blocks.length; index++) {
+    if (blocks[index].y_axis <= 750) {
+      console.log("No Collision Detected!");
+    } else {
+      scoreBoard -= 10;
+      scoreBoardOne.innerHTML = `${scoreBoard} pts`;
+
+      let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
+      blockDisplay[index].style.backgroundColor = "brown";
+      blockDisplay[index].classList.remove("createdBlock");
+      blockDisplay[index].remove();
+      blocks.splice(index, 1);
+    }
+  }
+}
 
 //Start Game Button
 function startGame() {
   let startButton = document.querySelector(".start");
+
+  displayBlock();
 
   startButton.addEventListener("click", (begin) => {
     timer = setInterval(movingBlock, 500);
