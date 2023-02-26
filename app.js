@@ -133,6 +133,14 @@ function displayBlock(block) {
   // }
 }
 
+//Generate New Blocks
+function newBlocks() {
+  let createBlock ;
+  while (createBlock == null ){
+    createBlock = blockPosition();
+  }
+}
+
 //Moving blocks in the screen
 function movingBlock() {
   //Block moving speed
@@ -147,7 +155,7 @@ function movingBlock() {
 
   collisionToPlayer(movingBlock);
 
-  collisionToFloor(movingmovingBlocklock);
+  collisionToFloor(movingBlock);
 
   //Out of Bound
 
@@ -214,28 +222,7 @@ function resetGame() {
 
 
 
-//Generate New Blocks
-// function newBlocks() {
-//   let createBlockOne = new makeBlock(350, 300, 180, 80);
-//   let createBlockTwo = new makeBlock(550, 300, 180, 80);
-//   let createBlockThree = new makeBlock(750, 300, 180, 80);
 
-//   console.log(createBlockOne);
-
-//   blocks.push(createBlockOne);
-// if (blocks.length == 2) {
-//   console.log("This comment loaded.");
-
-//   let recreateBlock = document.createElement("div");
-//   recreateBlock.setAttribute("class", "createdBlock");
-//   recreateBlock.style.left = createBlockTwo.x_axis + "px";
-//   recreateBlock.style.top = createBlockTwo.y_axis + "px";
-//   recreateBlock.style.width = createBlockTwo.width + "px";
-//   recreateBlock.style.height = createBlockTwo.height + "px";
-//   recreateBlock.style.position = "absolute";
-//   boardOne.append(recreateBlock);
-// }
-// }
 
 
 boardOne.addEventListener("pointerdown", (e) => {
