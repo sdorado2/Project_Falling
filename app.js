@@ -104,11 +104,9 @@ function drawBlocks(object) {
 
 //function to display block to HTML
 function displayBlock() {
+  drawBlocks(blocks[index + 1]);
+  
   for (let index = 0; index < 3; index++) {
-    if (index === 0) {
-      drawBlocks(blocks[index + 1]);
-      break;
-    }
     if (blocks[index].x_axis === 550) {
       drawBlocks(blocks[index]);
       break;
@@ -122,6 +120,8 @@ function displayBlock() {
 
 //Moving blocks in the screen
 function movingBlock() {
+  displayBlock();
+
   //Block moving speed
   blocks.forEach((movingBlock) => {
     let blockMove = document.querySelector(".createdBlock");
