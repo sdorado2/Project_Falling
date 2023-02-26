@@ -90,6 +90,15 @@ scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 //   boardOne.appendChild(newBlock);
 // });
 
+function blockPosition (){
+  return {
+    x_axis : Math.floor((Math.random ()* 4)+ 3) * 100 +50,
+    y_axis : 300,
+    width : 180,
+    height : 80,
+  }
+}
+
 //function for drawing blocks
 function drawBlocks(object) {
   let newBlock = document.createElement("div");
@@ -104,36 +113,36 @@ function drawBlocks(object) {
 
 //function to display block to HTML
 function displayBlock() {
-  drawBlocks(blocks[1]);
+  let block = blockPosition();
+  drawBlocks(block);
+  movingBlock(block);
 
-  for (let index = 0; index < 2; index++) {
-    if (blocks.length == 0 || blocks.length === null) {
-      break;
-    }
-    if (blocks[index + 1].x_axis === 550) {
-      drawBlocks(blocks[index]);
-      drawBlocks(blocks[index +2 ]);
-      break;
-    }
-    if (blocks[index].x_axis === 350 && blocks[index + 1].x_axis === 550) {
-      drawBlocks(blocks[index + 2]);
-      break;
-    }
-  }
+  // for (let index = 0; index < 2; index++) {
+  //   if (blocks.length == 0 || blocks.length === null) {
+  //     break;
+  //   }
+  //   if (blocks[index + 1].x_axis === 550) {
+  //     drawBlocks(blocks[index]);
+  //     drawBlocks(blocks[index +2 ]);
+  //     break;
+  //   }
+  //   if (blocks[index].x_axis === 350 && blocks[index + 1].x_axis === 550) {
+  //     drawBlocks(blocks[index + 2]);
+  //     break;
+  //   }
+  // }
 }
 
 //Moving blocks in the screen
-function movingBlock() {
-  displayBlock();
-
+function movingBlock(movingBlock) {
   //Block moving speed
-  blocks.forEach((movingBlock) => {
+  // blocks.forEach((movingBlock) => {
     let blockMove = document.querySelector(".createdBlock");
     movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10;
     console.log(movingBlock);
     blockMove.style.top = movingBlock.y_axis + "px";
     boardOne.append(blockMove);
-  });
+  // });
 
   collisionToPlayer();
 
@@ -146,14 +155,13 @@ function movingBlock() {
   // }
 }
 
-function collisionToPlayer() {
+function collisionToPlayer(block) {
   //Collision with player's Block
-  for (index = 0; index < blocks.length; index++) {
     if (
-      blocks[index].y_axis >= player.y_axis + player.height ||
-      blocks[index].y_axis + blocks[index].height < player.y_axis ||
+      block.y_axis >= player.y_axis + player.height ||
+      block.y_axis + block.height < player.y_axis ||
       blocks[index].x_axis >= player.x_axis + player.width ||
-      blocks[index].x_axis + blocks[index].width <= player.x_axis
+      block.x_axis + block.width <= player.x_axis
     ) {
       console.log("No Collision Detected!");
     } else {
@@ -167,7 +175,7 @@ function collisionToPlayer() {
       blocks.splice(index, 1);
     }
   }
-}
+
 
 function collisionToFloor() {
   for (index = 0; index < blocks.length; index++) {
