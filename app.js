@@ -110,8 +110,9 @@ function displayBlock() {
     if (blocks.length == 0 || blocks.length === null) {
       break;
     }
-    if (blocks[index].x_axis === 550) {
+    if (blocks[index + 1].x_axis === 550) {
       drawBlocks(blocks[index]);
+      drawBlocks(blocks[index +2 ]);
       break;
     }
     if (blocks[index].x_axis === 350 && blocks[index + 1].x_axis === 550) {
