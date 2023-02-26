@@ -136,7 +136,7 @@ function movingBlock() {
       blocks.splice(index, 1);
     }
   }
-  if (blocks.length < 2) {
+  if (blocks.length == 2) {
     newBlocks();
   }
 }
@@ -150,9 +150,17 @@ function startGame() {
   });
 }
 
-function restartGame() {}
+function resetGame() {
+  let resetButton = document.querySelector('.reset');
+
+  resetButton.addEventListener('click'), (again) => {
+    window.location = '/'
+  }
+}
 
 startGame();
+
+resetGame();
 
 //Generate New Blocks
 function newBlocks() {
