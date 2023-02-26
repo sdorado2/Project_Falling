@@ -92,29 +92,29 @@ scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 
 //function for drawing blocks
 function drawBlocks(object) {
-    let newBlock = document.createElement("div");
-    newBlock.setAttribute("class", "createdBlock");
-    newBlock.style.left = object.x_axis + "px";
-    newBlock.style.top = object.y_axis + "px";
-    newBlock.style.width = object.width + "px";
-    newBlock.style.height = object.height + "px";
-    newBlock.style.position = "absolute";
-    boardOne.appendChild(newBlock);  
+  let newBlock = document.createElement("div");
+  newBlock.setAttribute("class", "createdBlock");
+  newBlock.style.left = object.x_axis + "px";
+  newBlock.style.top = object.y_axis + "px";
+  newBlock.style.width = object.width + "px";
+  newBlock.style.height = object.height + "px";
+  newBlock.style.position = "absolute";
+  boardOne.appendChild(newBlock);
 }
 
 //Moving blocks in the screen
 function movingBlock() {
   for (let index = 0; index < 9; index++) {
-    drawBlocks(blocks[index]); 
-
+    if (index === 0) {
+      drawBlocks(blocks[index]);
+    }
     if (blocks[index].x_axis === 350) {
-      blocks[index + 1] = new blocks(550, 300, 180, 80);
+      drawBlocks(blocks[index + 1]);
     }
     if (blocks[index].x_axis === 350 && blocks[index + 1].x_axis === 550) {
-      blocks[index + 2] = new blocks(750, 300, 180, 80);
+      drawBlocks(blocks[index + 2]);
     }
   }
-
 
   //Block moving speed
   blocks.forEach((movingBlock) => {
@@ -161,9 +161,9 @@ function movingBlock() {
       blocks.splice(index, 1);
     }
   }
-  if (blocks.length == 2) {
-    newBlocks();
-  }
+  // if (blocks.length == 2) {
+  //   newBlocks();
+  // }
 }
 
 //Start Game Button
@@ -171,7 +171,7 @@ function startGame() {
   let startButton = document.querySelector(".start");
 
   startButton.addEventListener("click", (begin) => {
-    timer = setInterval(movingBlock, 250);
+    timer = setInterval(movingBlock, 500);
   });
 }
 
@@ -189,14 +189,14 @@ startGame();
 resetGame();
 
 //Generate New Blocks
-function newBlocks() {
-  let createBlockOne = new makeBlock(350, 300, 180, 80);
-  let createBlockTwo = new makeBlock(550, 300, 180, 80);
-  let createBlockThree = new makeBlock(750, 300, 180, 80);
+// function newBlocks() {
+//   let createBlockOne = new makeBlock(350, 300, 180, 80);
+//   let createBlockTwo = new makeBlock(550, 300, 180, 80);
+//   let createBlockThree = new makeBlock(750, 300, 180, 80);
 
-  console.log(createBlockOne);
+//   console.log(createBlockOne);
 
-  blocks.push(createBlockOne);
+//   blocks.push(createBlockOne);
   // if (blocks.length == 2) {
   //   console.log("This comment loaded.");
 
@@ -209,7 +209,7 @@ function newBlocks() {
   //   recreateBlock.style.position = "absolute";
   //   boardOne.append(recreateBlock);
   // }
-}
+// }
 
 // if (blocks[0].y_axis <= 650) {
 //   timer = setInterval(movingBlock, 250);
