@@ -46,11 +46,11 @@ class makeBlock {
   }
 }
 
-let blocks = [
-  new makeBlock(350, 300, 180, 80),
-  new makeBlock(550, 300, 180, 80),
-  new makeBlock(750, 300, 180, 80),
-];
+// let blocks = [
+//   new makeBlock(350, 300, 180, 80),
+//   new makeBlock(550, 300, 180, 80),
+//   new makeBlock(750, 300, 180, 80),
+// ];
 
 let scoreBoard = 0;
 
@@ -144,7 +144,7 @@ function movingBlock(movingBlock) {
     boardOne.append(blockMove);
   // });
 
-  collisionToPlayer();
+  collisionToPlayer(block);
 
   collisionToFloor();
 
@@ -169,17 +169,16 @@ function collisionToPlayer(block) {
       scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
       let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
-      blockDisplay[index].style.backgroundColor = "green";
-      blockDisplay[index].classList.remove("createdBlock");
-      blockDisplay[index].remove();
+      block.style.backgroundColor = "green";
+      block.classList.remove("createdBlock");
+      block.remove();
       blocks.splice(index, 1);
     }
   }
 
 
-function collisionToFloor() {
-  for (index = 0; index < blocks.length; index++) {
-    if (blocks[index].y_axis <= 750) {
+function collisionToFloor(block) {
+    if (block.y_axis <= 750) {
       console.log("No Collision Detected!");
     } else {
       console.log("Collision to the floor");
@@ -187,13 +186,12 @@ function collisionToFloor() {
       scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
       let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
-      blockDisplay[index].style.backgroundColor = "brown";
-      blockDisplay[index].classList.remove("createdBlock");
-      blockDisplay[index].remove();
+      block.style.backgroundColor = "brown";
+      block.classList.remove("createdBlock");
+      block.remove();
       blocks.splice(index, 1);
     }
   }
-}
 
 //Start Game Button
 function startGame() {
