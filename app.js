@@ -91,7 +91,7 @@ scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 // });
 
 let block = newBlock();
-console.log (blockPosition);
+console.log(blockPosition);
 
 function blockPosition() {
   return {
@@ -104,8 +104,8 @@ function blockPosition() {
 
 //Generate New Blocks
 function newBlock() {
-  let createBlock ;
-  while (createBlock == null ){
+  let createBlock;
+  while (createBlock == null) {
     createBlock = blockPosition();
   }
   return createBlock;
@@ -123,9 +123,8 @@ function drawBlocks(object) {
   boardOne.appendChild(newBlock);
 }
 
-
 //function to display block to HTML
-function displayBlock(block) {
+function displayBlock() {
   drawBlocks(block);
   // for (let index = 0; index < 2; index++) {
   //   if (blocks.length == 0 || blocks.length === null) {
@@ -142,8 +141,6 @@ function displayBlock(block) {
   //   }
   // }
 }
-
-
 
 //Moving blocks in the screen
 function movingBlock() {
@@ -209,10 +206,10 @@ function collisionToFloor(movingBlock) {
 function startGame() {
   let startButton = document.querySelector(".start");
 
-  displayBlock(block);
+  displayBlock();
 
   startButton.addEventListener("click", (begin) => {
-    timer = setInterval(movingBlock(block), 500);
+    timer = setInterval(movingBlock(), 500);
   });
 }
 
@@ -223,11 +220,6 @@ function resetGame() {
     window.location = "/";
   });
 }
-
-
-
-
-
 
 boardOne.addEventListener("pointerdown", (e) => {
   console.log(e);
