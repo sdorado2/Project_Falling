@@ -90,6 +90,20 @@ blocks.forEach((createblock) => {
   boardOne.appendChild(newBlock);
 });
 
+//function for drawing blocks
+function drawBlocks() {
+    let newBlock = document.createElement("div");
+    newBlock.setAttribute("class", "createdBlock");
+    newBlock.style.left = createblock.x_axis + "px";
+    newBlock.style.top = createblock.y_axis + "px";
+    newBlock.style.width = createblock.width + "px";
+    newBlock.style.height = createblock.height + "px";
+    newBlock.style.position = "absolute";
+    boardOne.appendChild(newBlock);
+  
+}
+
+//Moving blocks in the screen
 function movingBlock() {
   //Block moving speed
   blocks.forEach((movingBlock) => {
@@ -151,11 +165,12 @@ function startGame() {
 }
 
 function resetGame() {
-  let resetButton = document.querySelector('.reset');
+  let resetButton = document.querySelector(".reset");
 
-  resetButton.addEventListener('click'), (again) => {
-    window.location = '/'
-  }
+  resetButton.addEventListener("click"),
+    (again) => {
+      window.location = "/";
+    };
 }
 
 startGame();
