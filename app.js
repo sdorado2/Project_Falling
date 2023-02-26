@@ -90,6 +90,9 @@ scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 //   boardOne.appendChild(newBlock);
 // });
 
+let block = newBlock();
+console.log (blockPosition);
+
 function blockPosition() {
   return {
     x_axis: Math.floor(Math.random() * 4 + 3) * 100 + 50,
@@ -97,6 +100,15 @@ function blockPosition() {
     width: 180,
     height: 80,
   };
+}
+
+//Generate New Blocks
+function newBlock() {
+  let createBlock ;
+  while (createBlock == null ){
+    createBlock = blockPosition();
+  }
+  return createBlock;
 }
 
 //function for drawing blocks
@@ -111,8 +123,6 @@ function drawBlocks(object) {
   boardOne.appendChild(newBlock);
 }
 
-let block = blockPosition();
-console.log (blockPosition);
 
 //function to display block to HTML
 function displayBlock(block) {
@@ -133,13 +143,7 @@ function displayBlock(block) {
   // }
 }
 
-//Generate New Blocks
-function newBlocks() {
-  let createBlock ;
-  while (createBlock == null ){
-    createBlock = blockPosition();
-  }
-}
+
 
 //Moving blocks in the screen
 function movingBlock() {
