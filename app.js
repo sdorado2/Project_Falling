@@ -136,7 +136,9 @@ function movingBlock() {
       blocks.splice(index, 1);
     }
   }
-  newBlocks();
+  if (blocks.length < 2) {
+    newBlocks();
+  }
 }
 
 //Start Game Button
@@ -158,9 +160,9 @@ function newBlocks() {
   let createBlockTwo = new makeBlock(550, 300, 180, 80);
   let createBlockThree = new makeBlock(750, 300, 180, 80);
 
-  console.log (createBlockOne);
-  console.log (createBlockTwo);
-  console.log (createBlockThree);
+  console.log(createBlockOne);
+
+  blocks.push(createBlockOne);
   // if (blocks.length == 2) {
   //   console.log("This comment loaded.");
 
