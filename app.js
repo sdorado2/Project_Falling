@@ -79,16 +79,16 @@ playerUno.style.backgroundColor = "black";
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 
 //Creating div, class, and properties to each block
-blocks.forEach((createblock) => {
-  let newBlock = document.createElement("div");
-  newBlock.setAttribute("class", "createdBlock");
-  newBlock.style.left = createblock.x_axis + "px";
-  newBlock.style.top = createblock.y_axis + "px";
-  newBlock.style.width = createblock.width + "px";
-  newBlock.style.height = createblock.height + "px";
-  newBlock.style.position = "absolute";
-  boardOne.appendChild(newBlock);
-});
+// blocks.forEach((createblock) => {
+//   let newBlock = document.createElement("div");
+//   newBlock.setAttribute("class", "createdBlock");
+//   newBlock.style.left = createblock.x_axis + "px";
+//   newBlock.style.top = createblock.y_axis + "px";
+//   newBlock.style.width = createblock.width + "px";
+//   newBlock.style.height = createblock.height + "px";
+//   newBlock.style.position = "absolute";
+//   boardOne.appendChild(newBlock);
+// });
 
 //function for drawing blocks
 function drawBlocks(object) {
@@ -104,6 +104,18 @@ function drawBlocks(object) {
 
 //Moving blocks in the screen
 function movingBlock() {
+  for (let index = 0; index < 9; index++) {
+    drawBlocks(blocks[index]); 
+
+    if (blocks[index].x_axis === 350) {
+      blocks[index + 1] = new blocks(550, 300, 180, 80);
+    }
+    if (blocks[index].x_axis === 350 && blocks[index + 1].x_axis === 550) {
+      blocks[index + 2] = new blocks(750, 300, 180, 80);
+    }
+  }
+
+
   //Block moving speed
   blocks.forEach((movingBlock) => {
     let blockMove = document.querySelector(".createdBlock");
