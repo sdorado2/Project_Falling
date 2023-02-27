@@ -104,9 +104,9 @@ playerDos.style.width = playerTwo.width + 'px';
 playerDos.style.height = playerTwo.height + 'px';
 playerDos.style.backgroundColor = 'white';
 
-//Scoreboard for player one
+//Scoreboard for player one and two
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
-scoreBoardDos.innerHTML = `${scoreBoardTwo} pts.`;
+scoreBoardTwo.innerHTML = `${scoreBoardDos} pts.`;
 
 console.log(blockPosition);
 
