@@ -158,6 +158,8 @@ function movingBlock() {
   collisionToPlayer(movingBlock);
 
   collisionToFloor(movingBlock);
+
+  newBlock();
 }
 
 //Collision detection between falling block and player
@@ -173,11 +175,11 @@ function collisionToPlayer(movingBlock) {
     scoreBoard += 10;
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
-    let blockDisplay = Array.from(document.querySelectorAll(".createdBlock")); //Creates an array from divs
+    let blockDisplay = Array.from(document.querySelectorAll(".createdBlock")); //Creates an array from div
     blockDisplay[0].style.backgroundColor = "green";
-    blockDisplay[0].classList.remove("createdBlock");//Removes class list assigned
-    blockDisplay[0].remove();   //Remove element
-    movingBlock.splice(0, 1);//removes block from list
+    blockDisplay[0].classList.remove("createdBlock"); //Removes class list assigned
+    blockDisplay[0].remove(); //Remove element
+    movingBlock.splice(0, 1); //removes block from list
   }
 }
 
@@ -218,9 +220,13 @@ function resetGame() {
   });
 }
 
-function gameOver(){
-  if (scoreBoard == 10){
-    scoreBoard.innerHTML = `YOU WIN`
+function gameOver() {
+  if (scoreBoard == 10) {
+    scoreBoard.innerHTML = `YOU WIN`;
+  }
+
+  if (scoreBoard == -10) {
+    scoreBoard.innerHTML = `YOU LOSE`;
   }
 }
 
