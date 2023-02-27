@@ -157,7 +157,7 @@ function movingBlock() {
 
   collisionToFloor(movingBlock);
 
-  // gameOver();
+  gameOver();
 
   if (block === null || block === undefined || block === '') {
     block = newBlock();
