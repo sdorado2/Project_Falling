@@ -90,7 +90,8 @@ scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 //   boardOne.appendChild(newBlock);
 // });
 
-let block = newBlock();
+let block; 
+block = newBlock();
 console.log(blockPosition);
 
 function blockPosition() {
@@ -158,7 +159,11 @@ function movingBlock() {
 
   collisionToFloor(movingBlock);
 
-  if (block == null || block == undefined){block = newBlock();}
+  // gameOver();
+
+  if (block === null || block === undefined||block === ''){
+    block = newBlock();}
+  else { console.log (`To hell with this`) }
 }
 
 //Collision detection between falling block and player
@@ -195,11 +200,13 @@ function collisionToFloor(movingBlock) {
     blockDisplay[0].style.backgroundColor = "brown";
     blockDisplay[0].classList.remove("createdBlock");
     blockDisplay[0].remove();
-    console.log(typeof movingBlock);
+
     delete movingBlock.x_axis;
     delete movingBlock.y_axis;
     delete movingBlock.height;
     delete movingBlock.width;
+
+    block = '';
   }
 }
 
