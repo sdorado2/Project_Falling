@@ -72,7 +72,7 @@
 .gridBlock, .gridBlockC2{
     border: thick;
 }
-.grid14, .gridBlock14C2 { 
+.grid14, .grid14C2 { 
     position: absolute;
     transition: all 100ms;
 }
