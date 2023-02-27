@@ -30,12 +30,24 @@ let board = {
   height: 525,
 };
 
+let boardDos = {
+  width : 610,
+  height : 525,
+}
+
 let player = {
   x_axis: 560,
-  y_axis: 675,
-  width: 182,
-  height: 78,
+  y_axis: 670,
+  width: 180,
+  height: 80,
 };
+
+let playerTwo = {
+  x_axis : 1850,
+  y_axis : 670,
+  width : 180,
+  height : 80,
+}
 
 class makeBlock {
   constructor(x_axis, y_axis, width, height) {
@@ -48,6 +60,7 @@ class makeBlock {
 
 let block;
 let scoreBoard = 0;
+let scoreBoardDos = 0;
 
 let boardOne = document.querySelector('.gridBlock');
 let boardTwo = document.querySelector('.gridBlockC2');
@@ -65,6 +78,11 @@ boardOne.style.height = board.height + 'px';
 boardOne.style.backgroundColor = 'red';
 
 //Properties for player two board
+boardTwo.style.width = boardDos.width + 'px';
+boardTwo.style.height = boardDos.height + 'px';
+boardTwo.style.backgroundColor = 'blue';
+
+//Properties for player two board
 boardTwo.style.width = board.width + 'px';
 boardTwo.style.height = board.height + 'px';
 
@@ -75,8 +93,16 @@ playerUno.style.width = player.width + 'px';
 playerUno.style.height = player.height + 'px';
 playerUno.style.backgroundColor = 'black';
 
+//Drawing player two into HTML
+playerDos.style.left = playerTwo.x_axis + 'px';
+playerDos.style.top = playerTwo.y_axis + 'px';
+playerDos.style.width = playerTwo.width + 'px';
+playerDos.style.height = playerTwo.height + 'px';
+playerDos.style.backgroundColor = 'white';
+
 //Scoreboard for player one
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
+scoreBoardDos.innerHTML = `${scoreBoardTwo} pts.`;
 
 console.log(blockPosition);
 
@@ -130,7 +156,7 @@ function movingBlock() {
 
   collisionToFloor(movingBlock);
 
-  gameOver();
+  // gameOver();
 
   if (block === null || block === undefined || block === '') {
     block = newBlock();
@@ -220,7 +246,7 @@ function gameOver() {
   }
 }
 
-boardOne.addEventListener('pointerdown', (e) => {
+boardTwo.addEventListener('pointerdown', (e) => {
   console.log(e);
 });
 
