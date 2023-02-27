@@ -82,6 +82,11 @@
     transition: all 100ms;
 }
 
+.createdBlockTwo{
+    background-color: red;
+    transition: all 100ms;
+}
+
 .location{
     border : solid blue;
     position: absolute;

@@ -164,7 +164,7 @@ function drawBlocks(object) {
 //Player two draw block
 function drawBlocksTwo(object) {
   let newBlock = document.createElement('div');
-  newBlock.setAttribute('class', 'createdBlock');
+  newBlock.setAttribute('class', 'createdBlockTwo');
   newBlock.style.left = object.x_axis + 'px';
   newBlock.style.top = object.y_axis + 'px';
   newBlock.style.width = object.width + 'px';
