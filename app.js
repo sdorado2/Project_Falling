@@ -150,6 +150,7 @@ function movingBlock() {
   let blockMove = document.querySelector(".createdBlock");
   movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10;
   console.log(movingBlock);
+  block = movingBlock;
   blockMove.style.top = movingBlock.y_axis + "px";
   boardOne.append(blockMove);
   // });
@@ -157,20 +158,14 @@ function movingBlock() {
   collisionToPlayer(movingBlock);
 
   collisionToFloor(movingBlock);
-
-  //Out of Bound
-
-  // if (blocks.length == 2) {
-  //   newBlocks();
-  // }
 }
 
+//Collision detection between falling block and player
 function collisionToPlayer(movingBlock) {
-  //Collision with player's Block
   if (
     movingBlock.y_axis >= player.y_axis + player.height ||
     movingBlock.y_axis + movingBlock.height < player.y_axis ||
-    movingBlock[index].x_axis >= player.x_axis + player.width ||
+    movingBlock.x_axis >= player.x_axis + player.width ||
     movingBlock.x_axis + movingBlock.width <= player.x_axis
   ) {
     console.log("No Collision Detected To Player!");
@@ -186,6 +181,7 @@ function collisionToPlayer(movingBlock) {
   }
 }
 
+//Collision detection between falling block and floor
 function collisionToFloor(movingBlock) {
   if (movingBlock.y_axis <= 750) {
     console.log("No Collision Detected To Floor!");
@@ -209,10 +205,11 @@ function startGame() {
   displayBlock();
 
   startButton.addEventListener("click", (begin) => {
-    timer = setInterval(movingBlock(), 500);
+    timer = setInterval(movingBlock, 200);
   });
 }
 
+//Reset Game
 function resetGame() {
   let resetButton = document.querySelector(".reset");
 
@@ -225,11 +222,11 @@ boardOne.addEventListener("pointerdown", (e) => {
   console.log(e);
 });
 
-//Player movement
+//Player's movement
 document.onkeydown = (movePlayer) => {
   console.log(movePlayer);
 
-  if (movePlayer.key == "ArrowRight" && player.x_axis < 770) {
+  if (movePlayer.key == "ArrowRight" && player.x_axis < 760) {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + "px";
 
