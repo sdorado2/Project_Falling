@@ -174,9 +174,9 @@ function collisionToPlayer(movingBlock) {
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
     let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
-    blockDisplay.style.backgroundColor = "green";
-    blockDisplay.classList.remove("createdBlock");
-    blockDisplay.remove();
+    blockDisplay[0].style.backgroundColor = "green";
+    blockDisplay[0].classList.remove("createdBlock");
+    blockDisplay[0].remove();
     movingBlock.splice(index, 1);
   }
 }
@@ -191,10 +191,10 @@ function collisionToFloor(movingBlock) {
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
     let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
-    blockDisplay.style.backgroundColor = "brown";
-    blockDisplay.classList.remove("createdBlock");
-    blockDisplay.remove();
-    blockDisplay.splice(index, 1);
+    blockDisplay[0].style.backgroundColor = "brown";
+    blockDisplay[0].classList.remove("createdBlock");
+    blockDisplay[0].remove();
+    movingBlock.splice(index, 1);
   }
 }
 
