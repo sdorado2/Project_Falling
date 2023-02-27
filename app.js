@@ -302,16 +302,6 @@ document.onkeydown = (movePlayer) => {
     playerUno.style.left = player.x_axis + 'px';
   }
 
-  if (movePlayer.key == 'd' && playerTwo.x_axis <2030){
-    playerTwo.x_axis += 10;
-    playerDos.style.left = playerTwo.x_axis + 'px';
-  }
-
-  if (movePlayer.key == 'a' && playerTwo.x_axis >1620){
-    playerTwo.x_axis -= 10;
-    playerDos.style.left = playerTwo.x_axis + 'px';
-  }
-
   // if (movePlayer.key == "ArrowDown") {
   //   player.y_axis += 50;
   //   playerUno.style.top = player.y_axis + "px";
@@ -326,6 +316,17 @@ document.onkeydown = (movePlayer) => {
   //   }
   // }
 };
+
+document.onkeydown = (movePlayerTwo)=>{
+  if (movePlayerTwo.key == 'd' && playerTwo.x_axis <2030){
+    playerTwo.x_axis += 10;
+    playerDos.style.left = playerTwo.x_axis + 'px';
+  }
+
+  if (movePlayerTwo.key == 'a' && playerTwo.x_axis >1620){
+    playerTwo.x_axis -= 10;
+    playerDos.style.left = playerTwo.x_axis + 'px';}
+}
 
 function checkDetection(objA, ObjB) {
   let response;
