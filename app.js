@@ -157,7 +157,7 @@ function movingBlock() {
 
   collisionToFloor(movingBlock);
 
-  gameOver();
+  // gameOver();
 
   if (block === null || block === undefined || block === '') {
     block = newBlock();
@@ -194,7 +194,7 @@ function collisionToPlayer(movingBlock) {
 
 //Collision detection between falling block and floor
 function collisionToFloor(movingBlock) {
-  if (movingBlock.y_axis <= 750) {
+  if (movingBlock.y_axis <= 750 || block === '') {
     console.log('No Collision Detected To Floor!');
   } else {
     console.log('Collision to the floor');
