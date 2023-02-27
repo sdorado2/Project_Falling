@@ -50,9 +50,11 @@ let block;
 let scoreBoard = 0;
 
 let boardOne = document.querySelector('.gridBlock');
-let boardTwo = document.querySelector('.playerTwo');
+let boardTwo = document.querySelector('.gridBlockC2');
 let playerUno = document.querySelector('.grid14');
+let playerDos = document.querySelector('grid14C2');
 let scoreBoardOne = document.querySelector('.leftScore');
+let scoreBoardTwo = document.querySelector('.rightScore');
 
 //Creating block
 block = newBlock();
