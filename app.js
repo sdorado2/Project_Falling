@@ -302,7 +302,7 @@ document.onkeydown = (movePlayer) => {
     playerUno.style.left = player.x_axis + 'px';
   }
 
-  if (movePlayer.key == 'd' && playerTwo.x_axis <2210){
+  if (movePlayer.key == 'd' && playerTwo.x_axis <2030){
     playerTwo.x_axis += 10;
     playerDos.style.left = playerTwo.x_axis + 'px';
   }
