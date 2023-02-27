@@ -162,8 +162,9 @@ function movingBlock() {
   // gameOver();
 
   if (block === null || block === undefined||block === ''){
-    block = newBlock();}
-  else { console.log (`To hell with this`) }
+    block = newBlock();
+      displayBlock();
+    }
 }
 
 //Collision detection between falling block and player
@@ -183,7 +184,13 @@ function collisionToPlayer(movingBlock) {
     blockDisplay[0].style.backgroundColor = "green";
     blockDisplay[0].classList.remove("createdBlock"); //Removes class list assigned
     blockDisplay[0].remove(); //Remove element
-    movingBlock.splice(0, 1); //removes block from list
+    
+    delete movingBlock.x_axis;
+    delete movingBlock.y_axis;
+    delete movingBlock.height;
+    delete movingBlock.width;
+
+    block = '';
   }
 }
 
