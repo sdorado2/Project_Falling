@@ -222,7 +222,7 @@ function startGame() {
   displayBlock();
 
   startButton.addEventListener('click', (begin) => {
-    timer = setInterval(movingBlock, 200);
+    timer = setInterval(movingBlock, 500);
   });
 }
 
@@ -237,11 +237,14 @@ function resetGame() {
 
 function gameOver() {
   if (scoreBoard == 10) {
+    timer.re
     scoreBoard.innerHTML = `YOU WIN`;
+    clearInterval(timer);
   }
 
   if (scoreBoard == -10) {
     scoreBoard.innerHTML = `YOU LOSE`;
+    clearInterval(timer);
   }
 }
 
