@@ -109,6 +109,7 @@ scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 scoreBoardTwo.innerHTML = `${scoreBoardDos} pts.`;
 
 console.log(blockPosition);
+console.log(blockTwoPosition);
 
 //Function to create new block at random locations in the x-axis
 function blockPosition() {
@@ -123,7 +124,7 @@ function blockPosition() {
 //Function to create new block at random locations in the x-axis
 function blockTwoPosition() {
   return {
-    x_axis: Math.floor((Math.random() * 10) + 6)* 100 + 1050,
+    x_axis: Math.floor((Math.random() * 4) + 6)* 100 + 1050,
     y_axis: 300,
     width: 180,
     height: 80,
@@ -301,12 +302,12 @@ document.onkeydown = (movePlayer) => {
     playerUno.style.left = player.x_axis + 'px';
   }
 
-  if (movePlayer.key == 'd'){
+  if (movePlayer.key == 'd' && playerTwo.x_axis <2210){
     playerTwo.x_axis += 10;
     playerDos.style.left = playerTwo.x_axis + 'px';
   }
 
-  if (movePlayer.key == 'a'){
+  if (movePlayer.key == 'a' && playerTwo.x_axis >1620){
     playerTwo.x_axis -= 10;
     playerDos.style.left = playerTwo.x_axis + 'px';
   }
