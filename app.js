@@ -74,7 +74,7 @@ let scoreBoardTwo = document.querySelector('.rightScore');
 
 //Creating block
 block = newBlock();
-blockTwo = newBlock()
+blockTwo = newBlockTwo()
 
 //Properties for player one board
 boardOne.style.width = board.width + 'px';
@@ -123,7 +123,7 @@ function blockPosition() {
 //Function to create new block at random locations in the x-axis
 function blockTwoPosition() {
   return {
-    x_axis: Math.floor((Math.random() * 12) + 6)*100 + 1050,
+    x_axis: Math.floor((Math.random() * 10) + 6)* 100 + 1050,
     y_axis: 300,
     width: 180,
     height: 80,
