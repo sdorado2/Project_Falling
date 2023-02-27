@@ -158,7 +158,7 @@ function movingBlock() {
 
   collisionToFloor(movingBlock);
 
-  block = newBlock();
+  if (block == null){block = newBlock();}
 }
 
 //Collision detection between falling block and player
