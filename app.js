@@ -46,18 +46,16 @@ class makeBlock {
   }
 }
 
-// let blocks = [
-//   new makeBlock(350, 300, 180, 80),
-//   new makeBlock(550, 300, 180, 80),
-//   new makeBlock(750, 300, 180, 80),
-// ];
-
+let block;
 let scoreBoard = 0;
 
 let boardOne = document.querySelector('.gridBlock');
 let boardTwo = document.querySelector('.playerTwo');
 let playerUno = document.querySelector('.grid14');
 let scoreBoardOne = document.querySelector('.leftScore');
+
+//Creating block
+block = newBlock();
 
 //Properties for player one board
 boardOne.style.width = board.width + 'px';
@@ -78,20 +76,6 @@ playerUno.style.backgroundColor = 'black';
 //Scoreboard for player one
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 
-//Creating div, class, and properties to each block
-// blocks.forEach((createblock) => {
-//   let newBlock = document.createElement("div");
-//   newBlock.setAttribute("class", "createdBlock");
-//   newBlock.style.left = createblock.x_axis + "px";
-//   newBlock.style.top = createblock.y_axis + "px";
-//   newBlock.style.width = createblock.width + "px";
-//   newBlock.style.height = createblock.height + "px";
-//   newBlock.style.position = "absolute";
-//   boardOne.appendChild(newBlock);
-// });
-
-let block;
-block = newBlock();
 console.log(blockPosition);
 
 function blockPosition() {
@@ -127,20 +111,6 @@ function drawBlocks(object) {
 //function to display block to HTML
 function displayBlock() {
   drawBlocks(block);
-  // for (let index = 0; index < 2; index++) {
-  //   if (blocks.length == 0 || blocks.length === null) {
-  //     break;
-  //   }
-  //   if (blocks[index + 1].x_axis === 550) {
-  //     drawBlocks(blocks[index]);
-  //     drawBlocks(blocks[index +2 ]);
-  //     break;
-  //   }
-  //   if (blocks[index].x_axis === 350 && blocks[index + 1].x_axis === 550) {
-  //     drawBlocks(blocks[index + 2]);
-  //     break;
-  //   }
-  // }
 }
 
 //Moving blocks in the screen
@@ -237,13 +207,12 @@ function resetGame() {
 
 function gameOver() {
   if (scoreBoard == 10) {
-    timer.re
-    scoreBoard.innerHTML = `YOU WIN`;
+    scoreBoardOne.innerHTML = 'YOU WIN';
     clearInterval(timer);
   }
 
   if (scoreBoard == -10) {
-    scoreBoard.innerHTML = `YOU LOSE`;
+    scoreBoardOne.innerHTML = 'YOU LOSE';
     clearInterval(timer);
   }
 }
@@ -259,28 +228,11 @@ document.onkeydown = (movePlayer) => {
   if (movePlayer.key == 'ArrowRight' && player.x_axis < 760) {
     player.x_axis += 10;
     playerUno.style.left = player.x_axis + 'px';
-
-    // if (checkDetection(blocks, player)) {
-    //   console.log('No Collision');
-    // } else {
-    //   console.log('collision!!!');
-    //   let changeColor = document.querySelector('.createdBlock');
-    //   changeColor.style.backgroundColor = 'green';
-    //   blocks.append(changeColor);
-    // }
   }
 
   if (movePlayer.key == 'ArrowLeft' && player.x_axis > 350) {
     player.x_axis -= 10;
     playerUno.style.left = player.x_axis + 'px';
-
-    // if (checkDetection(blocks, player)) {
-    //   console.log('Collision');
-    // } else {
-    //   let changeColor = document.querySelector('.createdBlock');
-    //   changeColor.style.backgroundColor = 'green';
-    //   blocks.append(changeColor);
-    // }
   }
 
   // if (movePlayer.key == "ArrowDown") {
