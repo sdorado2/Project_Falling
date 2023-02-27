@@ -144,19 +144,21 @@ function displayBlock() {
 
 //Moving blocks in the screen
 function movingBlock() {
-  let movingBlock = block;
-  let blockMove = document.querySelector(".createdBlock");
-  movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10; //Block moving speed
-  console.log(movingBlock);
-  block = movingBlock;
-  blockMove.style.top = movingBlock.y_axis + "px";
-  boardOne.append(blockMove);
+  // if (block != null) {
+    let movingBlock = block;
+    let blockMove = document.querySelector(".createdBlock");
+    movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10; //Block moving speed
+    console.log(movingBlock);
+    block = movingBlock;
+    blockMove.style.top = movingBlock.y_axis + "px";
+    boardOne.append(blockMove);
+  // }
 
   collisionToPlayer(movingBlock);
 
   collisionToFloor(movingBlock);
 
-  newBlock();
+  block = newBlock();
 }
 
 //Collision detection between falling block and player
