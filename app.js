@@ -194,7 +194,10 @@ function collisionToFloor(movingBlock) {
     blockDisplay[0].classList.remove("createdBlock");
     blockDisplay[0].remove();
     console.log(typeof movingBlock);
-    movingBlock.forEach((item) => delete movingBlock.item)
+    delete movingBlock.x_axis;
+    delete movingBlock.y_axis;
+    delete movingBlock.height;
+    delete movingBlock.width;
   }
 }
 
