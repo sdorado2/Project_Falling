@@ -54,26 +54,26 @@ class makeBlock {
 
 let scoreBoard = 0;
 
-let boardOne = document.querySelector(".gridBlock");
-let boardTwo = document.querySelector(".playerTwo");
-let playerUno = document.querySelector(".grid14");
-let scoreBoardOne = document.querySelector(".leftScore");
+let boardOne = document.querySelector('.gridBlock');
+let boardTwo = document.querySelector('.playerTwo');
+let playerUno = document.querySelector('.grid14');
+let scoreBoardOne = document.querySelector('.leftScore');
 
 //Properties for player one board
-boardOne.style.width = board.width + "px";
-boardOne.style.height = board.height + "px";
-boardOne.style.backgroundColor = "red";
+boardOne.style.width = board.width + 'px';
+boardOne.style.height = board.height + 'px';
+boardOne.style.backgroundColor = 'red';
 
 //Properties for player two board
-boardTwo.style.width = board.width + "px";
-boardTwo.style.height = board.height + "px";
+boardTwo.style.width = board.width + 'px';
+boardTwo.style.height = board.height + 'px';
 
 //Drawing player one into HTML
-playerUno.style.left = player.x_axis + "px";
-playerUno.style.top = player.y_axis + "px";
-playerUno.style.width = player.width + "px";
-playerUno.style.height = player.height + "px";
-playerUno.style.backgroundColor = "black";
+playerUno.style.left = player.x_axis + 'px';
+playerUno.style.top = player.y_axis + 'px';
+playerUno.style.width = player.width + 'px';
+playerUno.style.height = player.height + 'px';
+playerUno.style.backgroundColor = 'black';
 
 //Scoreboard for player one
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
@@ -90,7 +90,7 @@ scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 //   boardOne.appendChild(newBlock);
 // });
 
-let block; 
+let block;
 block = newBlock();
 console.log(blockPosition);
 
@@ -114,13 +114,13 @@ function newBlock() {
 
 //function for drawing blocks
 function drawBlocks(object) {
-  let newBlock = document.createElement("div");
-  newBlock.setAttribute("class", "createdBlock");
-  newBlock.style.left = object.x_axis + "px";
-  newBlock.style.top = object.y_axis + "px";
-  newBlock.style.width = object.width + "px";
-  newBlock.style.height = object.height + "px";
-  newBlock.style.position = "absolute";
+  let newBlock = document.createElement('div');
+  newBlock.setAttribute('class', 'createdBlock');
+  newBlock.style.left = object.x_axis + 'px';
+  newBlock.style.top = object.y_axis + 'px';
+  newBlock.style.width = object.width + 'px';
+  newBlock.style.height = object.height + 'px';
+  newBlock.style.position = 'absolute';
   boardOne.appendChild(newBlock);
 }
 
@@ -145,26 +145,24 @@ function displayBlock() {
 
 //Moving blocks in the screen
 function movingBlock() {
-  // if (block != null) {
-    let movingBlock = block;
-    let blockMove = document.querySelector(".createdBlock");
-    movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10; //Block moving speed
-    console.log(movingBlock);
-    block = movingBlock;
-    blockMove.style.top = movingBlock.y_axis + "px";
-    boardOne.append(blockMove);
-  // }
+  let movingBlock = block;
+  let blockMove = document.querySelector('.createdBlock');
+  movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10; //Block moving speed
+  console.log(movingBlock);
+  block = movingBlock;
+  blockMove.style.top = movingBlock.y_axis + 'px';
+  boardOne.append(blockMove);
 
   collisionToPlayer(movingBlock);
 
   collisionToFloor(movingBlock);
 
-  // gameOver();
+  gameOver();
 
-  if (block === null || block === undefined||block === ''){
+  if (block === null || block === undefined || block === '') {
     block = newBlock();
-      displayBlock();
-    }
+    displayBlock();
+  }
 }
 
 //Collision detection between falling block and player
@@ -175,16 +173,16 @@ function collisionToPlayer(movingBlock) {
     movingBlock.x_axis >= player.x_axis + player.width ||
     movingBlock.x_axis + movingBlock.width <= player.x_axis
   ) {
-    console.log("No Collision Detected To Player!");
+    console.log('No Collision Detected To Player!');
   } else {
     scoreBoard += 10;
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
-    let blockDisplay = Array.from(document.querySelectorAll(".createdBlock")); //Creates an array from div
-    blockDisplay[0].style.backgroundColor = "green";
-    blockDisplay[0].classList.remove("createdBlock"); //Removes class list assigned
+    let blockDisplay = Array.from(document.querySelectorAll('.createdBlock')); //Creates an array from div
+    blockDisplay[0].style.backgroundColor = 'green';
+    blockDisplay[0].classList.remove('createdBlock'); //Removes class list assigned
     blockDisplay[0].remove(); //Remove element
-    
+
     delete movingBlock.x_axis;
     delete movingBlock.y_axis;
     delete movingBlock.height;
@@ -197,15 +195,15 @@ function collisionToPlayer(movingBlock) {
 //Collision detection between falling block and floor
 function collisionToFloor(movingBlock) {
   if (movingBlock.y_axis <= 750) {
-    console.log("No Collision Detected To Floor!");
+    console.log('No Collision Detected To Floor!');
   } else {
-    console.log("Collision to the floor");
+    console.log('Collision to the floor');
     scoreBoard -= 10;
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
-    let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
-    blockDisplay[0].style.backgroundColor = "brown";
-    blockDisplay[0].classList.remove("createdBlock");
+    let blockDisplay = Array.from(document.querySelectorAll('.createdBlock'));
+    blockDisplay[0].style.backgroundColor = 'brown';
+    blockDisplay[0].classList.remove('createdBlock');
     blockDisplay[0].remove();
 
     delete movingBlock.x_axis;
@@ -219,21 +217,21 @@ function collisionToFloor(movingBlock) {
 
 //Start Game Button
 function startGame() {
-  let startButton = document.querySelector(".start");
+  let startButton = document.querySelector('.start');
 
   displayBlock();
 
-  startButton.addEventListener("click", (begin) => {
+  startButton.addEventListener('click', (begin) => {
     timer = setInterval(movingBlock, 200);
   });
 }
 
 //Reset Game
 function resetGame() {
-  let resetButton = document.querySelector(".reset");
+  let resetButton = document.querySelector('.reset');
 
-  resetButton.addEventListener("click", () => {
-    window.location = "/";
+  resetButton.addEventListener('click', () => {
+    window.location = '/';
   });
 }
 
@@ -247,7 +245,7 @@ function gameOver() {
   }
 }
 
-boardOne.addEventListener("pointerdown", (e) => {
+boardOne.addEventListener('pointerdown', (e) => {
   console.log(e);
 });
 
@@ -255,9 +253,9 @@ boardOne.addEventListener("pointerdown", (e) => {
 document.onkeydown = (movePlayer) => {
   console.log(movePlayer);
 
-  if (movePlayer.key == "ArrowRight" && player.x_axis < 760) {
+  if (movePlayer.key == 'ArrowRight' && player.x_axis < 760) {
     player.x_axis += 10;
-    playerUno.style.left = player.x_axis + "px";
+    playerUno.style.left = player.x_axis + 'px';
 
     // if (checkDetection(blocks, player)) {
     //   console.log('No Collision');
@@ -269,9 +267,9 @@ document.onkeydown = (movePlayer) => {
     // }
   }
 
-  if (movePlayer.key == "ArrowLeft" && player.x_axis > 350) {
+  if (movePlayer.key == 'ArrowLeft' && player.x_axis > 350) {
     player.x_axis -= 10;
-    playerUno.style.left = player.x_axis + "px";
+    playerUno.style.left = player.x_axis + 'px';
 
     // if (checkDetection(blocks, player)) {
     //   console.log('Collision');
