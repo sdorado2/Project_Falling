@@ -173,11 +173,11 @@ function collisionToPlayer(movingBlock) {
     scoreBoard += 10;
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
-    let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
+    let blockDisplay = Array.from(document.querySelectorAll(".createdBlock")); //Creates an array from divs
     blockDisplay[0].style.backgroundColor = "green";
-    blockDisplay[0].classList.remove("createdBlock");
-    blockDisplay[0].remove();
-    movingBlock.splice(index, 1);
+    blockDisplay[0].classList.remove("createdBlock");//Removes class list assigned
+    blockDisplay[0].remove();   //Remove element
+    movingBlock.splice(0, 1);//removes block from list
   }
 }
 
@@ -194,7 +194,7 @@ function collisionToFloor(movingBlock) {
     blockDisplay[0].style.backgroundColor = "brown";
     blockDisplay[0].classList.remove("createdBlock");
     blockDisplay[0].remove();
-    movingBlock.splice(index, 1);
+    movingBlock.splice(0, 1);
   }
 }
 
@@ -216,6 +216,12 @@ function resetGame() {
   resetButton.addEventListener("click", () => {
     window.location = "/";
   });
+}
+
+function gameOver(){
+  if (scoreBoard == 10){
+    scoreBoard.innerHTML = `YOU WIN`
+  }
 }
 
 boardOne.addEventListener("pointerdown", (e) => {
