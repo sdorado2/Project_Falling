@@ -78,6 +78,7 @@ scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 
 console.log(blockPosition);
 
+//Function to create new block at random locations in the x-axis
 function blockPosition() {
   return {
     x_axis: Math.floor(Math.random() * 4 + 3) * 100 + 50,
