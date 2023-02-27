@@ -144,16 +144,13 @@ function displayBlock() {
 
 //Moving blocks in the screen
 function movingBlock() {
-  //Block moving speed
-  // blocks.forEach((movingBlock) => {
   let movingBlock = block;
   let blockMove = document.querySelector(".createdBlock");
-  movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10;
+  movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10; //Block moving speed
   console.log(movingBlock);
   block = movingBlock;
   blockMove.style.top = movingBlock.y_axis + "px";
   boardOne.append(blockMove);
-  // });
 
   collisionToPlayer(movingBlock);
 
@@ -196,7 +193,8 @@ function collisionToFloor(movingBlock) {
     blockDisplay[0].style.backgroundColor = "brown";
     blockDisplay[0].classList.remove("createdBlock");
     blockDisplay[0].remove();
-    movingBlock.splice(0, 1);
+    console.log(typeof movingBlock);
+    movingBlock.forEach((item) => delete movingBlock.item)
   }
 }
 
