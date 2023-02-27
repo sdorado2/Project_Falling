@@ -59,6 +59,7 @@ class makeBlock {
 }
 
 let block;
+let blockTwo;
 let scoreBoard = 0;
 let scoreBoardDos = 0;
 
@@ -73,6 +74,7 @@ let scoreBoardTwo = document.querySelector('.rightScore');
 
 //Creating block
 block = newBlock();
+blockTwo = newBlock()
 
 //Properties for player one board
 boardOne.style.width = board.width + 'px';
@@ -118,6 +120,16 @@ function blockPosition() {
   };
 }
 
+//Function to create new block at random locations in the x-axis
+function blockTwoPosition() {
+  return {
+    x_axis: Math.floor((Math.random() * 12) + 6)*100 + 1050,
+    y_axis: 300,
+    width: 180,
+    height: 80,
+  };
+}
+
 //Generate New Blocks
 function newBlock() {
   let createBlock;
@@ -126,6 +138,16 @@ function newBlock() {
   }
   return createBlock;
 }
+
+//Generate New Blocks
+function newBlockTwo() {
+  let createBlock;
+  while (createBlock == null) {
+    createBlock = blockTwoPosition();
+  }
+  return createBlock;
+}
+
 
 //function for drawing blocks
 function drawBlocks(object) {
@@ -139,9 +161,22 @@ function drawBlocks(object) {
   boardOne.appendChild(newBlock);
 }
 
+//Player two draw block
+function drawBlocksTwo(object) {
+  let newBlock = document.createElement('div');
+  newBlock.setAttribute('class', 'createdBlock');
+  newBlock.style.left = object.x_axis + 'px';
+  newBlock.style.top = object.y_axis + 'px';
+  newBlock.style.width = object.width + 'px';
+  newBlock.style.height = object.height + 'px';
+  newBlock.style.position = 'absolute';
+  boardTwo.appendChild(newBlock);
+}
+
 //function to display block to HTML
 function displayBlock() {
   drawBlocks(block);
+  drawBlocksTwo(blockTwo);
 }
 
 //Moving blocks in the screen
