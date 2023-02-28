@@ -194,33 +194,10 @@ function movingBlock() {
 
   collisionToFloor(movingBlock);
 
-  // gameOver();
+  gameOver();
 
   if (block === null || block === undefined || block === "") {
     block = newBlock();
-    displayBlock();
-  }
-}
-
-//Moving block in the player two screen
-function movingBlockTwo() {
-  let movingBlock = blockTwo;
-  let blockMove = document.querySelector(".createdBlock");
-
-  movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10; //Block moving speed
-  console.log(movingBlock);
-  blockTwo = movingBlock;
-  blockMove.style.top = movingBlock.y_axis + "px"; //assign block at new location
-  boardOne.append(blockMove); // draws the block at new location
-
-  collisionToPlayerTwo(movingBlock);
-
-  collisionToFloorTwo(movingBlock);
-
-  // gameOver();
-
-  if (blockTwo === null || blockTwo === undefined || blockTwo === "") {
-    blockTwo = newBlockTwo();
     displayBlock();
   }
 }
@@ -252,33 +229,6 @@ function collisionToPlayer(movingBlock) {
   }
 }
 
-//Collision detection between falling block and player Two
-function collisionToPlayerTwo(movingBlock) {
-  if (
-    movingBlock.y_axis >= player.y_axis + player.height ||
-    movingBlock.y_axis + movingBlock.height < player.y_axis ||
-    movingBlock.x_axis >= player.x_axis + player.width ||
-    movingBlock.x_axis + movingBlock.width <= player.x_axis
-  ) {
-    console.log("No Collision Detected To Player!");
-  } else {
-    scoreBoardDos += 10;
-    scoreBoardTwo.innerHTML = `${scoreBoardDos} pts`;
-
-    let blockDisplay = Array.from(document.querySelectorAll(".createdBlock")); //Creates an array from div
-    blockDisplay[0].style.backgroundColor = "green";
-    blockDisplay[0].classList.remove("createdBlock"); //Removes class list assigned
-    blockDisplay[0].remove(); //Remove element
-
-    delete movingBlock.x_axis;
-    delete movingBlock.y_axis;
-    delete movingBlock.height;
-    delete movingBlock.width;
-
-    blockTwo = "";
-  }
-}
-
 //Collision detection between falling block and floor for Player One
 function collisionToFloor(movingBlock) {
   if (movingBlock.y_axis <= 750 || block === "") {
@@ -302,6 +252,58 @@ function collisionToFloor(movingBlock) {
   }
 }
 
+//Moving block in the player two screen
+function movingBlockTwo() {
+  let movingBlock = blockTwo;
+  let blockMove = document.querySelector(".createdBlockTwo");
+
+  movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10; //Block moving speed
+  console.log(movingBlock);
+  blockTwo = movingBlock;
+  blockMove.style.top = movingBlock.y_axis + "px"; //assign block at new location
+  boardOne.append(blockMove); // draws the block at new location
+
+  collisionToPlayerTwo(movingBlock);
+
+  collisionToFloorTwo(movingBlock);
+
+  gameOver();
+
+  if (blockTwo === null || blockTwo === undefined || blockTwo === "") {
+    blockTwo = newBlockTwo();
+    displayBlock();
+  }
+}
+
+//Collision detection between falling block and player Two
+function collisionToPlayerTwo(movingBlock) {
+  if (
+    movingBlock.y_axis >= player.y_axis + player.height ||
+    movingBlock.y_axis + movingBlock.height < player.y_axis ||
+    movingBlock.x_axis >= player.x_axis + player.width ||
+    movingBlock.x_axis + movingBlock.width <= player.x_axis
+  ) {
+    console.log("No Collision Detected To Player!");
+  } else {
+    scoreBoardDos += 10;
+    scoreBoardTwo.innerHTML = `${scoreBoardDos} pts`;
+
+    let blockDisplay = Array.from(
+      document.querySelectorAll(".createdBlockTwo")
+    ); //Creates an array from div
+    blockDisplay[0].style.backgroundColor = "green";
+    blockDisplay[0].classList.remove("createdBlockTwo"); //Removes class list assigned
+    blockDisplay[0].remove(); //Remove element
+
+    delete movingBlock.x_axis;
+    delete movingBlock.y_axis;
+    delete movingBlock.height;
+    delete movingBlock.width;
+
+    blockTwo = "";
+  }
+}
+
 //Collision detection between falling block and floor for Player Two
 function collisionToFloorTwo(movingBlock) {
   if (movingBlock.y_axis <= 750 || block === "") {
@@ -311,9 +313,11 @@ function collisionToFloorTwo(movingBlock) {
     scoreBoardDos -= 10;
     scoreBoardTwo.innerHTML = `${scoreBoardDos} pts`;
 
-    let blockDisplay = Array.from(document.querySelectorAll(".createdBlock"));
+    let blockDisplay = Array.from(
+      document.querySelectorAll(".createdBlockTwo")
+    );
     blockDisplay[0].style.backgroundColor = "brown";
-    blockDisplay[0].classList.remove("createdBlock");
+    blockDisplay[0].classList.remove("createdBlockTwo");
     blockDisplay[0].remove();
 
     delete movingBlock.x_axis;
@@ -333,7 +337,7 @@ function startGame() {
 
   startButton.addEventListener("click", (begin) => {
     timer = setInterval(movingBlock, 250);
-    timer2 = setInterval(movingBlockTwo, 250)
+    timer2 = setInterval(movingBlockTwo, 250);
   });
 }
 
@@ -351,14 +355,14 @@ function gameOver() {
     scoreBoardOne.innerHTML = "YOU WIN";
     scoreBoardTwo.innerHTML = "YOU LOSE";
     clearInterval(timer);
-    clearInterval(timer2)
+    clearInterval(timer2);
   }
 
   if (scoreBoardTwo == 10) {
     scoreBoardOne.innerHTML = "YOU LOSE";
     scoreBoardOne.innerHTML = "YOU WIN";
     clearInterval(timer);
-    clearInterval(timer2)
+    clearInterval(timer2);
   }
 }
 
