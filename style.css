@@ -9,6 +9,21 @@
     font-size: 48px;
     font-family: Impact,'Arial Narrow Bold', sans-serif;
 }
+.players{
+    /* border : solid black; */
+    margin-top: 2em;
+    height: 10dvh;
+    display:  flex;
+    justify-content: space-evenly;
+}
+.player1, .player2{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-family: Arial;
+}
 
 .score {
     /* border : solid blue; */
@@ -50,20 +65,20 @@
 }
 
 .playerOne{
-    border : solid green;
+    /* border : solid green; */
     width: 50%;
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
 }
 .playerTwo{
-    border : solid purple;
+    /* border : solid purple; */
     width: 50%;
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
-    background-color: lightskyblue;
+    /* background-color: lightskyblue; */
 }
 
 .grid {

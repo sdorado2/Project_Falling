@@ -220,6 +220,7 @@ function collisionToPlayer(movingBlock) {
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
     let blockDisplay = Array.from(document.querySelectorAll(".createdBlock")); //Creates an array from div
+    console.log (blockDisplay);
     blockDisplay[0].style.backgroundColor = "green";
     blockDisplay[0].classList.remove("createdBlock"); //Removes class list assigned
     blockDisplay[0].remove(); //Remove element
@@ -265,7 +266,7 @@ function movingBlockTwo() {
   console.log(movingBlock);
   blockTwo = movingBlock;
   blockMove.style.top = movingBlock.y_axis + "px"; //assign block at new location
-  boardOne.append(blockMove); // draws the block at new location
+  boardTwo.append(blockMove); // draws the block at new location
 
   collisionToPlayerTwo(movingBlock);
 
@@ -292,9 +293,7 @@ function collisionToPlayerTwo(movingBlock) {
     scoreBoardDos += 10;
     scoreBoardTwo.innerHTML = `${scoreBoardDos} pts`;
 
-    let blockDisplay = Array.from(
-      document.querySelectorAll(".createdBlockTwo")
-    ); //Creates an array from div
+    let blockDisplay = Array.from(document.querySelectorAll(".createdBlockTwo")); //Creates an array from div
     blockDisplay[0].style.backgroundColor = "green";
     blockDisplay[0].classList.remove("createdBlockTwo"); //Removes class list assigned
     blockDisplay[0].remove(); //Remove element
@@ -310,7 +309,7 @@ function collisionToPlayerTwo(movingBlock) {
 
 //Collision detection between falling block and floor for Player Two
 function collisionToFloorTwo(movingBlock) {
-  if (movingBlock.y_axis <= 750 || block === "") {
+  if (movingBlock.y_axis <= 750 || blockTwo === "") {
     console.log("No Collision Detected To Floor!");
   } else {
     console.log("Collision to the floor");
@@ -356,24 +355,24 @@ function resetGame() {
 }
 
 function gameOver() {
-  if (scoreBoard == 10) {
+  if (scoreBoard == 30) {
     scoreBoardOne.innerHTML = "YOU WIN";
     scoreBoardTwo.innerHTML = "YOU LOSE";
     clearInterval(timer);
     clearInterval(timer2);
   }
 
-  if (scoreBoardTwo == 10) {
+  if (scoreBoardDos == 30) {
     scoreBoardOne.innerHTML = "YOU LOSE";
-    scoreBoardOne.innerHTML = "YOU WIN";
+    scoreBoardTwo.innerHTML = "YOU WIN";
     clearInterval(timer);
     clearInterval(timer2);
   }
 }
 
-boardTwo.addEventListener("pointerdown", (e) => {
-  console.log(e);
-});
+// boardTwo.addEventListener("pointerdown", (e) => {
+//   console.log(e);
+// });
 
 //Player's movement
 let keyPress = [];
