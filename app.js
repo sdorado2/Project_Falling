@@ -351,11 +351,14 @@ function gameOver() {
     scoreBoardOne.innerHTML = "YOU WIN";
     scoreBoardTwo.innerHTML = "YOU LOSE";
     clearInterval(timer);
+    clearInterval(timer2)
   }
 
-  if (scoreBoard == -10) {
+  if (scoreBoardTwo == 10) {
     scoreBoardOne.innerHTML = "YOU LOSE";
+    scoreBoardOne.innerHTML = "YOU WIN";
     clearInterval(timer);
+    clearInterval(timer2)
   }
 }
 
