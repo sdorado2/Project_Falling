@@ -275,17 +275,17 @@ function movingBlockTwo() {
 
   if (blockTwo === null || blockTwo === undefined || blockTwo === "") {
     blockTwo = newBlockTwo();
-    displayBlock();
+    displayBlockTwo();
   }
 }
 
 //Collision detection between falling block and player Two
 function collisionToPlayerTwo(movingBlock) {
   if (
-    movingBlock.y_axis >= player.y_axis + player.height ||
-    movingBlock.y_axis + movingBlock.height < player.y_axis ||
-    movingBlock.x_axis >= player.x_axis + player.width ||
-    movingBlock.x_axis + movingBlock.width <= player.x_axis
+    movingBlock.y_axis >= playerTwo.y_axis + playerTwo.height ||
+    movingBlock.y_axis + movingBlock.height < playerTwo.y_axis ||
+    movingBlock.x_axis >= playerTwo.x_axis + playerTwo.width ||
+    movingBlock.x_axis + movingBlock.width <= playerTwo.x_axis
   ) {
     console.log("No Collision Detected To Player!");
   } else {
@@ -338,6 +338,7 @@ function startGame() {
   let startButton = document.querySelector(".start");
 
   displayBlock();
+  displayBlockTwo();
 
   startButton.addEventListener("click", (begin) => {
     timer = setInterval(movingBlock, 250);
