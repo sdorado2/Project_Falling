@@ -16,7 +16,7 @@ I wanted to challenge myself and was looking to create a game. The idea was to r
 A couple of games inspired the game. The first was a minigame in Pokemon Stadium 2 called "egg emergency." The other game was "Egg" from the Game and Watch Gallery 3.
 
 ## Screenshot
-![screenshot of game](https://tinypic.host/images/2023/02/28/fallBlock.th.png)
+![screenshot of game](https://tinypic.host/images/2023/02/28/fallBlock.md.png)
 
 ## Tech Used
 Built with : 
