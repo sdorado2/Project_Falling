@@ -176,6 +176,10 @@ function drawBlocksTwo(object) {
 //function to display block to HTML
 function displayBlock() {
   drawBlocks(block);
+}
+
+//function to display blocks in player Two screen
+function displayBlockTwo(){
   drawBlocksTwo(blockTwo);
 }
 
