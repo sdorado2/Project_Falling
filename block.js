@@ -68,6 +68,12 @@ function displayPlayerTwoBlock() {
   drawPlayerTwoBlock(block);
 }
 
+function blockSpeed(block) {
+  let movingBlock = block;
+  movingBlock.y_axis = Math.floor(Math.random() * 5 + 1) * 10;
+  block = movingBlock;
+}
+
 export {
   playerOneBlock,
   playerTwoBlock,

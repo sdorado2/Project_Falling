@@ -61,46 +61,46 @@ import {
   displayPlayerTwoBlock,
 } from "./block";
 
-class makeBlock {
-  constructor(x_axis, y_axis, width, height) {
-    this.x_axis = x_axis;
-    this.y_axis = y_axis;
-    this.width = width;
-    this.height = height;
-  }
-}
+// class makeBlock {
+//   constructor(x_axis, y_axis, width, height) {
+//     this.x_axis = x_axis;
+//     this.y_axis = y_axis;
+//     this.width = width;
+//     this.height = height;
+//   }
+// }
 
 let block;
 let blockTwo;
 let scoreBoard = 0;
 let scoreBoardDos = 0;
 
-let boardOne = document.querySelector(".gridBlock");
-let boardTwo = document.querySelector(".gridBlockC2");
+// let boardOne = document.querySelector(".gridBlock");
+// let boardTwo = document.querySelector(".gridBlockC2");
 
-let playerUno = document.querySelector(".grid14");
-let playerDos = document.querySelector(".grid14C2");
+// let playerUno = document.querySelector(".grid14");
+// let playerDos = document.querySelector(".grid14C2");
 
 let scoreBoardOne = document.querySelector(".leftScore");
 let scoreBoardTwo = document.querySelector(".rightScore");
 
 //Creating block
-block = newBlock();
-blockTwo = newBlockTwo();
+block = createPlayerOneBlock();
+blockTwo = createPlayerTwoBlock();
 
-//Properties for player one board
-boardOne.style.width = board.width + "px";
-boardOne.style.height = board.height + "px";
-boardOne.style.backgroundColor = "red";
+// //Properties for player one board
+// boardOne.style.width = board.width + "px";
+// boardOne.style.height = board.height + "px";
+// boardOne.style.backgroundColor = "red";
 
-//Properties for player two board
-boardTwo.style.width = boardDos.width + "px";
-boardTwo.style.height = boardDos.height + "px";
-boardTwo.style.backgroundColor = "blue";
+// //Properties for player two board
+// boardTwo.style.width = boardDos.width + "px";
+// boardTwo.style.height = boardDos.height + "px";
+// boardTwo.style.backgroundColor = "blue";
 
-//Properties for player two board
-boardTwo.style.width = board.width + "px";
-boardTwo.style.height = board.height + "px";
+// //Properties for player two board
+// boardTwo.style.width = board.width + "px";
+// boardTwo.style.height = board.height + "px";
 
 // //Drawing player one into HTML
 // playerUno.style.left = player.x_axis + "px";
