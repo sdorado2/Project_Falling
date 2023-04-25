@@ -1,5 +1,5 @@
-import { playerOne, playerTwo } from "./player.js";
-import { boardOne, boardTwo } from "./board.js";
+import { playerOne, playerTwo } from "/player.js";
+import { boardOne, boardTwo } from "/board.js";
 import {
   playerOneBlock,
   playerTwoBlock,
@@ -9,9 +9,9 @@ import {
   drawPlayerTwoBlock,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,
-} from "./block.js";
+} from "/block.js";
 
-let block;
+// let block;
 let blockTwo;
 let scoreBoard = 0;
 let scoreBoardDos = 0;
@@ -20,15 +20,12 @@ let scoreBoardOne = document.querySelector(".leftScore");
 let scoreBoardTwo = document.querySelector(".rightScore");
 
 //Creating block
-block = createPlayerOneBlock();
+// block = createPlayerOneBlock();
 blockTwo = createPlayerTwoBlock();
 
 //Scoreboard for player one and two
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 scoreBoardTwo.innerHTML = `${scoreBoardDos} pts.`;
-
-console.log(blockPosition);
-console.log(blockTwoPosition);
 
 //Moving blocks in the player one screen
 function movingBlock() {

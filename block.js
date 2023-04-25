@@ -1,5 +1,4 @@
-import { boardOne, boardTwo } from "./board";
-
+import { boardOne, boardTwo } from "/board.js";
 class makeBlock {
   constructor(x_axis) {
     this.x_axis = x_axis;
@@ -9,8 +8,10 @@ class makeBlock {
   }
 }
 
+let block = createPlayerOneBlock();
+
 function playerOneBlock() {
-  return { x_axis: Math.floor(Math.random() * 4 + 3) * 100 + 50 };
+  return new makeBlock(Math.floor(Math.random() * 4 + 3) * 100 + 50);
 }
 
 function playerTwoBlock() {
@@ -33,28 +34,28 @@ function createPlayerTwoBlock() {
   return newBlock;
 }
 
-function drawPlayerOneBlock(block) {
+function drawPlayerOneBlock(object) {
   const playerOneBlock = document.createElement("div");
   playerOneBlock.setAttribute("class", "createdBlock");
   const styleBlock = `
-        left : ${block.x_axis} px;
-        top : ${block.y_axis} px;
-        width : ${block.width} px;
-        height : ${block.height} px;
+        left : ${object.x_axis} px;
+        top : ${object.y_axis} px;
+        width : ${object.width} px;
+        height : ${object.height} px;
         position : absolute;
     `;
   playerOneBlock.style.cssText = styleBlock;
   boardOne.appendChild(playerOneBlock);
 }
 
-function drawPlayerTwoBlock(block) {
+function drawPlayerTwoBlock(object) {
   const playerTwoBlock = document.createElement("div");
   playerTwoBlock.setAttribute("class", "createBlockTwo");
   const styleBlock = `
-        left : ${block.x_axis} px;
-        top : ${block.y_axis} px;
-        width : ${block.width} px;
-        height : ${block.height} px;
+        left : ${object.x_axis} px;
+        top : ${object.y_axis} px;
+        width : ${object.width} px;
+        height : ${object.height} px;
         position : absolute;
     `;
   playerTwoBlock.style.cssText = styleBlock;
@@ -68,8 +69,8 @@ function displayPlayerTwoBlock() {
   drawPlayerTwoBlock(block);
 }
 
-function blockSpeed(block) {
-  let movingBlock = block;
+function blockSpeed(object) {
+  let movingBlock = object;
   movingBlock.y_axis = Math.floor(Math.random() * 5 + 1) * 10;
   return (block = movingBlock);
 }

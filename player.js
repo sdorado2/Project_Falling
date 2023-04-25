@@ -7,7 +7,7 @@ class createPlayer {
   }
 }
 
-const playerOne = createPlayer(560, 670, 180, 80);
+const playerOne = new createPlayer(560, 670, 180, 80);
 const displayPlayerOne = document.querySelector(".grid14");
 const stylePlayerOne = `
     left : ${playerOne.x_axis}px; 
@@ -18,14 +18,14 @@ const stylePlayerOne = `
 `;
 displayPlayerOne.style.cssText = stylePlayerOne;
 
-const playerTwo = createPlayer(1850, 670, 180, 80);
+const playerTwo = new createPlayer(1850, 670, 180, 80);
 const displayPlayerTwo = document.querySelector(".grid14C2");
 const stylePlayerTwo = `
     left : ${playerTwo.x_axis}px; 
     top : ${playerTwo.y_axis}px; 
     width : ${playerTwo.width}px;
     height : ${playerTwo.height} px;
-    background : white;
+    background : yellow;
 `;
 displayPlayerTwo.style.cssText = stylePlayerTwo;
 

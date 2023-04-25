@@ -8,7 +8,7 @@ class createBoard {
 const boardOne = new createBoard(610, 525);
 const displayBoardOne = document.querySelector(".gridBlock");
 const styleBoardOne = `
-    width : ${boardOne.width}px;
+    width : ${boardOne.width} px;
     height : ${boardOne.height} px;
     background-color : red; 
 `;

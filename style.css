@@ -1,11 +1,11 @@
 .logo {
   border: solid black;
   width: 20dvw;
-  height: 10dvh;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-flow: row wrap;
   font-size: 48px;
   font-family: Impact, "Arial Narrow Bold", sans-serif;
 }
@@ -113,7 +113,6 @@
 
 .startBtn,
 .resetBtn {
-  border: solid red;
   height: 5dvh;
   display: flex;
   justify-content: center;
@@ -122,7 +121,6 @@
 
 .start,
 .reset {
-  border: solid blue;
   border-radius: 8px;
   width: 3rem;
 }
