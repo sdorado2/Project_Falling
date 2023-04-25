@@ -1,53 +1,3 @@
-// draw player's avatar into last grid
-// dot of player : center
-
-// Scoreboard
-// Round : Collect 10 objects
-// Round : Collect 15 objects *Increase speed
-// Round : Collect 20 objects *increase speed x2
-
-// Game State
-// Win State
-// Lose State
-// Reset Button
-
-// Rounds
-// Increase Speed per round
-
-// player's movement (Player located in Grid 14)
-// player move to left of grid
-// player move to right of grid
-
-// object falling from the top to the bottom of the screen.
-// object falling from top left
-// object falling from top center
-// object falling from top right
-
-// Detect if object hit player or floor AKA Collision Detection
-
-// let board = {
-//   width: 610,
-//   height: 525,
-// };
-
-// let boardDos = {
-//   width: 610,
-//   height: 525,
-// };
-
-// let player = {
-//   x_axis: 560,
-//   y_axis: 670,
-//   width: 180,
-//   height: 80,
-// };
-
-// let playerTwo = {
-//   x_axis: 1850,
-//   y_axis: 670,
-//   width: 180,
-//   height: 80,
-// };
 import { playerOne, playerTwo } from "./player";
 import { boardOne, boardTwo } from "./board";
 import {
@@ -61,25 +11,10 @@ import {
   displayPlayerTwoBlock,
 } from "./block";
 
-// class makeBlock {
-//   constructor(x_axis, y_axis, width, height) {
-//     this.x_axis = x_axis;
-//     this.y_axis = y_axis;
-//     this.width = width;
-//     this.height = height;
-//   }
-// }
-
 let block;
 let blockTwo;
 let scoreBoard = 0;
 let scoreBoardDos = 0;
-
-// let boardOne = document.querySelector(".gridBlock");
-// let boardTwo = document.querySelector(".gridBlockC2");
-
-// let playerUno = document.querySelector(".grid14");
-// let playerDos = document.querySelector(".grid14C2");
 
 let scoreBoardOne = document.querySelector(".leftScore");
 let scoreBoardTwo = document.querySelector(".rightScore");
@@ -88,112 +23,12 @@ let scoreBoardTwo = document.querySelector(".rightScore");
 block = createPlayerOneBlock();
 blockTwo = createPlayerTwoBlock();
 
-// //Properties for player one board
-// boardOne.style.width = board.width + "px";
-// boardOne.style.height = board.height + "px";
-// boardOne.style.backgroundColor = "red";
-
-// //Properties for player two board
-// boardTwo.style.width = boardDos.width + "px";
-// boardTwo.style.height = boardDos.height + "px";
-// boardTwo.style.backgroundColor = "blue";
-
-// //Properties for player two board
-// boardTwo.style.width = board.width + "px";
-// boardTwo.style.height = board.height + "px";
-
-// //Drawing player one into HTML
-// playerUno.style.left = player.x_axis + "px";
-// playerUno.style.top = player.y_axis + "px";
-// playerUno.style.width = player.width + "px";
-// playerUno.style.height = player.height + "px";
-// playerUno.style.backgroundColor = "black";
-
-// //Drawing player two into HTML
-// playerDos.style.left = playerTwo.x_axis + "px";
-// playerDos.style.top = playerTwo.y_axis + "px";
-// playerDos.style.width = playerTwo.width + "px";
-// playerDos.style.height = playerTwo.height + "px";
-// playerDos.style.backgroundColor = "white";
-
 //Scoreboard for player one and two
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
 scoreBoardTwo.innerHTML = `${scoreBoardDos} pts.`;
 
 console.log(blockPosition);
 console.log(blockTwoPosition);
-
-//Function to create new block at random locations in the x-axis
-// function blockPosition() {
-//   return {
-//     x_axis: Math.floor(Math.random() * 4 + 3) * 100 + 50,
-//     y_axis: 300,
-//     width: 180,
-//     height: 80,
-//   };
-// }
-
-// //Function to create new block at random locations in the x-axis
-// function blockTwoPosition() {
-//   return {
-//     x_axis: Math.floor(Math.random() * 4 + 6) * 100 + 1050,
-//     y_axis: 300,
-//     width: 180,
-//     height: 80,
-//   };
-// }
-
-// //Generate New Blocks
-// function newBlock() {
-//   let createBlock;
-//   while (createBlock == null) {
-//     createBlock = blockPosition();
-//   }
-//   return createBlock;
-// }
-
-// //Generate New Blocks
-// function newBlockTwo() {
-//   let createBlock;
-//   while (createBlock == null) {
-//     createBlock = blockTwoPosition();
-//   }
-//   return createBlock;
-// }
-
-//function for drawing blocks
-// function drawBlocks(object) {
-//   let newBlock = document.createElement("div");
-//   newBlock.setAttribute("class", "createdBlock");
-//   newBlock.style.left = object.x_axis + "px";
-//   newBlock.style.top = object.y_axis + "px";
-//   newBlock.style.width = object.width + "px";
-//   newBlock.style.height = object.height + "px";
-//   newBlock.style.position = "absolute";
-//   boardOne.appendChild(newBlock);
-// }
-
-// //Player two draw block
-// function drawBlocksTwo(object) {
-//   let newBlock = document.createElement("div");
-//   newBlock.setAttribute("class", "createdBlockTwo");
-//   newBlock.style.left = object.x_axis + "px";
-//   newBlock.style.top = object.y_axis + "px";
-//   newBlock.style.width = object.width + "px";
-//   newBlock.style.height = object.height + "px";
-//   newBlock.style.position = "absolute";
-//   boardTwo.appendChild(newBlock);
-// }
-
-// //function to display block to HTML
-// function displayBlock() {
-//   drawBlocks(block);
-// }
-
-// //function to display blocks in player Two screen
-// function displayBlockTwo() {
-//   drawBlocksTwo(blockTwo);
-// }
 
 //Moving blocks in the player one screen
 function movingBlock() {

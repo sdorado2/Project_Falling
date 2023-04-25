@@ -1,125 +1,129 @@
-.logo{
-    border : solid black;
-    width: 20dvw;
-    height : 10vh;
-    margin : auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 48px;
-    font-family: Impact,'Arial Narrow Bold', sans-serif;
+.logo {
+  border: solid black;
+  width: 20dvw;
+  height: 10dvh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-family: Impact, "Arial Narrow Bold", sans-serif;
 }
-.players{
-    /* border : solid black; */
-    margin-top: 2em;
-    height: 10dvh;
-    display:  flex;
-    justify-content: space-evenly;
+.players {
+  /* border : solid black; */
+  margin-top: 2rem;
+  height: 10dvh;
+  display: flex;
+  justify-content: space-evenly;
 }
-.player1, .player2{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    font-family: Arial;
+.player1,
+.player2 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-family: Arial;
 }
 
 .score {
-    /* border : solid blue; */
-    height : 10vh;
-    display: flex;
-    justify-content: space-evenly;
+  /* border : solid blue; */
+  height: 10dvh;
+  display: flex;
+  justify-content: space-evenly;
 }
-.leftScore{
-    /* border: solid lime; */
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 48px;
-    font-weight: 400;
-    font-family: Impact;
+.leftScore {
+  /* border: solid lime; */
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: 400;
+  font-family: Impact;
 }
-.rightScore{
-    /* border : solid gold; */
-    width: 50%;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 48px;
-    font-weight: 400;
-    font-family: Impact;
-}
-
-
-.mainScreen{
-    /* border : solid red; */
-    height : 40vh;
-    display: flex;
+.rightScore {
+  /* border : solid gold; */
+  width: 50%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: 400;
+  font-family: Impact;
 }
 
-.playerMove{
-    background-color: blueviolet;
+.mainScreen {
+  /* border : solid red; */
+  height: 40dvh;
+  display: flex;
 }
 
-.playerOne{
-    /* border : solid green; */
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row wrap;
-    /* background-color: lightcoral; */
+.playerMove {
+  background-color: blueviolet;
 }
-.playerTwo{
-    /* border : solid purple; */
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row wrap;
-    /* background-color: lightskyblue; */
+
+.playerOne {
+  /* border : solid green; */
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  /* background-color: lightcoral; */
+}
+.playerTwo {
+  /* border : solid purple; */
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  /* background-color: lightskyblue; */
 }
 
 .grid {
-    border : solid brown;
-    width : 30%;
+  border: solid brown;
+  width: 30%;
 }
-.gridBlock, .gridBlockC2{
-    border: thick;
+.gridBlock,
+.gridBlockC2 {
+  border: thick;
 }
-.grid14, .grid14C2 { 
-    position: absolute;
-    transition: all 100ms;
-}
-
-.createdBlock{
-    background-color: blue;
-    transition: all 100ms;
+.grid14,
+.grid14C2 {
+  position: absolute;
+  transition: all 100ms;
 }
 
-.createdBlockTwo{
-    background-color: red;
-    transition: all 100ms;
+.createdBlock {
+  background-color: blue;
+  transition: all 100ms;
 }
 
-.location{
-    border : solid blue;
-    position: absolute;
-    transform: translate(-50%, -50%);
+.createdBlockTwo {
+  background-color: red;
+  transition: all 100ms;
 }
 
-.startBtn, .resetBtn{
-    width : 300px;
-    height: 5vh;
-    margin-left : 70em;
-    margin-top : 2em;
-    display : flex;
-    justify-content: center;
+.location {
+  border: solid blue;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
-.start, .reset {
-    width : 30%;
-    height : 50%;
-    margin-top : 1em;
+.startBtn,
+.resetBtn {
+  width: 300px;
+  height: 5dvh;
+  margin-left: 70rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.start,
+.reset {
+  width: 30%;
+  height: 50%;
+  margin-top: 1rem;
 }
