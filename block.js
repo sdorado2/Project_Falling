@@ -11,7 +11,7 @@ function playerOneBlock() {
   return { x_axis: Math.floor(Math.random() * 4 + 3) * 100 + 50 };
 }
 
-function playerOneBlock() {
+function playerTwoBlock() {
   return { x_axis: Math.floor(Math.random() * 4 + 6) * 100 + 1050 };
 }
 
