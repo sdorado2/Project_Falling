@@ -50,6 +50,17 @@
 // };
 import { playerOne, playerTwo } from "./player";
 import { boardOne, boardTwo } from "./board";
+import {
+  playerOneBlock,
+  playerTwoBlock,
+  createPlayerOneBlock,
+  createPlayerTwoBlock,
+  drawPlayerOneBlock,
+  drawPlayerTwoBlock,
+  displayPlayerOneBlock,
+  displayPlayerTwoBlock,
+} from "./block";
+
 class makeBlock {
   constructor(x_axis, y_axis, width, height) {
     this.x_axis = x_axis;
@@ -151,38 +162,38 @@ console.log(blockTwoPosition);
 // }
 
 //function for drawing blocks
-function drawBlocks(object) {
-  let newBlock = document.createElement("div");
-  newBlock.setAttribute("class", "createdBlock");
-  newBlock.style.left = object.x_axis + "px";
-  newBlock.style.top = object.y_axis + "px";
-  newBlock.style.width = object.width + "px";
-  newBlock.style.height = object.height + "px";
-  newBlock.style.position = "absolute";
-  boardOne.appendChild(newBlock);
-}
+// function drawBlocks(object) {
+//   let newBlock = document.createElement("div");
+//   newBlock.setAttribute("class", "createdBlock");
+//   newBlock.style.left = object.x_axis + "px";
+//   newBlock.style.top = object.y_axis + "px";
+//   newBlock.style.width = object.width + "px";
+//   newBlock.style.height = object.height + "px";
+//   newBlock.style.position = "absolute";
+//   boardOne.appendChild(newBlock);
+// }
 
-//Player two draw block
-function drawBlocksTwo(object) {
-  let newBlock = document.createElement("div");
-  newBlock.setAttribute("class", "createdBlockTwo");
-  newBlock.style.left = object.x_axis + "px";
-  newBlock.style.top = object.y_axis + "px";
-  newBlock.style.width = object.width + "px";
-  newBlock.style.height = object.height + "px";
-  newBlock.style.position = "absolute";
-  boardTwo.appendChild(newBlock);
-}
+// //Player two draw block
+// function drawBlocksTwo(object) {
+//   let newBlock = document.createElement("div");
+//   newBlock.setAttribute("class", "createdBlockTwo");
+//   newBlock.style.left = object.x_axis + "px";
+//   newBlock.style.top = object.y_axis + "px";
+//   newBlock.style.width = object.width + "px";
+//   newBlock.style.height = object.height + "px";
+//   newBlock.style.position = "absolute";
+//   boardTwo.appendChild(newBlock);
+// }
 
-//function to display block to HTML
-function displayBlock() {
-  drawBlocks(block);
-}
+// //function to display block to HTML
+// function displayBlock() {
+//   drawBlocks(block);
+// }
 
-//function to display blocks in player Two screen
-function displayBlockTwo() {
-  drawBlocksTwo(blockTwo);
-}
+// //function to display blocks in player Two screen
+// function displayBlockTwo() {
+//   drawBlocksTwo(blockTwo);
+// }
 
 //Moving blocks in the player one screen
 function movingBlock() {
@@ -339,8 +350,8 @@ function collisionToFloorTwo(movingBlock) {
 function startGame() {
   let startButton = document.querySelector(".start");
 
-  displayBlock();
-  displayBlockTwo();
+  displayPlayerOneBlock();
+  displayPlayerTwoBlock();
 
   startButton.addEventListener("click", (begin) => {
     timer = setInterval(movingBlock, 250);

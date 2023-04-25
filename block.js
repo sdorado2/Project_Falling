@@ -60,3 +60,21 @@ function drawPlayerTwoBlock(block) {
   playerTwoBlock.style.cssText = styleBlock;
   boardTwo.appendChild(playerTwoBlock);
 }
+
+function displayPlayerOneBlock() {
+  drawPlayerOneBlock(block);
+}
+function displayPlayerTwoBlock() {
+  drawPlayerTwoBlock(block);
+}
+
+export {
+  playerOneBlock,
+  playerTwoBlock,
+  createPlayerOneBlock,
+  createPlayerTwoBlock,
+  drawPlayerOneBlock,
+  drawPlayerTwoBlock,
+  displayPlayerOneBlock,
+  displayPlayerTwoBlock,
+};
