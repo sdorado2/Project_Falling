@@ -9,6 +9,7 @@ class makeBlock {
 }
 
 let block = createPlayerOneBlock();
+console.log("🚀 ~ file: block.js:12 ~ block:", block);
 
 function playerOneBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 3) * 100 + 50);

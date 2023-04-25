@@ -6,7 +6,6 @@ class createBoard {
 }
 
 const boardOne = new createBoard(610, 525);
-console.log(boardOne.width);
 const displayBoardOne = document.querySelector(".gridBlock");
 const styleBoardOne = `
     width : ${boardOne.width}px;
@@ -18,8 +17,8 @@ displayBoardOne.style.cssText = styleBoardOne;
 const boardTwo = new createBoard(610, 525);
 const displayBoardTwo = document.querySelector(".gridBlockC2");
 const styleBoardTwo = `
-    width : ${boardTwo.width} px;
-    height : ${boardTwo.height} px;
+    width : ${boardTwo.width}px;
+    height : ${boardTwo.height}px;
     background-color : blue;
 `;
 displayBoardTwo.style.cssText = styleBoardTwo;
