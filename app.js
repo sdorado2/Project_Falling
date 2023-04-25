@@ -1,5 +1,5 @@
-import { playerOne, playerTwo } from "./player";
-import { boardOne, boardTwo } from "./board";
+import { playerOne, playerTwo } from "./player.js";
+import { boardOne, boardTwo } from "./board.js";
 import {
   playerOneBlock,
   playerTwoBlock,
@@ -9,7 +9,7 @@ import {
   drawPlayerTwoBlock,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,
-} from "./block";
+} from "./block.js";
 
 let block;
 let blockTwo;

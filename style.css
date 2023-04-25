@@ -113,17 +113,16 @@
 
 .startBtn,
 .resetBtn {
-  width: 300px;
+  border: solid red;
   height: 5dvh;
-  margin-left: 70rem;
-  margin-top: 2rem;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .start,
 .reset {
-  width: 30%;
-  height: 50%;
-  margin-top: 1rem;
+  border: solid blue;
+  border-radius: 8px;
+  width: 3rem;
 }
