@@ -13,7 +13,7 @@ const stylePlayerOne = `
     left : ${playerOne.x_axis}px; 
     top : ${playerOne.y_axis}px; 
     width : ${playerOne.width}px;
-    height : ${playerOne.height} px;
+    height : ${playerOne.height}px;
     background : black;
 `;
 displayPlayerOne.style.cssText = stylePlayerOne;

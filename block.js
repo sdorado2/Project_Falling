@@ -38,10 +38,10 @@ function drawPlayerOneBlock(object) {
   const playerOneBlock = document.createElement("div");
   playerOneBlock.setAttribute("class", "createdBlock");
   const styleBlock = `
-        left : ${object.x_axis} px;
-        top : ${object.y_axis} px;
-        width : ${object.width} px;
-        height : ${object.height} px;
+        left : ${object.x_axis}px;
+        top : ${object.y_axis}px;
+        width : ${object.width}px;
+        height : ${object.height}px;
         position : absolute;
     `;
   playerOneBlock.style.cssText = styleBlock;
@@ -52,10 +52,10 @@ function drawPlayerTwoBlock(object) {
   const playerTwoBlock = document.createElement("div");
   playerTwoBlock.setAttribute("class", "createBlockTwo");
   const styleBlock = `
-        left : ${object.x_axis} px;
-        top : ${object.y_axis} px;
-        width : ${object.width} px;
-        height : ${object.height} px;
+        left : ${object.x_axis}px;
+        top : ${object.y_axis}px;
+        width : ${object.width}px;
+        height : ${object.height}px;
         position : absolute;
     `;
   playerTwoBlock.style.cssText = styleBlock;
