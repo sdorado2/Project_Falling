@@ -25,30 +25,31 @@
 
 // Detect if object hit player or floor AKA Collision Detection
 
-let board = {
-  width: 610,
-  height: 525,
-};
+// let board = {
+//   width: 610,
+//   height: 525,
+// };
 
-let boardDos = {
-  width: 610,
-  height: 525,
-};
+// let boardDos = {
+//   width: 610,
+//   height: 525,
+// };
 
-let player = {
-  x_axis: 560,
-  y_axis: 670,
-  width: 180,
-  height: 80,
-};
+// let player = {
+//   x_axis: 560,
+//   y_axis: 670,
+//   width: 180,
+//   height: 80,
+// };
 
-let playerTwo = {
-  x_axis: 1850,
-  y_axis: 670,
-  width: 180,
-  height: 80,
-};
-
+// let playerTwo = {
+//   x_axis: 1850,
+//   y_axis: 670,
+//   width: 180,
+//   height: 80,
+// };
+import { playerOne, playerTwo } from "./player";
+import { boardOne, boardTwo } from "./board";
 class makeBlock {
   constructor(x_axis, y_axis, width, height) {
     this.x_axis = x_axis;
@@ -90,19 +91,19 @@ boardTwo.style.backgroundColor = "blue";
 boardTwo.style.width = board.width + "px";
 boardTwo.style.height = board.height + "px";
 
-//Drawing player one into HTML
-playerUno.style.left = player.x_axis + "px";
-playerUno.style.top = player.y_axis + "px";
-playerUno.style.width = player.width + "px";
-playerUno.style.height = player.height + "px";
-playerUno.style.backgroundColor = "black";
+// //Drawing player one into HTML
+// playerUno.style.left = player.x_axis + "px";
+// playerUno.style.top = player.y_axis + "px";
+// playerUno.style.width = player.width + "px";
+// playerUno.style.height = player.height + "px";
+// playerUno.style.backgroundColor = "black";
 
-//Drawing player two into HTML
-playerDos.style.left = playerTwo.x_axis + "px";
-playerDos.style.top = playerTwo.y_axis + "px";
-playerDos.style.width = playerTwo.width + "px";
-playerDos.style.height = playerTwo.height + "px";
-playerDos.style.backgroundColor = "white";
+// //Drawing player two into HTML
+// playerDos.style.left = playerTwo.x_axis + "px";
+// playerDos.style.top = playerTwo.y_axis + "px";
+// playerDos.style.width = playerTwo.width + "px";
+// playerDos.style.height = playerTwo.height + "px";
+// playerDos.style.backgroundColor = "white";
 
 //Scoreboard for player one and two
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
@@ -112,42 +113,42 @@ console.log(blockPosition);
 console.log(blockTwoPosition);
 
 //Function to create new block at random locations in the x-axis
-function blockPosition() {
-  return {
-    x_axis: Math.floor(Math.random() * 4 + 3) * 100 + 50,
-    y_axis: 300,
-    width: 180,
-    height: 80,
-  };
-}
+// function blockPosition() {
+//   return {
+//     x_axis: Math.floor(Math.random() * 4 + 3) * 100 + 50,
+//     y_axis: 300,
+//     width: 180,
+//     height: 80,
+//   };
+// }
 
-//Function to create new block at random locations in the x-axis
-function blockTwoPosition() {
-  return {
-    x_axis: Math.floor(Math.random() * 4 + 6) * 100 + 1050,
-    y_axis: 300,
-    width: 180,
-    height: 80,
-  };
-}
+// //Function to create new block at random locations in the x-axis
+// function blockTwoPosition() {
+//   return {
+//     x_axis: Math.floor(Math.random() * 4 + 6) * 100 + 1050,
+//     y_axis: 300,
+//     width: 180,
+//     height: 80,
+//   };
+// }
 
-//Generate New Blocks
-function newBlock() {
-  let createBlock;
-  while (createBlock == null) {
-    createBlock = blockPosition();
-  }
-  return createBlock;
-}
+// //Generate New Blocks
+// function newBlock() {
+//   let createBlock;
+//   while (createBlock == null) {
+//     createBlock = blockPosition();
+//   }
+//   return createBlock;
+// }
 
-//Generate New Blocks
-function newBlockTwo() {
-  let createBlock;
-  while (createBlock == null) {
-    createBlock = blockTwoPosition();
-  }
-  return createBlock;
-}
+// //Generate New Blocks
+// function newBlockTwo() {
+//   let createBlock;
+//   while (createBlock == null) {
+//     createBlock = blockTwoPosition();
+//   }
+//   return createBlock;
+// }
 
 //function for drawing blocks
 function drawBlocks(object) {
@@ -179,7 +180,7 @@ function displayBlock() {
 }
 
 //function to display blocks in player Two screen
-function displayBlockTwo(){
+function displayBlockTwo() {
   drawBlocksTwo(blockTwo);
 }
 
@@ -220,7 +221,7 @@ function collisionToPlayer(movingBlock) {
     scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
     let blockDisplay = Array.from(document.querySelectorAll(".createdBlock")); //Creates an array from div
-    console.log (blockDisplay);
+    console.log(blockDisplay);
     blockDisplay[0].style.backgroundColor = "green";
     blockDisplay[0].classList.remove("createdBlock"); //Removes class list assigned
     blockDisplay[0].remove(); //Remove element
@@ -293,7 +294,9 @@ function collisionToPlayerTwo(movingBlock) {
     scoreBoardDos += 10;
     scoreBoardTwo.innerHTML = `${scoreBoardDos} pts`;
 
-    let blockDisplay = Array.from(document.querySelectorAll(".createdBlockTwo")); //Creates an array from div
+    let blockDisplay = Array.from(
+      document.querySelectorAll(".createdBlockTwo")
+    ); //Creates an array from div
     blockDisplay[0].style.backgroundColor = "green";
     blockDisplay[0].classList.remove("createdBlockTwo"); //Removes class list assigned
     blockDisplay[0].remove(); //Remove element
