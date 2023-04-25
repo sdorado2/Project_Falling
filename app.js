@@ -213,8 +213,8 @@ function movingBlock() {
   gameOver();
 
   if (block === null || block === undefined || block === "") {
-    block = newBlock();
-    displayBlock();
+    block = createPlayerOneBlock();
+    displayPlayerOneBlock();
   }
 }
 
