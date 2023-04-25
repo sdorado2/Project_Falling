@@ -8,7 +8,17 @@ class createPlayer {
 }
 
 const playerOne = createPlayer(560, 670, 180, 80);
+const displayPlayerOne = document.querySelector(".grid14");
+const stylePlayerOne = `
+    left = ${playerOne.x_axis}px; 
+    top = ${playerOne.y_axis}px; 
+    width = ${playerOne.width}px;
+    height = ${playerOne.height} px;
+    background = black;
+`;
+displayPlayerOne.style.cssText = stylePlayerOne;
 
 const playerTwo = createPlayer(1850, 670, 180, 80);
+const displayPlayerTwo = document.querySelector(".grid14C2");
 
 export { playerOne, playerTwo };
