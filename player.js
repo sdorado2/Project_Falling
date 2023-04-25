@@ -20,5 +20,13 @@ displayPlayerOne.style.cssText = stylePlayerOne;
 
 const playerTwo = createPlayer(1850, 670, 180, 80);
 const displayPlayerTwo = document.querySelector(".grid14C2");
+const stylePlayerTwo = `
+    left = ${playerTwo.x_axis}px; 
+    top = ${playerTwo.y_axis}px; 
+    width = ${playerTwo.width}px;
+    height = ${playerTwo.height} px;
+    background = white;
+`;
+displayPlayerTwo.style.cssText = stylePlayerTwo;
 
 export { playerOne, playerTwo };
