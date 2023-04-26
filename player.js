@@ -24,7 +24,7 @@ const stylePlayerTwo = `
     left : ${playerTwo.x_axis}px; 
     top : ${playerTwo.y_axis}px; 
     width : ${playerTwo.width}px;
-    height : ${playerTwo.height} px;
+    height : ${playerTwo.height}px;
     background : yellow;
 `;
 displayPlayerTwo.style.cssText = stylePlayerTwo;

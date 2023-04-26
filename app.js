@@ -3,8 +3,7 @@ import { boardOne, boardTwo } from "/board.js";
 import {
   playerOneBlock,
   playerTwoBlock,
-  createPlayerOneBlock,
-  createPlayerTwoBlock,
+  createPlayerBlock,
   drawPlayerOneBlock,
   drawPlayerTwoBlock,
   displayPlayerOneBlock,
@@ -12,7 +11,7 @@ import {
 } from "/block.js";
 
 // let block;
-let blockTwo;
+// let blockTwo;
 let scoreBoard = 0;
 let scoreBoardDos = 0;
 
@@ -21,7 +20,7 @@ let scoreBoardTwo = document.querySelector(".rightScore");
 
 //Creating block
 // block = createPlayerOneBlock();
-blockTwo = createPlayerTwoBlock();
+// blockTwo = createPlayerTwoBlock();
 
 //Scoreboard for player one and two
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;

@@ -8,8 +8,10 @@ class makeBlock {
   }
 }
 
-let block = createPlayerOneBlock();
+let block = createPlayerBlock(playerOneBlock());
+let blockTwo = createPlayerBlock(playerTwoBlock());
 console.log("🚀 ~ file: block.js:12 ~ block:", block);
+console.log(block.x_axis);
 
 function playerOneBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 3) * 100 + 50);
@@ -19,25 +21,25 @@ function playerTwoBlock() {
   return { x_axis: Math.floor(Math.random() * 4 + 6) * 100 + 1050 };
 }
 
-function createPlayerOneBlock() {
+function createPlayerBlock(player) {
   let newBlock;
   while (newBlock === null || newBlock === undefined) {
-    newBlock = playerOneBlock;
+    newBlock = player;
   }
   return newBlock;
 }
-
-function createPlayerTwoBlock() {
-  let newBlock;
-  while (newBlock === null || newBlock === undefined) {
-    newBlock = playerTwoBlock;
-  }
-  return newBlock;
-}
+// ? redundant function
+// function createPlayerTwoBlock() {
+//   let newBlock;
+//   while (newBlock === null || newBlock === undefined) {
+//     newBlock = playerTwoBlock;
+//   }
+//   return newBlock;
+// }
 
 function drawPlayerOneBlock(object) {
-  const playerOneBlock = document.createElement("div");
-  playerOneBlock.setAttribute("class", "createdBlock");
+  let oneBlock = document.createElement("div");
+  oneBlock.setAttribute("class", "createdBlock");
   const styleBlock = `
         left : ${object.x_axis}px;
         top : ${object.y_axis}px;
@@ -45,8 +47,8 @@ function drawPlayerOneBlock(object) {
         height : ${object.height}px;
         position : absolute;
     `;
-  playerOneBlock.style.cssText = styleBlock;
-  boardOne.appendChild(playerOneBlock);
+  oneBlock.style.cssText = styleBlock;
+  boardOne.appendChild(oneBlock);
 }
 
 function drawPlayerTwoBlock(object) {
@@ -79,8 +81,7 @@ function blockSpeed(object) {
 export {
   playerOneBlock,
   playerTwoBlock,
-  createPlayerOneBlock,
-  createPlayerTwoBlock,
+  createPlayerBlock,
   drawPlayerOneBlock,
   drawPlayerTwoBlock,
   displayPlayerOneBlock,
