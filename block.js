@@ -21,7 +21,7 @@ function playerTwoBlock() {
 
 function createPlayerOneBlock() {
   let newBlock;
-  while (newBlock === null) {
+  while (newBlock === null || newBlock === undefined) {
     newBlock = playerOneBlock;
   }
   return newBlock;
@@ -29,7 +29,7 @@ function createPlayerOneBlock() {
 
 function createPlayerTwoBlock() {
   let newBlock;
-  while (newBlock === null) {
+  while (newBlock === null || newBlock === undefined) {
     newBlock = playerTwoBlock;
   }
   return newBlock;
