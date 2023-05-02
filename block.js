@@ -40,7 +40,7 @@ function createPlayerBlock(player) {
 function drawPlayerOneBlock(object) {
   let oneBlock = document.createElement("div");
   oneBlock.setAttribute("class", "createdBlock");
-  const styleBlock = `
+  let styleBlock = `
         left : ${object.x_axis}px;
         top : ${object.y_axis}px;
         width : ${object.width}px;
@@ -48,7 +48,10 @@ function drawPlayerOneBlock(object) {
         position : absolute;
     `;
   oneBlock.style.cssText = styleBlock;
-  boardOne.appendChild(oneBlock);
+  console.log("🚀  file: block.js:53  drawPlayerOneBlock  boardOne:", boardOne);
+  // boardOne.appendChild(oneBlock);
+
+  //⛔ error message typeError : boardOne.appendChild is not a function
 }
 
 function drawPlayerTwoBlock(object) {
@@ -62,7 +65,7 @@ function drawPlayerTwoBlock(object) {
         position : absolute;
     `;
   playerTwoBlock.style.cssText = styleBlock;
-  boardTwo.appendChild(playerTwoBlock);
+  // boardTwo.appendChild(playerTwoBlock);
 }
 
 function displayPlayerOneBlock() {
