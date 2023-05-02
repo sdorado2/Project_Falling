@@ -4,7 +4,7 @@ const displayBoardOne = document.querySelector(".gridBlock");
 const styleBoardOne = `
     width : ${templateBoard.width}px;
     height : ${templateBoard.height}px;
-    background-color : red; 
+    background-color : tomato; 
 `;
 displayBoardOne.style.cssText = styleBoardOne;
 
@@ -12,7 +12,7 @@ const displayBoardTwo = document.querySelector(".gridBlockC2");
 const styleBoardTwo = `
     width : ${templateBoard.width}px;
     height : ${templateBoard.height}px;
-    background-color : blue;
+    background-color : steelblue;
 `;
 displayBoardTwo.style.cssText = styleBoardTwo;
 
