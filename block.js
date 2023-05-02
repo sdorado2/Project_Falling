@@ -1,4 +1,4 @@
-import { displayBoardOne } from "/board.js";
+import { displayBoardOne, displayBoardTwo } from "/board.js";
 class makeBlock {
   constructor(x_axis) {
     this.x_axis = x_axis;
@@ -37,7 +37,7 @@ function createPlayerBlock(player) {
 //   return newBlock;
 // }
 
-function drawPlayerOneBlock(object) {
+function drawBlock(object, playerBoard) {
   let oneBlock = document.createElement("div");
   oneBlock.setAttribute("class", "createdBlock");
   let styleBlock = `
@@ -48,9 +48,7 @@ function drawPlayerOneBlock(object) {
         position : absolute;
     `;
   oneBlock.style.cssText = styleBlock;
-  displayBoardOne.appendChild(oneBlock);
-
-  //⛔ error message typeError : boardOne.appendChild is not a function
+  playerBoard.appendChild(oneBlock);
 }
 
 // ? redundant function
@@ -69,10 +67,10 @@ function drawPlayerOneBlock(object) {
 // }
 
 function displayPlayerOneBlock() {
-  drawPlayerOneBlock(block);
+  drawBlock(block, displayBoardOne);
 }
 function displayPlayerTwoBlock() {
-  drawPlayerTwoBlock(block);
+  drawBlock(block, displayBoardTwo);
 }
 
 function blockSpeed(object) {
@@ -85,8 +83,6 @@ export {
   playerOneBlock,
   playerTwoBlock,
   createPlayerBlock,
-  drawPlayerOneBlock,
-  // drawPlayerTwoBlock,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,
 };

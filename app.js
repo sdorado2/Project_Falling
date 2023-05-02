@@ -1,13 +1,6 @@
 import { playerOne, playerTwo } from "/player.js";
 // import { boardOne, boardTwo } from "/board.js";
-import {
-  playerOneBlock,
-  playerTwoBlock,
-  createPlayerBlock,
-  drawPlayerOneBlock,
-  displayPlayerOneBlock,
-  displayPlayerTwoBlock,
-} from "/block.js";
+import { displayPlayerOneBlock, displayPlayerTwoBlock } from "/block.js";
 
 // let block;
 // let blockTwo;
