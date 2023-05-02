@@ -11,14 +11,13 @@ class makeBlock {
 let block = createPlayerBlock(playerOneBlock());
 let blockTwo = createPlayerBlock(playerTwoBlock());
 console.log("🚀 ~ file: block.js:12 ~ block:", block);
-console.log(block.x_axis);
 
 function playerOneBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 3) * 100 + 50);
 }
 
 function playerTwoBlock() {
-  return { x_axis: Math.floor(Math.random() * 4 + 6) * 100 + 1050 };
+  return new makeBlock(Math.floor(Math.random() * 4 + 6) * 100 + 1050);
 }
 
 function createPlayerBlock(player) {
@@ -28,14 +27,6 @@ function createPlayerBlock(player) {
   }
   return newBlock;
 }
-// ? redundant function
-// function createPlayerTwoBlock() {
-//   let newBlock;
-//   while (newBlock === null || newBlock === undefined) {
-//     newBlock = playerTwoBlock;
-//   }
-//   return newBlock;
-// }
 
 function drawBlock(object, playerBoard) {
   let oneBlock = document.createElement("div");
@@ -51,26 +42,11 @@ function drawBlock(object, playerBoard) {
   playerBoard.appendChild(oneBlock);
 }
 
-// ? redundant function
-// function drawPlayerTwoBlock(object) {
-//   const playerTwoBlock = document.createElement("div");
-//   playerTwoBlock.setAttribute("class", "createBlockTwo");
-//   const styleBlock = `
-//         left : ${object.x_axis}px;
-//         top : ${object.y_axis}px;
-//         width : ${object.width}px;
-//         height : ${object.height}px;
-//         position : absolute;
-//     `;
-//   playerTwoBlock.style.cssText = styleBlock;
-//   boardTwo.appendChild(playerTwoBlock);
-// }
-
 function displayPlayerOneBlock() {
   drawBlock(block, displayBoardOne);
 }
 function displayPlayerTwoBlock() {
-  drawBlock(block, displayBoardTwo);
+  drawBlock(blockTwo, displayBoardTwo);
 }
 
 function blockSpeed(object) {
