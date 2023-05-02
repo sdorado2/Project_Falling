@@ -18,4 +18,4 @@ const styleBoardTwo = `
 `;
 displayBoardTwo.style.cssText = styleBoardTwo;
 
-export { boardOne, boardTwo };
+export { displayBoardOne, displayBoardTwo };

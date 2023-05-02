@@ -1,4 +1,4 @@
-import { boardOne, boardTwo } from "/board.js";
+import { displayBoardOne } from "/board.js";
 class makeBlock {
   constructor(x_axis) {
     this.x_axis = x_axis;
@@ -48,25 +48,25 @@ function drawPlayerOneBlock(object) {
         position : absolute;
     `;
   oneBlock.style.cssText = styleBlock;
-  console.log("🚀  file: block.js:53  drawPlayerOneBlock  boardOne:", boardOne);
-  // boardOne.appendChild(oneBlock);
+  displayBoardOne.appendChild(oneBlock);
 
   //⛔ error message typeError : boardOne.appendChild is not a function
 }
 
-function drawPlayerTwoBlock(object) {
-  const playerTwoBlock = document.createElement("div");
-  playerTwoBlock.setAttribute("class", "createBlockTwo");
-  const styleBlock = `
-        left : ${object.x_axis}px;
-        top : ${object.y_axis}px;
-        width : ${object.width}px;
-        height : ${object.height}px;
-        position : absolute;
-    `;
-  playerTwoBlock.style.cssText = styleBlock;
-  // boardTwo.appendChild(playerTwoBlock);
-}
+// ? redundant function
+// function drawPlayerTwoBlock(object) {
+//   const playerTwoBlock = document.createElement("div");
+//   playerTwoBlock.setAttribute("class", "createBlockTwo");
+//   const styleBlock = `
+//         left : ${object.x_axis}px;
+//         top : ${object.y_axis}px;
+//         width : ${object.width}px;
+//         height : ${object.height}px;
+//         position : absolute;
+//     `;
+//   playerTwoBlock.style.cssText = styleBlock;
+//   boardTwo.appendChild(playerTwoBlock);
+// }
 
 function displayPlayerOneBlock() {
   drawPlayerOneBlock(block);
@@ -86,7 +86,7 @@ export {
   playerTwoBlock,
   createPlayerBlock,
   drawPlayerOneBlock,
-  drawPlayerTwoBlock,
+  // drawPlayerTwoBlock,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,
 };
