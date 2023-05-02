@@ -1,18 +1,11 @@
 import { playerOne, playerTwo } from "/player.js";
-// import { boardOne, boardTwo } from "/board.js";
 import { displayPlayerOneBlock, displayPlayerTwoBlock } from "/block.js";
 
-// let block;
-// let blockTwo;
 let scoreBoard = 0;
 let scoreBoardDos = 0;
 
 let scoreBoardOne = document.querySelector(".leftScore");
 let scoreBoardTwo = document.querySelector(".rightScore");
-
-//Creating block
-// block = createPlayerOneBlock();
-// blockTwo = createPlayerTwoBlock();
 
 //Scoreboard for player one and two
 scoreBoardOne.innerHTML = `${scoreBoard} pts.`;

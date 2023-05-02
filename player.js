@@ -1,13 +1,13 @@
 class createPlayer {
-  constructor(x_axis, y_axis, width, height) {
+  constructor(x_axis) {
     this.x_axis = x_axis;
-    this.y_axis = y_axis;
-    this.width = width;
-    this.height = height;
+    this.y_axis = 670;
+    this.width = 180;
+    this.height = 80;
   }
 }
 
-const playerOne = new createPlayer(560, 670, 180, 80);
+const playerOne = new createPlayer(560);
 const displayPlayerOne = document.querySelector(".grid14");
 const stylePlayerOne = `
     left : ${playerOne.x_axis}px; 
@@ -18,7 +18,7 @@ const stylePlayerOne = `
 `;
 displayPlayerOne.style.cssText = stylePlayerOne;
 
-const playerTwo = new createPlayer(1850, 670, 180, 80);
+const playerTwo = new createPlayer(1850);
 const displayPlayerTwo = document.querySelector(".grid14C2");
 const stylePlayerTwo = `
     left : ${playerTwo.x_axis}px; 
