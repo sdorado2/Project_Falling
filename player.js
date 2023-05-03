@@ -7,7 +7,7 @@ class createPlayer {
   }
 }
 
-const playerOne = new createPlayer(560);
+let playerOne = new createPlayer(560);
 const displayPlayerOne = document.querySelector(".grid14");
 const stylePlayerOne = `
     left : ${playerOne.x_axis}px; 
@@ -28,5 +28,21 @@ const stylePlayerTwo = `
     background : yellow;
 `;
 displayPlayerTwo.style.cssText = stylePlayerTwo;
+
+let keypress = [];
+
+onkeydown = onkeyup = function (movePlayers) {
+  keypress[movePlayers.key] = movePlayers.type = "keydown";
+
+  if (movePlayers.key == "ArrowRight" && playerOne.x_axis < 760) {
+    playerOne.x_axis += 10;
+    displayPlayerOne.style.left = `${playerOne.x_axis}px`;
+  }
+
+  if (movePlayers.key == "ArrowLeft" && playerOne.x_axis > 350) {
+    playerOne.x_axis -= 10;
+    displayPlayerOne.style.right = `${playerOne.x_axis}px`;
+  }
+};
 
 export { playerOne, playerTwo };

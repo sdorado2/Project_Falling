@@ -1,5 +1,9 @@
 import { playerOne, playerTwo } from "/player.js";
-import { displayPlayerOneBlock, displayPlayerTwoBlock } from "/block.js";
+import {
+  displayPlayerOneBlock,
+  displayPlayerTwoBlock,
+  moveBlock,
+} from "/block.js";
 
 let scoreBoard = 0;
 let scoreBoardDos = 0;
@@ -165,13 +169,14 @@ function collisionToFloorTwo(movingBlock) {
 //Start Game Button
 function startGame() {
   let startButton = document.querySelector(".start");
-
+  let timer;
   displayPlayerOneBlock();
   displayPlayerTwoBlock();
 
-  startButton.addEventListener("click", (begin) => {
-    timer = setInterval(movingBlock, 250);
-    timer2 = setInterval(movingBlockTwo, 250);
+  startButton.addEventListener("click", () => {
+    console.log("🚀 start has been pressed!");
+    timer = setInterval(moveBlock(), 250);
+    // let timer2 = setInterval(movingBlockTwo, 250);
   });
 }
 
@@ -205,30 +210,30 @@ function gameOver() {
 // });
 
 //Player's movement
-let keyPress = [];
+// let keyPress = [];
 
-onkeydown = onkeyup = function (movePlayer) {
-  keyPress[movePlayer.key] = movePlayer.type = "keydown";
-  if (movePlayer.key == "ArrowRight" && player.x_axis < 760) {
-    player.x_axis += 10;
-    playerUno.style.left = player.x_axis + "px";
-  }
+// onkeydown = onkeyup = function (movePlayer) {
+//   keyPress[movePlayer.key] = movePlayer.type = "keydown";
+//   if (movePlayer.key == "ArrowRight" && player.x_axis < 760) {
+//     player.x_axis += 10;
+//     playerUno.style.left = player.x_axis + "px";
+//   }
 
-  if (movePlayer.key == "ArrowLeft" && player.x_axis > 350) {
-    player.x_axis -= 10;
-    playerUno.style.left = player.x_axis + "px";
-  }
+//   if (movePlayer.key == "ArrowLeft" && player.x_axis > 350) {
+//     player.x_axis -= 10;
+//     playerUno.style.left = player.x_axis + "px";
+//   }
 
-  if (movePlayer.key == "d" && playerTwo.x_axis < 2030) {
-    playerTwo.x_axis += 10;
-    playerDos.style.left = playerTwo.x_axis + "px";
-  }
+//   if (movePlayer.key == "d" && playerTwo.x_axis < 2030) {
+//     playerTwo.x_axis += 10;
+//     playerDos.style.left = playerTwo.x_axis + "px";
+//   }
 
-  if (movePlayer.key == "a" && playerTwo.x_axis > 1620) {
-    playerTwo.x_axis -= 10;
-    playerDos.style.left = playerTwo.x_axis + "px";
-  }
-};
+//   if (movePlayer.key == "a" && playerTwo.x_axis > 1620) {
+//     playerTwo.x_axis -= 10;
+//     playerDos.style.left = playerTwo.x_axis + "px";
+//   }
+// };
 
 // document.onkeydown = (movePlayer) => {
 //   console.log(movePlayer);

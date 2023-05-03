@@ -55,4 +55,11 @@ function blockSpeed(object) {
   return (block = movingBlock);
 }
 
-export { displayPlayerOneBlock, displayPlayerTwoBlock };
+function moveBlock() {
+  let a = blockSpeed(block);
+  const movingBlock = document.querySelector(".createdBlock");
+  movingBlock.style.top = `${a}px`;
+  displayBoardOne.append(movingBlock);
+}
+
+export { displayPlayerOneBlock, displayPlayerTwoBlock, moveBlock };
