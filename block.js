@@ -51,15 +51,16 @@ function displayPlayerTwoBlock() {
 
 function blockSpeed(object) {
   let movingBlock = object;
-  movingBlock.y_axis = Math.floor(Math.random() * 5 + 1) * 10;
-  return (block = movingBlock);
+  let speed = Math.floor(Math.random() * 5 + 1) * 10;
+  movingBlock.x_axis += speed;
+  return (object = movingBlock);
 }
 
 function moveBlock() {
-  let a = blockSpeed(block);
+  let tempBlock = blockSpeed(block);
   console.log("🚀  file: block.js:60  moveBlock  a:", a);
   const movingBlock = document.querySelector(".createdBlock");
-  movingBlock.style.top = `${a}px`;
+  movingBlock.style.top = `${tempBlock.x_axis}px`;
   displayBoardOne.append(movingBlock);
 }
 
