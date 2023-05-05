@@ -49,10 +49,9 @@ function displayPlayerTwoBlock() {
 }
 
 function blockSpeed(object) {
-  let movingBlock = object;
   let speed = Math.floor(Math.random() * 5 + 1) * 10;
-  movingBlock.x_axis += speed;
-  return (object = movingBlock);
+  object.x_axis += speed;
+  return object;
 }
 
 function moveBlockBoardOne() {
