@@ -29,7 +29,6 @@ body {
 .leftScore,
 .rightScore {
   /* border: solid lime; */
-  /* width: 50%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,10 +45,6 @@ body {
   justify-content: space-around;
 }
 
-.playerMove {
-  background-color: blueviolet;
-}
-
 .playerOne {
   border: solid green;
   display: flex;
@@ -59,10 +54,6 @@ body {
   display: flex;
 }
 
-.grid {
-  border: solid brown;
-  width: 30%;
-}
 .gridBlock,
 .gridBlockC2 {
   border: thick;
@@ -97,22 +88,17 @@ body {
   font-family: Arial;
 }
 
-.location {
-  border: solid blue;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-
-.startBtn,
-.resetBtn {
-  height: 5dvh;
+.buttons {
   display: flex;
-  justify-content: center;
+  flex-flow: column wrap;
+  /* justify-content: center; */
   align-items: center;
+  gap: 1rem;
 }
 
 .start,
 .reset {
+  text-align: center;
   border-radius: 8px;
-  width: 3rem;
+  width: 7rem;
 }
