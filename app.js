@@ -180,10 +180,12 @@ function startGame() {
     console.log("🚀 start has been pressed!");
     timer = setInterval(function () {
       moveBlock(block, displayBoardOne);
-    }, 250);
+    }, 251);
     timer2 = setInterval(function () {
       moveBlock(blockTwo, displayBoardTwo);
-    }, 250);
+    }, 249);
+    // ? Unable to run both setInterval at the same time
+    // ? block disappear when render
   });
 }
 
