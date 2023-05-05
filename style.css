@@ -9,7 +9,7 @@ body {
 }
 
 .logo {
-  border: solid black;
+  border: dotted black;
   width: 20dvw;
   margin: auto;
   display: flex;
@@ -38,7 +38,7 @@ body {
 }
 
 .mainScreen {
-  border: solid red;
+  /* border: solid red; */
   display: flex;
   align-items: center;
   flex-flow: row nowrap;
@@ -46,11 +46,11 @@ body {
 }
 
 .playerOne {
-  border: solid green;
+  /* border: solid green; */
   display: flex;
 }
 .playerTwo {
-  border: solid purple;
+  /* border: solid purple; */
   display: flex;
 }
 
