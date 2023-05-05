@@ -30,9 +30,10 @@ const stylePlayerTwo = `
 displayPlayerTwo.style.cssText = stylePlayerTwo;
 
 let keypress = [];
+console.log(keypress);
 
 onkeydown = onkeyup = function (movePlayers) {
-  keypress[movePlayers.key] = movePlayers.type = "keydown";
+  keypress[movePlayers.key] = movePlayers.type == "keydown";
 
   if (movePlayers.key == "ArrowRight" && playerOne.x_axis < 760) {
     playerOne.x_axis += 10;
@@ -41,7 +42,7 @@ onkeydown = onkeyup = function (movePlayers) {
 
   if (movePlayers.key == "ArrowLeft" && playerOne.x_axis > 350) {
     playerOne.x_axis -= 10;
-    displayPlayerOne.style.right = `${playerOne.x_axis}px`;
+    displayPlayerOne.style.left = `${playerOne.x_axis}px`;
   }
 };
 
