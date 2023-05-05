@@ -1,11 +1,10 @@
 import { playerOne, playerTwo } from "/player.js";
 import { displayBoardOne, displayBoardTwo } from "./board.js";
 import {
-  block,
-  blockTwo,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,
-  moveBlock,
+  moveBlockBoardOne,
+  moveBlockBoardTwo,
 } from "/block.js";
 
 let scoreBoard = 0;
@@ -178,12 +177,12 @@ function startGame() {
 
   startButton.addEventListener("click", () => {
     console.log("🚀 start has been pressed!");
-    timer = setInterval(function () {
-      moveBlock(block, displayBoardOne);
-    }, 251);
-    timer2 = setInterval(function () {
-      moveBlock(blockTwo, displayBoardTwo);
-    }, 249);
+    timer = setInterval(() => {
+      moveBlockBoardOne();
+      moveBlockBoardTwo();
+    }, 1000);
+    // timer2 = setInterval(function () {
+    // }, 249);
     // ? Unable to run both setInterval at the same time
     // ? block disappear when render
   });

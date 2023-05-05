@@ -55,19 +55,28 @@ function blockSpeed(object) {
   return (object = movingBlock);
 }
 
-function moveBlock(playerBlock, playerBoard) {
-  let tempBlock = blockSpeed(playerBlock);
+function moveBlockBoardOne() {
+  let tempBlock = blockSpeed(block);
   console.log("🚀  file: block.js:60  moveBlock  tempBlock:", tempBlock);
   const movingBlock = document.querySelector(".createdBlock");
   movingBlock.style.top = `${tempBlock.x_axis}px`;
-  playerBoard.append(movingBlock);
-  console.log("🚀  file: block.js:64  moveBlock  playerBoard:", playerBoard);
+  displayBoardOne.append(movingBlock);
+}
+
+function moveBlockBoardTwo() {
+  let tempBlock = blockSpeed(blockTwo);
+  console.log(
+    "🚀  file: block.js:68  moveBlockBoardTwo  tempBlock:",
+    tempBlock
+  );
+  const movingBlock = document.querySelector(".createdBlock");
+  movingBlock.style.top = `${tempBlock.x_axis}px`;
+  displayBoardTwo.append(movingBlock);
 }
 
 export {
-  block,
-  blockTwo,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,
-  moveBlock,
+  moveBlockBoardOne,
+  moveBlockBoardTwo,
 };
