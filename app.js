@@ -179,10 +179,10 @@ function startGame() {
     console.log("🚀 start has been pressed!");
     timer = setInterval(() => {
       moveBlockBoardOne();
-      moveBlockBoardTwo();
-    }, 1000);
+    }, 500);
     // timer2 = setInterval(function () {
-    // }, 249);
+    //   moveBlockBoardTwo();
+    // }, 999);
     // ? Unable to run both setInterval at the same time
     // ? block disappear when render
   });
