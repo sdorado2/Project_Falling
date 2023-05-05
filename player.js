@@ -44,6 +44,16 @@ onkeydown = onkeyup = function (movePlayers) {
     playerOne.x_axis -= 10;
     displayPlayerOne.style.left = `${playerOne.x_axis}px`;
   }
+
+  if (movePlayers.key == "d" && playerTwo.x_axis < 2030) {
+    playerTwo.x_axis += 10;
+    displayPlayerTwo.style.left = `${playerTwo.x_axis}px`;
+  }
+
+  if (movePlayers.key == "a" && playerTwo.x_axis > 1620) {
+    playerTwo.x_axis -= 10;
+    displayPlayerTwo.style.left = `${playerTwo.x_axis}px`;
+  }
 };
 
 export { playerOne, playerTwo };
