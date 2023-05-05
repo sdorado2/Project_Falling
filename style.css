@@ -19,43 +19,17 @@ body {
   font-size: 48px;
   font-family: Impact, "Arial Narrow Bold", sans-serif;
 }
-.players {
-  /* border : solid black; */
-  margin-top: 2rem;
-  height: 10dvh;
-  display: flex;
-  justify-content: space-evenly;
-}
-.player1,
-.player2 {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 32px;
-  font-family: Arial;
-}
 
 .score {
   /* border : solid blue; */
   height: 10dvh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
-.leftScore {
-  /* border: solid lime; */
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 48px;
-  font-weight: 400;
-  font-family: Impact;
-}
+.leftScore,
 .rightScore {
-  /* border : solid gold; */
-  width: 50%;
-  width: 50%;
+  /* border: solid lime; */
+  /* width: 50%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,9 +39,11 @@ body {
 }
 
 .mainScreen {
-  /* border : solid red; */
-  height: 40dvh;
+  border: solid red;
   display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: space-around;
 }
 
 .playerMove {
@@ -75,20 +51,12 @@ body {
 }
 
 .playerOne {
-  /* border : solid green; */
-  width: 50%;
+  border: solid green;
   display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
-  /* background-color: lightcoral; */
 }
 .playerTwo {
-  /* border : solid purple; */
-  width: 50%;
+  border: solid purple;
   display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
-  /* background-color: lightskyblue; */
 }
 
 .grid {
@@ -113,6 +81,20 @@ body {
 .createdBlockTwo {
   background-color: red;
   transition: all 100ms;
+}
+
+.players {
+  margin-top: 2rem;
+  height: 10dvh;
+  display: flex;
+  justify-content: space-around;
+}
+.player1,
+.player2 {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-family: Arial;
 }
 
 .location {
