@@ -175,7 +175,7 @@ function startGame() {
 
   startButton.addEventListener("click", () => {
     console.log("🚀 start has been pressed!");
-    timer = setInterval(moveBlock(), 250);
+    timer = setInterval(moveBlock, 250);
     // let timer2 = setInterval(movingBlockTwo, 250);
   });
 }
@@ -204,75 +204,6 @@ function gameOver() {
     clearInterval(timer2);
   }
 }
-
-// boardTwo.addEventListener("pointerdown", (e) => {
-//   console.log(e);
-// });
-
-//Player's movement
-// let keyPress = [];
-
-// onkeydown = onkeyup = function (movePlayer) {
-//   keyPress[movePlayer.key] = movePlayer.type = "keydown";
-//   if (movePlayer.key == "ArrowRight" && player.x_axis < 760) {
-//     player.x_axis += 10;
-//     playerUno.style.left = player.x_axis + "px";
-//   }
-
-//   if (movePlayer.key == "ArrowLeft" && player.x_axis > 350) {
-//     player.x_axis -= 10;
-//     playerUno.style.left = player.x_axis + "px";
-//   }
-
-//   if (movePlayer.key == "d" && playerTwo.x_axis < 2030) {
-//     playerTwo.x_axis += 10;
-//     playerDos.style.left = playerTwo.x_axis + "px";
-//   }
-
-//   if (movePlayer.key == "a" && playerTwo.x_axis > 1620) {
-//     playerTwo.x_axis -= 10;
-//     playerDos.style.left = playerTwo.x_axis + "px";
-//   }
-// };
-
-// document.onkeydown = (movePlayer) => {
-//   console.log(movePlayer);
-
-//   if (movePlayer.key == 'ArrowRight' && player.x_axis < 760) {
-//     player.x_axis += 10;
-//     playerUno.style.left = player.x_axis + 'px';
-//   }
-
-//   if (movePlayer.key == 'ArrowLeft' && player.x_axis > 350) {
-//     player.x_axis -= 10;
-//     playerUno.style.left = player.x_axis + 'px';
-//   }
-
-// if (movePlayer.key == "ArrowDown") {
-//   player.y_axis += 50;
-//   playerUno.style.top = player.y_axis + "px";
-// }
-
-// if (movePlayer.key == "ArrowUp") {
-//   player.y_axis -= 50;
-//   playerUno.style.top = player.y_axis + "px";
-//   if (checkDetection(player, blocks)) {
-//     let changeColor = document.querySelector(".createdBlock");
-//     changeColor.style.backgroundColor = "green";
-//   }
-// }
-// };
-
-// document.onkeydown = (movePlayerTwo)=>{
-//   if (movePlayerTwo.key == 'd' && playerTwo.x_axis <2030){
-//     playerTwo.x_axis += 10;
-//     playerDos.style.left = playerTwo.x_axis + 'px';
-//   }
-
-//   if (movePlayerTwo.key == 'a' && playerTwo.x_axis >1620){
-//     playerTwo.x_axis -= 10;
-//     playerDos.style.left = playerTwo.x_axis + 'px';}
-// }
 
 function checkDetection(objA, ObjB) {
   let response;

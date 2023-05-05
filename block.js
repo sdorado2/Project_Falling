@@ -57,6 +57,7 @@ function blockSpeed(object) {
 
 function moveBlock() {
   let a = blockSpeed(block);
+  console.log("🚀  file: block.js:60  moveBlock  a:", a);
   const movingBlock = document.querySelector(".createdBlock");
   movingBlock.style.top = `${a}px`;
   displayBoardOne.append(movingBlock);

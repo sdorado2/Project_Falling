@@ -29,7 +29,7 @@ const stylePlayerTwo = `
 `;
 displayPlayerTwo.style.cssText = stylePlayerTwo;
 
-let keypress = [];
+let keypress = {};
 console.log(keypress);
 
 onkeydown = onkeyup = function (movePlayers) {
