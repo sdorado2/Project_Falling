@@ -10,7 +10,6 @@ class makeBlock {
 
 let block = createPlayerBlock(playerOneBlock());
 let blockTwo = createPlayerBlock(playerTwoBlock());
-console.log("🚀 ~ file: block.js:12 ~ block:", block);
 
 function playerOneBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 3) * 100 + 50);
@@ -56,12 +55,19 @@ function blockSpeed(object) {
   return (object = movingBlock);
 }
 
-function moveBlock() {
-  let tempBlock = blockSpeed(block);
-  console.log("🚀  file: block.js:60  moveBlock  a:", a);
+function moveBlock(playerBlock, playerBoard) {
+  let tempBlock = blockSpeed(playerBlock);
+  console.log("🚀  file: block.js:60  moveBlock  tempBlock:", tempBlock);
   const movingBlock = document.querySelector(".createdBlock");
   movingBlock.style.top = `${tempBlock.x_axis}px`;
-  displayBoardOne.append(movingBlock);
+  playerBoard.append(movingBlock);
+  console.log("🚀  file: block.js:64  moveBlock  playerBoard:", playerBoard);
 }
 
-export { displayPlayerOneBlock, displayPlayerTwoBlock, moveBlock };
+export {
+  block,
+  blockTwo,
+  displayPlayerOneBlock,
+  displayPlayerTwoBlock,
+  moveBlock,
+};

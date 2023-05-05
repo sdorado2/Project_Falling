@@ -1,5 +1,8 @@
 import { playerOne, playerTwo } from "/player.js";
+import { displayBoardOne, displayBoardTwo } from "./board.js";
 import {
+  block,
+  blockTwo,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,
   moveBlock,
@@ -169,14 +172,18 @@ function collisionToFloorTwo(movingBlock) {
 //Start Game Button
 function startGame() {
   let startButton = document.querySelector(".start");
-  let timer;
+  let timer, timer2;
   displayPlayerOneBlock();
   displayPlayerTwoBlock();
 
   startButton.addEventListener("click", () => {
     console.log("🚀 start has been pressed!");
-    timer = setInterval(moveBlock, 250);
-    // let timer2 = setInterval(movingBlockTwo, 250);
+    timer = setInterval(function () {
+      moveBlock(block, displayBoardOne);
+    }, 250);
+    timer2 = setInterval(function () {
+      moveBlock(blockTwo, displayBoardTwo);
+    }, 250);
   });
 }
 
