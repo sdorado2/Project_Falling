@@ -50,7 +50,7 @@ function displayPlayerTwoBlock() {
 
 function blockSpeed(object) {
   let speed = Math.floor(Math.random() * 5 + 1) * 10;
-  object.x_axis += speed;
+  object.y_axis += speed;
   return object;
 }
 
@@ -60,7 +60,7 @@ function moveBlockBoardOne() {
   let tempBlock = blockSpeed(block);
   console.log("🚀  file: block.js:60  moveBlock  tempBlock:", tempBlock);
   const movingBlock = document.querySelector(".createdBlockOne");
-  movingBlock.style.top = `${tempBlock.x_axis}px`;
+  movingBlock.style.top = `${tempBlock.y_axis}px`;
   displayBoardOne.append(movingBlock);
 }
 
@@ -70,7 +70,7 @@ function moveBlockBoardTwo() {
   let tempBlock = blockSpeed(blockTwo);
   console.log("🚀 file: block.js:68 moveBlockBoardTwo tempBlock:", tempBlock);
   const movingBlock = document.querySelector(".createdBlockTwo");
-  movingBlock.style.top = `${tempBlock.x_axis}px`;
+  movingBlock.style.top = `${tempBlock.y_axis}px`;
   displayBoardTwo.append(movingBlock);
 }
 

@@ -171,16 +171,16 @@ function collisionToFloorTwo(movingBlock) {
 //Start Game Button
 function startGame() {
   let startButton = document.querySelector(".start");
-  let timer, timer2;
+  let timer;
   displayPlayerOneBlock();
   displayPlayerTwoBlock();
 
   startButton.addEventListener("click", () => {
     console.log("🚀 start has been pressed!");
-    timer = setInterval(moveBlockBoardOne, 500);
-    timer2 = setInterval(moveBlockBoardTwo, 500);
-    // ? Unable to run both setInterval at the same time
-    // ? block disappear when render
+    timer = setInterval(() => {
+      moveBlockBoardOne();
+      moveBlockBoardTwo();
+    }, 500);
   });
 }
 
