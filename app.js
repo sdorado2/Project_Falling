@@ -177,8 +177,8 @@ function startGame() {
 
   startButton.addEventListener("click", () => {
     console.log("🚀 start has been pressed!");
-    // timer = setInterval(moveBlockBoardOne, 498);
-    timer2 = setInterval(moveBlockBoardTwo, 502);
+    timer = setInterval(moveBlockBoardOne, 500);
+    timer2 = setInterval(moveBlockBoardTwo, 500);
     // ? Unable to run both setInterval at the same time
     // ? block disappear when render
   });

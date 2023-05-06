@@ -27,9 +27,9 @@ function createPlayerBlock(player) {
   return newBlock;
 }
 
-function drawBlock(object, playerBoard) {
+function drawBlock(object, playerBoard, assignCSS) {
   let oneBlock = document.createElement("div");
-  oneBlock.setAttribute("class", "createdBlock");
+  oneBlock.setAttribute("class", `${assignCSS}`);
   let styleBlock = `
         left : ${object.x_axis}px;
         top : ${object.y_axis}px;
@@ -42,10 +42,10 @@ function drawBlock(object, playerBoard) {
 }
 
 function displayPlayerOneBlock() {
-  drawBlock(block, displayBoardOne);
+  drawBlock(block, displayBoardOne, "createdBlockOne");
 }
 function displayPlayerTwoBlock() {
-  drawBlock(blockTwo, displayBoardTwo);
+  drawBlock(blockTwo, displayBoardTwo, "createdBlockTwo");
 }
 
 function blockSpeed(object) {
@@ -59,7 +59,7 @@ console.time("moveBlockBoardOne");
 function moveBlockBoardOne() {
   let tempBlock = blockSpeed(block);
   console.log("🚀  file: block.js:60  moveBlock  tempBlock:", tempBlock);
-  const movingBlock = document.querySelector(".createdBlock");
+  const movingBlock = document.querySelector(".createdBlockOne");
   movingBlock.style.top = `${tempBlock.x_axis}px`;
   displayBoardOne.append(movingBlock);
 }
@@ -68,11 +68,8 @@ console.timeEnd("moveBlockBoardOne");
 
 function moveBlockBoardTwo() {
   let tempBlock = blockSpeed(blockTwo);
-  console.log(
-    "🚀  file: block.js:68  moveBlockBoardTwo  tempBlock:",
-    tempBlock
-  );
-  const movingBlock = document.querySelector(".createdBlock");
+  console.log("🚀 file: block.js:68 moveBlockBoardTwo tempBlock:", tempBlock);
+  const movingBlock = document.querySelector(".createdBlockTwo");
   movingBlock.style.top = `${tempBlock.x_axis}px`;
   displayBoardTwo.append(movingBlock);
 }
