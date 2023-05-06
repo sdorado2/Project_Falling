@@ -54,6 +54,8 @@ function blockSpeed(object) {
   return object;
 }
 
+console.time("moveBlockBoardOne");
+
 function moveBlockBoardOne() {
   let tempBlock = blockSpeed(block);
   console.log("🚀  file: block.js:60  moveBlock  tempBlock:", tempBlock);
@@ -61,6 +63,8 @@ function moveBlockBoardOne() {
   movingBlock.style.top = `${tempBlock.x_axis}px`;
   displayBoardOne.append(movingBlock);
 }
+
+console.timeEnd("moveBlockBoardOne");
 
 function moveBlockBoardTwo() {
   let tempBlock = blockSpeed(blockTwo);
