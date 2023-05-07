@@ -1,10 +1,11 @@
 import { playerOne, playerTwo } from "/player.js";
-import { displayBoardOne, displayBoardTwo } from "./board.js";
+import { displayBoardOne, displayBoardTwo } from "/board.js";
 import {
+  block,
+  blockTwo,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,
-  moveBlockBoardOne,
-  moveBlockBoardTwo,
+  moveBlock,
 } from "/block.js";
 
 let scoreBoard = 0;
@@ -178,8 +179,8 @@ function startGame() {
   startButton.addEventListener("click", () => {
     console.log("🚀 start has been pressed!");
     timer = setInterval(() => {
-      moveBlockBoardOne();
-      moveBlockBoardTwo();
+      moveBlock(block, displayBoardOne, ".createdBlockOne");
+      moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
     }, 500);
   });
 }
