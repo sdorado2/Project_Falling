@@ -20,15 +20,16 @@ scoreBoardTwo.innerHTML = `${scoreBoardDos} pts.`;
 
 function checkDetection(objA, ObjB) {
   let response;
-  for (let index = 0; index < blocks.length; index++) {
-    if (!collisionDetect(objA[index], ObjB)) {
-      response = false;
-    }
-    response = true;
+  if (collisionDetect(objA, ObjB)) {
+    response = false;
+    return response;
   }
+  response = true;
+  console.log(`🚀  file: app.js:27  response:`, response);
   return response;
 }
 
+//If there is not collision return true
 let collisionDetect = (objA, ObjB) => {
   return (
     objA.y_axis >= ObjB.y_axis + ObjB.height ||
@@ -62,31 +63,32 @@ function movingBlock() {
 
 //Collision detection between falling block and player One
 function collisionToPlayer(object = block, player = playerOne) {
-  let contact = checkDetection(object, player);
-  if (contact !== true) {
+  let noContact = checkDetection(object, player);
+  if (!noContact) {
     console.log("No Collision Detected To Player!");
+    return;
   }
 
   scoreBoard += 10;
   scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
-  let blockDisplay = Array.from(document.querySelectorAll(".createdBlock")); //Creates an array from div
+  let blockDisplay = Array.from(document.querySelectorAll(".createdBlockOne")); //Creates an array from div
   console.log(blockDisplay);
   blockDisplay[0].style.backgroundColor = "green";
   blockDisplay[0].classList.remove("createdBlock"); //Removes class list assigned
   blockDisplay[0].remove(); //Remove element
 
-  delete movingBlock.x_axis;
-  delete movingBlock.y_axis;
-  delete movingBlock.height;
-  delete movingBlock.width;
+  delete object.x_axis;
+  delete object.y_axis;
+  delete object.height;
+  delete object.width;
 
-  block = "";
+  object = "";
 }
 
 //Collision detection between falling block and floor for Player One
-function collisionToFloor(movingBlock) {
-  if (movingBlock.y_axis <= 750 || block === "") {
+function collisionToFloor(object = block) {
+  if (object.y_axis <= 750 || block === "") {
     console.log("No Collision Detected To Floor!");
   } else {
     console.log("Collision to the floor");
@@ -98,10 +100,10 @@ function collisionToFloor(movingBlock) {
     blockDisplay[0].classList.remove("createdBlock");
     blockDisplay[0].remove();
 
-    delete movingBlock.x_axis;
-    delete movingBlock.y_axis;
-    delete movingBlock.height;
-    delete movingBlock.width;
+    delete object.x_axis;
+    delete object.y_axis;
+    delete object.height;
+    delete object.width;
 
     block = "";
   }
@@ -118,7 +120,9 @@ function startGame() {
     console.log("🚀 start has been pressed!");
     timer = setInterval(() => {
       moveBlock(block, displayBoardOne, ".createdBlockOne");
+      collisionToPlayer(block, playerOne);
       moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
+      collisionToPlayer(blockTwo, playerTwo);
     }, 500);
   });
 }
