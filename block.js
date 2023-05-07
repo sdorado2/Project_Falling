@@ -27,6 +27,13 @@ function createPlayerBlock(player) {
   return newBlock;
 }
 
+function displayPlayerOneBlock() {
+  drawBlock(block, displayBoardOne, "createdBlockOne");
+}
+function displayPlayerTwoBlock() {
+  drawBlock(blockTwo, displayBoardTwo, "createdBlockTwo");
+}
+
 function drawBlock(object, playerBoard, assignCSS) {
   let oneBlock = document.createElement("div");
   oneBlock.setAttribute("class", `${assignCSS}`);
@@ -41,13 +48,6 @@ function drawBlock(object, playerBoard, assignCSS) {
   playerBoard.appendChild(oneBlock);
 }
 
-function displayPlayerOneBlock() {
-  drawBlock(block, displayBoardOne, "createdBlockOne");
-}
-function displayPlayerTwoBlock() {
-  drawBlock(blockTwo, displayBoardTwo, "createdBlockTwo");
-}
-
 function blockSpeed(object) {
   let speed = Math.floor(Math.random() * 5 + 1) * 10;
   object.y_axis += speed;
@@ -56,15 +56,25 @@ function blockSpeed(object) {
 
 function moveBlock(object, board, assignCSS = ".createdBlockOne") {
   let tempBlock = blockSpeed(object);
+  console.log(`🚀  file: block.js:59  tempBlock:`, tempBlock);
   let movingBlock = document.querySelector(assignCSS);
   movingBlock.style.top = `${tempBlock.y_axis}px`;
   board.append(movingBlock);
 }
 
+function reDrawBlock(object = block, player = playerOneBlock()) {
+  console.log(`🚀  file: block.js:66  block:`, block);
+  if (object === null || object === undefined || object === "") {
+    object = createPlayerBlock(player);
+    displayPlayerOneBlock();
+  }
+}
+
 export {
+  block,
+  blockTwo,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,
   moveBlock,
-  block,
-  blockTwo,
+  reDrawBlock,
 };
