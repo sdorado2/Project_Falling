@@ -19,6 +19,21 @@ function playerTwoBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 6) * 100 + 1050);
 }
 
+const playerOne = {
+  assignCSS: ".createdBlockOne",
+  playerBoard: displayBoardOne,
+  createBlock: playerOneBlock(),
+};
+const playerTwo = {
+  asserts: ".createdBlockTwo",
+  playerBoard: displayBoardTwo,
+  createBlock: playerTwoBlock(),
+};
+
+function checkPlayer(object) {
+  return object === block ? playerOne : playerTwo;
+}
+
 function createPlayerBlock(player) {
   let newBlock;
   while (newBlock === null || newBlock === undefined) {
@@ -62,10 +77,11 @@ function moveBlock(object, board, assignCSS = ".createdBlockOne") {
   board.append(movingBlock);
 }
 
-function reDrawBlock(object = block, player = playerOneBlock()) {
+function reDrawBlock(object = block) {
+  let tempPlayer = checkPlayer(object);
   console.log(`🚀  file: block.js:66  block:`, block);
-  if (object === null || object === undefined || object === "") {
-    object = createPlayerBlock(player);
+  if (tempPlayer === null || tempPlayer === undefined || tempPlayer === "") {
+    tempPlayer = createPlayerBlock(player);
     displayPlayerOneBlock();
   }
 }
