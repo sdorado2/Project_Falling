@@ -11,6 +11,22 @@ class makeBlock {
 let block = createPlayerBlock(playerOneBlock());
 let blockTwo = createPlayerBlock(playerTwoBlock());
 
+const playerOne = {
+  assignCSS: ".createdBlockOne",
+  createBlock: playerOneBlock(),
+  display: displayPlayerOneBlock(),
+  player: block,
+  playerBoard: displayBoardOne,
+};
+
+const playerTwo = {
+  assignCSS: ".createdBlockTwo",
+  createBlock: playerTwoBlock(),
+  display: displayPlayerTwoBlock(),
+  player: blockTwo,
+  playerBoard: displayBoardTwo,
+};
+
 function playerOneBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 3) * 100 + 50);
 }
@@ -18,17 +34,6 @@ function playerOneBlock() {
 function playerTwoBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 6) * 100 + 1050);
 }
-
-const playerOne = {
-  assignCSS: ".createdBlockOne",
-  playerBoard: displayBoardOne,
-  createBlock: playerOneBlock(),
-};
-const playerTwo = {
-  asserts: ".createdBlockTwo",
-  playerBoard: displayBoardTwo,
-  createBlock: playerTwoBlock(),
-};
 
 function checkPlayer(object) {
   return object === block ? playerOne : playerTwo;
@@ -77,13 +82,33 @@ function moveBlock(object, board, assignCSS = ".createdBlockOne") {
   board.append(movingBlock);
 }
 
+let tempPlayer;
 function reDrawBlock(object = block) {
-  let tempPlayer = checkPlayer(object);
   console.log(`🚀  file: block.js:66  block:`, block);
-  if (tempPlayer === null || tempPlayer === undefined || tempPlayer === "") {
-    tempPlayer = createPlayerBlock(player);
-    displayPlayerOneBlock();
+  console.log(`🚀  file: block.js:66  block:`, typeof block);
+
+  if (object === null || object === undefined || object === {}) {
+    tempPlayer = checkPlayer(object);
+    tempPlayer.player = createPlayerBlock(tempPlayer.createBlock);
+    tempPlayer.display;
   }
+}
+
+function deletedDisplayBlock(assignCSS = ".createdBlockOne") {
+  let blockDisplay = Array.from(document.querySelector(assignCSS));
+  blockDisplay[0].style.backgroundColor = "green";
+  blockDisplay[0].classList.remove("createdBlockOne");
+  blockDisplay[0].remove();
+}
+
+function deleteObjectBlock(object) {
+  delete object.x_axis;
+  delete object.y_axis;
+  delete object.height;
+  delete object.width;
+  delete object.makeBlock;
+
+  object = undefined;
 }
 
 export {
@@ -93,4 +118,6 @@ export {
   displayPlayerTwoBlock,
   moveBlock,
   reDrawBlock,
+  deletedDisplayBlock,
+  deleteObjectBlock,
 };

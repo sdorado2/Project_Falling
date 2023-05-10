@@ -7,6 +7,8 @@ import {
   displayPlayerTwoBlock,
   moveBlock,
   reDrawBlock,
+  deleteObjectBlock,
+  deletedDisplayBlock,
 } from "/block.js";
 
 let scoreBoard = 0;
@@ -40,7 +42,7 @@ let collisionDetect = (objA, ObjB) => {
   );
 };
 //Moving blocks in the player one screen
-function movingBlock() {
+/* function movingBlock() {
   let movingBlock = block;
   let blockMove = document.querySelector(".createdBlock");
 
@@ -58,11 +60,12 @@ function movingBlock() {
 
   reDrawBlock();
 }
+ */
 
 //Collision detection between falling block and player One
 function collisionToPlayer(object = block, player = playerOne, assignCSS) {
-  let noContact = checkDetection(object, player);
-  if (!noContact) {
+  let contact = checkDetection(object, player);
+  if (!contact) {
     console.log("No Collision Detected To Player!");
     return;
   }
@@ -70,23 +73,14 @@ function collisionToPlayer(object = block, player = playerOne, assignCSS) {
   scoreBoard += 10;
   scoreBoardOne.innerHTML = `${scoreBoard} pts`;
 
-  let blockDisplay = Array.from(document.querySelectorAll(assignCSS)); //Creates an array from div
-  console.log(blockDisplay);
-  blockDisplay[0].style.backgroundColor = "green";
-  blockDisplay[0].classList.remove("createdBlock"); //Removes class list assigned
-  blockDisplay[0].remove(); //Remove element
+  deletedDisplayBlock();
 
-  delete object.x_axis;
-  delete object.y_axis;
-  delete object.height;
-  delete object.width;
-
-  object = "";
+  deleteObjectBlock();
 }
 
 //Collision detection between falling block and floor for Player One
 function collisionToFloor(object = block, assignCSS = ".createdBlockOne") {
-  if (object.y_axis <= 750 || object === "") {
+  if (object.y_axis <= 720 || object === "") {
     console.log("No Collision Detected To Floor!");
     return;
   }
@@ -104,7 +98,7 @@ function collisionToFloor(object = block, assignCSS = ".createdBlockOne") {
   delete object.height;
   delete object.width;
 
-  object = "";
+  object = undefined;
 }
 
 //Start Game Button
@@ -120,7 +114,7 @@ function startGame() {
       moveBlock(block, displayBoardOne, ".createdBlockOne");
       collisionToPlayer(block, playerOne, ".createdBlockOne");
       collisionToFloor(block, ".createdBlockOne");
-      reDrawBlock(block, playerOneBlock);
+      // reDrawBlock(block);
       // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
       // collisionToPlayer(blockTwo, playerTwo, ".createdBlockTwo");
     }, 500);
