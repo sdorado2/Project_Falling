@@ -27,6 +27,14 @@ const playerTwo = {
   playerBoard: displayBoardTwo,
 };
 
+function createPlayerBlock(player) {
+  let newBlock;
+  while (newBlock === null || newBlock === undefined) {
+    newBlock = player;
+  }
+  return newBlock;
+}
+
 function playerOneBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 3) * 100 + 50);
 }
@@ -39,14 +47,6 @@ function checkPlayer(object) {
   return object === block ? playerOne : playerTwo;
 }
 
-function createPlayerBlock(player) {
-  let newBlock;
-  while (newBlock === null || newBlock === undefined) {
-    newBlock = player;
-  }
-  return newBlock;
-}
-
 function displayPlayerOneBlock() {
   drawBlock(block, displayBoardOne, "createdBlockOne");
 }
@@ -54,7 +54,7 @@ function displayPlayerTwoBlock() {
   drawBlock(blockTwo, displayBoardTwo, "createdBlockTwo");
 }
 
-function drawBlock(object, playerBoard, assignCSS) {
+function drawBlock(object, board, assignCSS) {
   let oneBlock = document.createElement("div");
   oneBlock.setAttribute("class", `${assignCSS}`);
   let styleBlock = `
@@ -65,21 +65,23 @@ function drawBlock(object, playerBoard, assignCSS) {
         position : absolute;
     `;
   oneBlock.style.cssText = styleBlock;
-  playerBoard.appendChild(oneBlock);
+  board.appendChild(oneBlock);
 }
 
 function blockSpeed(object) {
   let speed = Math.floor(Math.random() * 5 + 1) * 10;
   object.y_axis += speed;
+  console.log(`🚀  file: block.js:74  object:`, object);
   return object;
 }
 
-function moveBlock(object, board, assignCSS = ".createdBlockOne") {
-  let tempBlock = blockSpeed(object);
-  console.log(`🚀  file: block.js:59  tempBlock:`, tempBlock);
-  let movingBlock = document.querySelector(assignCSS);
-  movingBlock.style.top = `${tempBlock.y_axis}px`;
-  board.append(movingBlock);
+function moveBlock(object) {
+  console.log(`🚀  file: block.js:78  object:`, object);
+  tempPlayer = checkPlayer(object);
+  tempPlayer.player = blockSpeed(tempPlayer.player);
+  let oneBlock = document.querySelector(tempPlayer.assignCSS);
+  oneBlock.style.top = `${tempPlayer.player.y_axis}px`;
+  tempPlayer.playerBoard.append(oneBlock); //? Why is it creating a dup
 }
 
 let tempPlayer;
@@ -109,6 +111,7 @@ function deleteObjectBlock(object) {
   delete object.makeBlock;
 
   object = undefined;
+  console.log(`🚀  file: block.js:112  object:`, object);
 }
 
 export {

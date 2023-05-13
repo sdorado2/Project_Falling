@@ -111,9 +111,9 @@ function startGame() {
   startButton.addEventListener("click", () => {
     console.log("🚀 start has been pressed!");
     timer = setInterval(() => {
-      moveBlock(block, displayBoardOne, ".createdBlockOne");
-      collisionToPlayer(block, playerOne, ".createdBlockOne");
-      collisionToFloor(block, ".createdBlockOne");
+      moveBlock(block);
+      // collisionToPlayer(block, playerOne, ".createdBlockOne");
+      // collisionToFloor(block, ".createdBlockOne");
       // reDrawBlock(block);
       // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
       // collisionToPlayer(blockTwo, playerTwo, ".createdBlockTwo");
