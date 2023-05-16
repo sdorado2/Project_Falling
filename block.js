@@ -9,6 +9,7 @@ class makeBlock {
 }
 
 let block = createPlayerBlock(playerOneBlock());
+console.log(block);
 let blockTwo = createPlayerBlock(playerTwoBlock());
 
 const playerOne = {
@@ -55,8 +56,8 @@ function displayPlayerTwoBlock() {
 }
 
 function drawBlock(object, board, assignCSS) {
-  let oneBlock = document.createElement("div");
-  oneBlock.setAttribute("class", `${assignCSS}`);
+  const startBlock = document.createElement("div");
+  startBlock.setAttribute("class", `${assignCSS}`);
   let styleBlock = `
         left : ${object.x_axis}px;
         top : ${object.y_axis}px;
@@ -64,8 +65,8 @@ function drawBlock(object, board, assignCSS) {
         height : ${object.height}px;
         position : absolute;
     `;
-  oneBlock.style.cssText = styleBlock;
-  board.appendChild(oneBlock);
+  startBlock.style.cssText = styleBlock;
+  board.appendChild(startBlock);
 }
 
 function blockSpeed(object) {
@@ -75,13 +76,18 @@ function blockSpeed(object) {
   return object;
 }
 
-function moveBlock(object) {
-  console.log(`🚀  file: block.js:78  object:`, object);
+function moveBlock() {
+  // console.log(`🚀  file: block.js:78  object:`, object);
+  /* 
   tempPlayer = checkPlayer(object);
-  tempPlayer.player = blockSpeed(tempPlayer.player);
-  let oneBlock = document.querySelector(tempPlayer.assignCSS);
-  oneBlock.style.top = `${tempPlayer.player.y_axis}px`;
-  tempPlayer.playerBoard.append(oneBlock); //? Why is it creating a dup
+  tempPlayer.player = blockSpeed(tempPlayer.player); */
+
+  let testBlock = blockSpeed(block);
+  console.log(`🚀  file: block.js:85  testBlock:`, testBlock);
+
+  const oneBlock = document.querySelector(".createdBlockOne");
+  oneBlock.style.top = `${testBlock.y_axis}px`;
+  displayBoardOne.appendChild(oneBlock); //? Why is it creating a dup
 }
 
 let tempPlayer;

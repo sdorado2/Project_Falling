@@ -11,15 +11,60 @@ import {
   deletedDisplayBlock,
 } from "/block.js";
 
-let scoreBoard = 0;
-let scoreBoardDos = 0;
-
+// #region
+let scorePlayerOne = 0;
 let scoreBoardOne = document.querySelector(".leftScore");
-let scoreBoardTwo = document.querySelector(".rightScore");
+scoreBoardOne.innerHTML = `${scorePlayerOne} pts.`;
 
-//Scoreboard for player one and two
-scoreBoardOne.innerHTML = `${scoreBoard} pts.`;
-scoreBoardTwo.innerHTML = `${scoreBoardDos} pts.`;
+let scorePlayerTwo = 0;
+let scoreBoardTwo = document.querySelector(".rightScore");
+scoreBoardTwo.innerHTML = `${scorePlayerTwo} pts.`;
+// #endregion
+
+//Start Game Button
+function startGame() {
+  let startButton = document.querySelector(".start");
+  let timer;
+  displayPlayerOneBlock();
+  displayPlayerTwoBlock();
+
+  startButton.addEventListener("click", () => {
+    console.log("🚀 start has been pressed!");
+    timer = setInterval(() => {
+      moveBlock();
+      // collisionToPlayer(block, playerOne, ".createdBlockOne");
+      // collisionToFloor(block, ".createdBlockOne");
+      // reDrawBlock(block);
+      // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
+      // collisionToPlayer(blockTwo, playerTwo, ".createdBlockTwo");
+    }, 500);
+  });
+}
+
+//Reset Game
+function resetGame() {
+  let resetButton = document.querySelector(".reset");
+
+  resetButton.addEventListener("click", () => {
+    window.location = "/";
+  });
+}
+
+function gameOver() {
+  if (scoreBoard == 10) {
+    scoreBoardOne.innerHTML = "YOU WIN";
+    scoreBoardTwo.innerHTML = "YOU LOSE";
+    clearInterval(timer);
+    clearInterval(timer2);
+  }
+
+  if (scoreBoardDos == -10) {
+    scoreBoardOne.innerHTML = "YOU LOSE";
+    scoreBoardTwo.innerHTML = "YOU WIN";
+    clearInterval(timer);
+    clearInterval(timer2);
+  }
+}
 
 function checkDetection(objA, ObjB) {
   let response;
@@ -99,51 +144,6 @@ function collisionToFloor(object = block, assignCSS = ".createdBlockOne") {
   delete object.width;
 
   object = undefined;
-}
-
-//Start Game Button
-function startGame() {
-  let startButton = document.querySelector(".start");
-  let timer;
-  displayPlayerOneBlock();
-  displayPlayerTwoBlock();
-
-  startButton.addEventListener("click", () => {
-    console.log("🚀 start has been pressed!");
-    timer = setInterval(() => {
-      moveBlock(block);
-      // collisionToPlayer(block, playerOne, ".createdBlockOne");
-      // collisionToFloor(block, ".createdBlockOne");
-      // reDrawBlock(block);
-      // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
-      // collisionToPlayer(blockTwo, playerTwo, ".createdBlockTwo");
-    }, 500);
-  });
-}
-
-//Reset Game
-function resetGame() {
-  let resetButton = document.querySelector(".reset");
-
-  resetButton.addEventListener("click", () => {
-    window.location = "/";
-  });
-}
-
-function gameOver() {
-  if (scoreBoard == 10) {
-    scoreBoardOne.innerHTML = "YOU WIN";
-    scoreBoardTwo.innerHTML = "YOU LOSE";
-    clearInterval(timer);
-    clearInterval(timer2);
-  }
-
-  if (scoreBoardDos == -10) {
-    scoreBoardOne.innerHTML = "YOU LOSE";
-    scoreBoardTwo.innerHTML = "YOU WIN";
-    clearInterval(timer);
-    clearInterval(timer2);
-  }
 }
 
 startGame();
