@@ -93,7 +93,7 @@ function reDrawBlock(object = block) {
 }
 
 function deletedDisplayBlock(assignCSS = ".createdBlockOne") {
-  let blockDisplay = Array.from(document.querySelector(assignCSS));
+  let blockDisplay = Array.from(document.querySelectorAll(assignCSS));
   blockDisplay[0].style.backgroundColor = "green";
   blockDisplay[0].classList.remove("createdBlockOne");
   blockDisplay[0].remove();

@@ -114,14 +114,14 @@ function collisionToPlayer(object = block, player = playerOne, assignCSS) {
   scorePlayerOne += 10;
   scoreBoardOne.innerHTML = `${scorePlayerOne} pts`;
 
-  deletedDisplayBlock();
+  deletedDisplayBlock(".createdBlockOne");
 
-  deleteObjectBlock();
+  deleteObjectBlock(object);
 }
 
 //Collision detection between falling block and floor for Player One
 function collisionToFloor(object = block, assignCSS = ".createdBlockOne") {
-  if (object.y_axis <= 720 || object === "") {
+  if (object.y_axis <= 720 || object === undefined) {
     console.log("No Collision Detected To Floor!");
     return;
   }
