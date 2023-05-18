@@ -82,26 +82,6 @@ let collisionDetect = (objA, ObjB) => {
     objA.x_axis + objA.width <= ObjB.x_axis
   );
 };
-//Moving blocks in the player one screen
-/* function movingBlock() {
-  let movingBlock = block;
-  let blockMove = document.querySelector(".createdBlock");
-
-  movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10; //Block moving speed
-  console.log(movingBlock);
-  block = movingBlock;
-  blockMove.style.top = movingBlock.y_axis + "px"; //assign block at new location
-  boardOne.append(blockMove); // draws the block at new location
-
-  collisionToPlayer(movingBlock);
-
-  collisionToFloor(movingBlock);
-
-  gameOver();
-
-  reDrawBlock();
-}
- */
 
 //Collision detection between falling block and player One
 function collisionToPlayer(object = block, player = playerOne, assignCSS) {
@@ -129,18 +109,30 @@ function collisionToFloor(object = block, assignCSS = ".createdBlockOne") {
   scorePlayerOne -= 10;
   scoreBoardOne.innerHTML = `${scorePlayerOne} pts`;
 
-  let blockDisplay = Array.from(document.querySelectorAll(assignCSS));
-  blockDisplay[0].style.backgroundColor = "brown";
-  blockDisplay[0].classList.remove("createdBlock");
-  blockDisplay[0].remove();
+  deletedDisplayBlock(assignCSS);
 
-  delete object.x_axis;
-  delete object.y_axis;
-  delete object.height;
-  delete object.width;
-
-  object = undefined;
+  deleteObjectBlock(object);
 }
+//Moving blocks in the player one screen
+/* function movingBlock() {
+  let movingBlock = block;
+  let blockMove = document.querySelector(".createdBlock");
+
+  movingBlock.y_axis += Math.floor(Math.random() * 5 + 1) * 10; //Block moving speed
+  console.log(movingBlock);
+  block = movingBlock;
+  blockMove.style.top = movingBlock.y_axis + "px"; //assign block at new location
+  boardOne.append(blockMove); // draws the block at new location
+
+  collisionToPlayer(movingBlock);
+
+  collisionToFloor(movingBlock);
+
+  gameOver();
+
+  reDrawBlock();
+}
+ */
 
 startGame();
 

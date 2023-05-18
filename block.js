@@ -102,9 +102,8 @@ function deletedDisplayBlock(assignCSS = ".createdBlockOne") {
 function deleteObjectBlock(object) {
   delete object.x_axis;
   delete object.y_axis;
-  delete object.height;
   delete object.width;
-  delete object.makeBlock;
+  delete object.height;
 
   object = undefined;
   console.log(`🚀  file: block.js:112  object:`, object);
