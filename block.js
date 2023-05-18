@@ -12,22 +12,18 @@ let block = createPlayerBlock(playerOneBlock());
 console.log(block);
 let blockTwo = createPlayerBlock(playerTwoBlock());
 
-/* const playerOne = {
+const playerOne = {
   assignCSS: ".createdBlockOne",
-  createBlock: playerOneBlock(),
-  display: displayPlayerOneBlock(),
   player: block,
   playerBoard: displayBoardOne,
 };
 
 const playerTwo = {
   assignCSS: ".createdBlockTwo",
-  createBlock: playerTwoBlock(),
-  display: displayPlayerTwoBlock(),
   player: blockTwo,
   playerBoard: displayBoardTwo,
 };
- */
+
 function createPlayerBlock(player) {
   let newBlock;
   while (newBlock === null || newBlock === undefined) {
@@ -77,17 +73,11 @@ function blockSpeed(object) {
 }
 
 function moveBlock() {
-  // console.log(`🚀  file: block.js:78  object:`, object);
-  /* 
-  tempPlayer = checkPlayer(object);
-  tempPlayer.player = blockSpeed(tempPlayer.player); */
-
   let testBlock = blockSpeed(block);
-  console.log(`🚀  file: block.js:85  testBlock:`, testBlock);
 
   const oneBlock = document.querySelector(".createdBlockOne");
   oneBlock.style.top = `${testBlock.y_axis}px`;
-  displayBoardOne.appendChild(oneBlock); //? Why is it creating a dup
+  displayBoardOne.appendChild(oneBlock);
 }
 
 let tempPlayer;

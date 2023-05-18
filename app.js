@@ -32,8 +32,8 @@ function startGame() {
     console.log("🚀 start has been pressed!");
     timer = setInterval(() => {
       moveBlock();
-      // collisionToPlayer(block, playerOne, ".createdBlockOne");
-      // collisionToFloor(block, ".createdBlockOne");
+      collisionToPlayer(block, playerOne, ".createdBlockOne");
+      collisionToFloor(block, ".createdBlockOne");
       // reDrawBlock(block);
       // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
       // collisionToPlayer(blockTwo, playerTwo, ".createdBlockTwo");
@@ -51,19 +51,15 @@ function resetGame() {
 }
 
 function gameOver() {
-  if (scoreBoard == 10) {
+  if (scorePlayerOne == 10) {
     scoreBoardOne.innerHTML = "YOU WIN";
     scoreBoardTwo.innerHTML = "YOU LOSE";
     clearInterval(timer);
-    clearInterval(timer2);
   }
 
-  if (scoreBoardDos == -10) {
-    scoreBoardOne.innerHTML = "YOU LOSE";
-    scoreBoardTwo.innerHTML = "YOU WIN";
-    clearInterval(timer);
-    clearInterval(timer2);
-  }
+  scoreBoardOne.innerHTML = "YOU LOSE";
+  scoreBoardTwo.innerHTML = "YOU WIN";
+  clearInterval(timer);
 }
 
 function checkDetection(objA, ObjB) {
@@ -115,8 +111,8 @@ function collisionToPlayer(object = block, player = playerOne, assignCSS) {
     return;
   }
 
-  scoreBoard += 10;
-  scoreBoardOne.innerHTML = `${scoreBoard} pts`;
+  scorePlayerOne += 10;
+  scoreBoardOne.innerHTML = `${scorePlayerOne} pts`;
 
   deletedDisplayBlock();
 
@@ -130,8 +126,8 @@ function collisionToFloor(object = block, assignCSS = ".createdBlockOne") {
     return;
   }
   console.log("Collision to the floor");
-  scoreBoard -= 10;
-  scoreBoardOne.innerHTML = `${scoreBoard} pts`;
+  scorePlayerOne -= 10;
+  scoreBoardOne.innerHTML = `${scorePlayerOne} pts`;
 
   let blockDisplay = Array.from(document.querySelectorAll(assignCSS));
   blockDisplay[0].style.backgroundColor = "brown";
