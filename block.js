@@ -12,7 +12,7 @@ let block = createPlayerBlock(playerOneBlock());
 console.log(block);
 let blockTwo = createPlayerBlock(playerTwoBlock());
 
-const playerOne = {
+/* const playerOne = {
   assignCSS: ".createdBlockOne",
   createBlock: playerOneBlock(),
   display: displayPlayerOneBlock(),
@@ -27,7 +27,7 @@ const playerTwo = {
   player: blockTwo,
   playerBoard: displayBoardTwo,
 };
-
+ */
 function createPlayerBlock(player) {
   let newBlock;
   while (newBlock === null || newBlock === undefined) {
@@ -36,16 +36,16 @@ function createPlayerBlock(player) {
   return newBlock;
 }
 
+function checkPlayer(object) {
+  return object === block ? playerOne : playerTwo;
+}
+
 function playerOneBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 3) * 100 + 50);
 }
 
 function playerTwoBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 6) * 100 + 1050);
-}
-
-function checkPlayer(object) {
-  return object === block ? playerOne : playerTwo;
 }
 
 function displayPlayerOneBlock() {
