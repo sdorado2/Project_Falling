@@ -13,18 +13,18 @@ import {
 
 // #region
 let scorePlayerOne = 0;
-let scoreBoardOne = document.querySelector(".leftScore");
+const scoreBoardOne = document.querySelector(".leftScore");
 scoreBoardOne.innerHTML = `${scorePlayerOne} pts.`;
 
 let scorePlayerTwo = 0;
-let scoreBoardTwo = document.querySelector(".rightScore");
+const scoreBoardTwo = document.querySelector(".rightScore");
 scoreBoardTwo.innerHTML = `${scorePlayerTwo} pts.`;
 // #endregion
 
+let timer;
 //Start Game Button
 function startGame() {
   let startButton = document.querySelector(".start");
-  let timer;
   displayPlayerOneBlock();
   displayPlayerTwoBlock();
 
@@ -34,7 +34,8 @@ function startGame() {
       moveBlock();
       collisionToPlayer(block, playerOne, ".createdBlockOne");
       collisionToFloor(block, ".createdBlockOne");
-      // reDrawBlock(block);
+      gameOver();
+      reDrawBlock(block);
       // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
       // collisionToPlayer(blockTwo, playerTwo, ".createdBlockTwo");
     }, 500);
@@ -51,15 +52,17 @@ function resetGame() {
 }
 
 function gameOver() {
-  if (scorePlayerOne == 10) {
+  if (scorePlayerOne === 10) {
     scoreBoardOne.innerHTML = "YOU WIN";
     scoreBoardTwo.innerHTML = "YOU LOSE";
     clearInterval(timer);
   }
 
-  scoreBoardOne.innerHTML = "YOU LOSE";
-  scoreBoardTwo.innerHTML = "YOU WIN";
-  clearInterval(timer);
+  if (scorePlayerTwo === 10) {
+    scoreBoardOne.innerHTML = "YOU LOSE";
+    scoreBoardTwo.innerHTML = "YOU WIN";
+    clearInterval(timer);
+  }
 }
 
 function checkDetection(objA, ObjB) {
@@ -101,7 +104,7 @@ function collisionToPlayer(object = block, player = playerOne, assignCSS) {
 
 //Collision detection between falling block and floor for Player One
 function collisionToFloor(object = block, assignCSS = ".createdBlockOne") {
-  if (object.y_axis <= 720 || object === undefined) {
+  if (object === undefined || object.y_axis <= 720) {
     console.log("No Collision Detected To Floor!");
     return;
   }

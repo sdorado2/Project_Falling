@@ -8,13 +8,15 @@ class makeBlock {
   }
 }
 
-let block = createPlayerBlock(playerOneBlock());
+let block = {};
+// 🧪 Testing variable; creating a empty array, and then creating a key with assign value of createPlayer Block
+block.one = createPlayerBlock(playerOneBlock());
 console.log(block);
 let blockTwo = createPlayerBlock(playerTwoBlock());
 
 const playerOne = {
   assignCSS: ".createdBlockOne",
-  player: block,
+  player: block.one,
   playerBoard: displayBoardOne,
 };
 
@@ -33,7 +35,7 @@ function createPlayerBlock(player) {
 }
 
 function checkPlayer(object) {
-  return object === block ? playerOne : playerTwo;
+  return object === block.one ? playerOne : playerTwo;
 }
 
 function playerOneBlock() {
@@ -45,7 +47,7 @@ function playerTwoBlock() {
 }
 
 function displayPlayerOneBlock() {
-  drawBlock(block, displayBoardOne, "createdBlockOne");
+  drawBlock(block.one, displayBoardOne, "createdBlockOne");
 }
 function displayPlayerTwoBlock() {
   drawBlock(blockTwo, displayBoardTwo, "createdBlockTwo");
@@ -85,7 +87,7 @@ function reDrawBlock(object = block) {
   console.log(`🚀  file: block.js:66  block:`, block);
   console.log(`🚀  file: block.js:66  block:`, typeof block);
 
-  if (object === null || object === undefined || object === {}) {
+  if (typeof object === Object || object === undefined || object === null) {
     tempPlayer = checkPlayer(object);
     tempPlayer.player = createPlayerBlock(tempPlayer.createBlock);
     tempPlayer.display;
@@ -104,9 +106,13 @@ function deleteObjectBlock(object) {
   delete object.y_axis;
   delete object.width;
   delete object.height;
+  if (Object.keys(object) === 0 && empty.constructor === Object) {
+    console.log("true");
+  } else {
+    console.log("false");
+  }
 
-  object = undefined;
-  console.log(`🚀  file: block.js:112  object:`, object);
+  return (object = undefined);
 }
 
 export {
