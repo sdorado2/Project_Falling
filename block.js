@@ -8,15 +8,15 @@ class makeBlock {
   }
 }
 
-let block = {};
+let userOne = {};
 // 🧪 Testing variable; creating a empty array, and then creating a key with assign value of createPlayer Block
-block.one = createPlayerBlock(playerOneBlock());
-console.log(block);
+userOne.block = createPlayerBlock(playerOneBlock());
+console.log(userOne.block);
 let blockTwo = createPlayerBlock(playerTwoBlock());
 
 const playerOne = {
   assignCSS: ".createdBlockOne",
-  player: block.one,
+  player: userOne.block,
   playerBoard: displayBoardOne,
 };
 
@@ -35,7 +35,7 @@ function createPlayerBlock(player) {
 }
 
 function checkPlayer(object) {
-  return object === block.one ? playerOne : playerTwo;
+  return object === userOne.block ? playerOne : playerTwo;
 }
 
 function playerOneBlock() {
@@ -47,7 +47,7 @@ function playerTwoBlock() {
 }
 
 function displayPlayerOneBlock() {
-  drawBlock(block.one, displayBoardOne, "createdBlockOne");
+  drawBlock(userOne.block, displayBoardOne, "createdBlockOne");
 }
 function displayPlayerTwoBlock() {
   drawBlock(blockTwo, displayBoardTwo, "createdBlockTwo");
@@ -75,7 +75,7 @@ function blockSpeed(object) {
 }
 
 function moveBlock() {
-  let testBlock = blockSpeed(block);
+  let testBlock = blockSpeed(userOne.block);
 
   const oneBlock = document.querySelector(".createdBlockOne");
   oneBlock.style.top = `${testBlock.y_axis}px`;
@@ -83,9 +83,9 @@ function moveBlock() {
 }
 
 let tempPlayer;
-function reDrawBlock(object = block) {
-  console.log(`🚀  file: block.js:66  block:`, block);
-  console.log(`🚀  file: block.js:66  block:`, typeof block);
+function reDrawBlock(object = userOne.block) {
+  console.log(`🚀  file: block.js:66  block:`, userOne.block);
+  console.log(`🚀  file: block.js:66  block:`, typeof userOne.block);
 
   if (typeof object === Object || object === undefined || object === null) {
     tempPlayer = checkPlayer(object);
@@ -102,21 +102,16 @@ function deletedDisplayBlock(assignCSS = ".createdBlockOne") {
 }
 
 function deleteObjectBlock(object) {
-  delete object.x_axis;
-  delete object.y_axis;
-  delete object.width;
-  delete object.height;
-  if (Object.keys(object) === 0 && empty.constructor === Object) {
-    console.log("true");
-  } else {
-    console.log("false");
-  }
-
-  return (object = undefined);
+  console.log(`🚀  file: block.js:105  object:`, object.block);
+  delete object.block.x_axis;
+  delete object.block.y_axis;
+  delete object.block.width;
+  delete object.block.height;
+  delete object.block;
 }
 
 export {
-  block,
+  userOne,
   blockTwo,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,

@@ -1,7 +1,7 @@
 import { playerOne, playerTwo } from "/player.js";
 import { displayBoardOne, displayBoardTwo } from "/board.js";
 import {
-  block,
+  userOne,
   blockTwo,
   displayPlayerOneBlock,
   displayPlayerTwoBlock,
@@ -32,10 +32,10 @@ function startGame() {
     console.log("🚀 start has been pressed!");
     timer = setInterval(() => {
       moveBlock();
-      collisionToPlayer(block, playerOne, ".createdBlockOne");
-      collisionToFloor(block, ".createdBlockOne");
+      collideWithPlayer(userOne.block, playerOne, ".createdBlockOne");
+      collideWithFloor(userOne.block, ".createdBlockOne");
       gameOver();
-      reDrawBlock(block);
+      reDrawBlock(userOne.block);
       // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
       // collisionToPlayer(blockTwo, playerTwo, ".createdBlockTwo");
     }, 500);
@@ -87,7 +87,7 @@ let collisionDetect = (objA, ObjB) => {
 };
 
 //Collision detection between falling block and player One
-function collisionToPlayer(object = block, player = playerOne, assignCSS) {
+function collideWithPlayer(object = block, player = playerOne, assignCSS) {
   let contact = checkDetection(object, player);
   if (!contact) {
     console.log("No Collision Detected To Player!");
@@ -103,7 +103,7 @@ function collisionToPlayer(object = block, player = playerOne, assignCSS) {
 }
 
 //Collision detection between falling block and floor for Player One
-function collisionToFloor(object = block, assignCSS = ".createdBlockOne") {
+function collideWithFloor(object = userOne, assignCSS = "createdBlockOne") {
   if (object === undefined || object.y_axis <= 720) {
     console.log("No Collision Detected To Floor!");
     return;
@@ -113,7 +113,9 @@ function collisionToFloor(object = block, assignCSS = ".createdBlockOne") {
   scoreBoardOne.innerHTML = `${scorePlayerOne} pts`;
 
   deletedDisplayBlock(assignCSS);
-
+  console.log(object);
+  console.log(object.block);
+  console.log(typeof object.block);
   deleteObjectBlock(object);
 }
 //Moving blocks in the player one screen
