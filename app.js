@@ -32,8 +32,8 @@ function startGame() {
     console.log("🚀 start has been pressed!");
     timer = setInterval(() => {
       moveBlock();
-      collideWithPlayer(userOne.block, playerOne, ".createdBlockOne");
-      collideWithFloor(userOne.block, ".createdBlockOne");
+      collideWithPlayer(userOne, playerOne, ".createdBlockOne");
+      collideWithFloor(userOne, ".createdBlockOne");
       gameOver();
       reDrawBlock(userOne.block);
       // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
@@ -87,8 +87,12 @@ let collisionDetect = (objA, ObjB) => {
 };
 
 //Collision detection between falling block and player One
-function collideWithPlayer(object = block, player = playerOne, assignCSS) {
-  let contact = checkDetection(object, player);
+function collideWithPlayer(
+  object = userOne.block,
+  player = playerOne,
+  assignCSS
+) {
+  let contact = checkDetection(object.block, player);
   if (!contact) {
     console.log("No Collision Detected To Player!");
     return;
@@ -99,12 +103,12 @@ function collideWithPlayer(object = block, player = playerOne, assignCSS) {
 
   deletedDisplayBlock(".createdBlockOne");
 
-  deleteObjectBlock(object);
+  deleteObjectBlock(object.block);
 }
 
 //Collision detection between falling block and floor for Player One
 function collideWithFloor(object = userOne, assignCSS = "createdBlockOne") {
-  if (object === undefined || object.y_axis <= 720) {
+  if (object.block === undefined || object.block.y_axis <= 720) {
     console.log("No Collision Detected To Floor!");
     return;
   }

@@ -98,7 +98,9 @@ function deletedDisplayBlock(assignCSS = ".createdBlockOne") {
   let blockDisplay = Array.from(document.querySelectorAll(assignCSS));
   blockDisplay[0].style.backgroundColor = "green";
   blockDisplay[0].classList.remove("createdBlockOne");
+  console.log(userOne.block);
   blockDisplay[0].remove();
+  console.log("user: ", userOne, "player: ", userOne.block);
 }
 
 function deleteObjectBlock(object) {
