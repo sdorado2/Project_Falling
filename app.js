@@ -87,11 +87,7 @@ let collisionDetect = (objA, ObjB) => {
 };
 
 //Collision detection between falling block and player One
-function collideWithPlayer(
-  object = userOne.block,
-  player = playerOne,
-  assignCSS
-) {
+function collideWithPlayer(object = userOne, player = playerOne, assignCSS) {
   let contact = checkDetection(object.block, player);
   if (!contact) {
     console.log("No Collision Detected To Player!");
@@ -103,7 +99,7 @@ function collideWithPlayer(
 
   deletedDisplayBlock(".createdBlockOne");
 
-  deleteObjectBlock(object.block);
+  deleteObjectBlock(object);
 }
 
 //Collision detection between falling block and floor for Player One
@@ -117,9 +113,6 @@ function collideWithFloor(object = userOne, assignCSS = "createdBlockOne") {
   scoreBoardOne.innerHTML = `${scorePlayerOne} pts`;
 
   deletedDisplayBlock(assignCSS);
-  console.log(object);
-  console.log(object.block);
-  console.log(typeof object.block);
   deleteObjectBlock(object);
 }
 //Moving blocks in the player one screen
