@@ -18,12 +18,14 @@ const playerOne = {
   assignCSS: ".createdBlockOne",
   player: userOne.block,
   playerBoard: displayBoardOne,
+  playerName: "playerOneBlock",
 };
 
 const playerTwo = {
   assignCSS: ".createdBlockTwo",
   player: blockTwo,
   playerBoard: displayBoardTwo,
+  playerName: "playerTwoBlock",
 };
 // ⛑ restructure function
 // avoid passing function as a parameter
@@ -94,7 +96,7 @@ function reDrawBlock(object = userOne.block) {
 
   if (object === undefined || object === null) {
     tempPlayer = checkPlayer(object);
-    tempPlayer.player = createPlayerBlock(tempPlayer.createBlock);
+    tempPlayer.player = createPlayerBlock(tempPlayer.playerName);
     tempPlayer.display;
   }
 }
