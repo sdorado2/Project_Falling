@@ -9,40 +9,36 @@ class makeBlock {
 }
 
 let userOne = {};
-// 🧪 Testing variable; creating a empty array, and then creating a key with assign value of createPlayer Block
 userOne.block = createPlayerBlock("playerOneBlock");
 console.log(userOne.block);
 let blockTwo = createPlayerBlock("playerTwoBlock");
 
 const playerOne = {
-  assignCSS: ".createdBlockOne",
+  assignCSS: "createdBlockOne",
   player: userOne.block,
   playerBoard: displayBoardOne,
   playerName: "playerOneBlock",
 };
 
 const playerTwo = {
-  assignCSS: ".createdBlockTwo",
+  assignCSS: "createdBlockTwo",
   player: blockTwo,
   playerBoard: displayBoardTwo,
   playerName: "playerTwoBlock",
 };
-// ⛑ restructure function
-// avoid passing function as a parameter
+// ⛑ removing while loop
 function createPlayerBlock(player) {
   let newBlock;
-  while (newBlock === undefined) {
-    if (player === "playerOneBlock") {
-      return (newBlock = playerOneBlock());
-    }
-    if (player === "playerTwoBlock") {
-      return (newBlock = playerTwoBlock());
-    }
+  if (player === "playerOneBlock") {
+    return (newBlock = playerOneBlock());
+  }
+  if (player === "playerTwoBlock") {
+    return (newBlock = playerTwoBlock());
   }
 }
-
+//changing the comparison value
 function checkPlayer(object) {
-  return object === userOne.block ? playerOne : playerTwo;
+  return object === "playerOne" ? playerOne : playerTwo;
 }
 
 function playerOneBlock() {
@@ -52,13 +48,18 @@ function playerOneBlock() {
 function playerTwoBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 6) * 100 + 1050);
 }
+// 🧪 Testing new function for drawing block to DOM
+function displayPlayerBlock(player) {
+  let draw = checkPlayer(player);
+  drawBlock(draw.player, draw.playerBoard, draw.assignCSS);
+}
 
-function displayPlayerOneBlock() {
-  drawBlock(userOne.block, displayBoardOne, "createdBlockOne");
-}
-function displayPlayerTwoBlock() {
-  drawBlock(blockTwo, displayBoardTwo, "createdBlockTwo");
-}
+// function displayPlayerOneBlock() {
+//   drawBlock(userOne.block, displayBoardOne, "createdBlockOne");
+// }
+// function displayPlayerTwoBlock() {
+//   drawBlock(blockTwo, displayBoardTwo, "createdBlockTwo");
+// }
 
 function drawBlock(object, board, assignCSS) {
   const startBlock = document.createElement("div");
@@ -119,8 +120,7 @@ function deleteObjectBlock(object) {
 export {
   userOne,
   blockTwo,
-  displayPlayerOneBlock,
-  displayPlayerTwoBlock,
+  displayPlayerBlock,
   moveBlock,
   reDrawBlock,
   deletedDisplayBlock,

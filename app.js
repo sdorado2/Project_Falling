@@ -3,8 +3,7 @@ import { displayBoardOne, displayBoardTwo } from "/board.js";
 import {
   userOne,
   blockTwo,
-  displayPlayerOneBlock,
-  displayPlayerTwoBlock,
+  displayPlayerBlock,
   moveBlock,
   reDrawBlock,
   deleteObjectBlock,
@@ -25,8 +24,12 @@ let timer;
 //Start Game Button
 function startGame() {
   let startButton = document.querySelector(".start");
-  displayPlayerOneBlock();
-  displayPlayerTwoBlock();
+  // using new new display function
+  displayPlayerBlock("playerOne");
+  displayPlayerBlock("playerTwo");
+
+  // displayPlayerOneBlock();
+  // displayPlayerTwoBlock();
 
   startButton.addEventListener("click", () => {
     console.log("🚀 start has been pressed!");
@@ -35,7 +38,7 @@ function startGame() {
       collideWithPlayer(userOne, playerOne, ".createdBlockOne");
       collideWithFloor(userOne, ".createdBlockOne");
       gameOver(); // ❕ stop function from running is game over is true
-      reDrawBlock(userOne.block);
+      reDrawBlock("playerOne");
       // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
       // collisionToPlayer(blockTwo, playerTwo, ".createdBlockTwo");
     }, 500);
@@ -99,7 +102,6 @@ function collideWithPlayer(object = userOne, player = playerOne, assignCSS) {
   scoreBoardOne.innerHTML = `${scorePlayerOne} pts`;
 
   deletedDisplayBlock(".createdBlockOne");
-
   deleteObjectBlock(object);
 }
 
@@ -109,6 +111,7 @@ function collideWithFloor(object = userOne, assignCSS = "createdBlockOne") {
     console.log("No Collision Detected To Floor!");
     return;
   }
+
   console.log("Collision to the floor");
   scorePlayerOne -= 10;
   scoreBoardOne.innerHTML = `${scorePlayerOne} pts`;
