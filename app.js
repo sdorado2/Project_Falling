@@ -34,7 +34,7 @@ function startGame() {
       moveBlock();
       collideWithPlayer(userOne, playerOne, ".createdBlockOne");
       collideWithFloor(userOne, ".createdBlockOne");
-      gameOver();
+      gameOver(); // ❕ stop function from running is game over is true
       reDrawBlock(userOne.block);
       // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
       // collisionToPlayer(blockTwo, playerTwo, ".createdBlockTwo");
@@ -56,6 +56,7 @@ function gameOver() {
     scoreBoardOne.innerHTML = "YOU WIN";
     scoreBoardTwo.innerHTML = "YOU LOSE";
     clearInterval(timer);
+    return;
   }
 
   if (scorePlayerTwo === 10) {

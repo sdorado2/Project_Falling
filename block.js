@@ -10,9 +10,9 @@ class makeBlock {
 
 let userOne = {};
 // 🧪 Testing variable; creating a empty array, and then creating a key with assign value of createPlayer Block
-userOne.block = createPlayerBlock(playerOneBlock());
+userOne.block = createPlayerBlock("playerOneBlock");
 console.log(userOne.block);
-let blockTwo = createPlayerBlock(playerTwoBlock());
+let blockTwo = createPlayerBlock("playerTwoBlock");
 
 const playerOne = {
   assignCSS: ".createdBlockOne",
@@ -25,13 +25,18 @@ const playerTwo = {
   player: blockTwo,
   playerBoard: displayBoardTwo,
 };
-
+// ⛑ restructure function
+// avoid passing function as a parameter
 function createPlayerBlock(player) {
   let newBlock;
-  while (newBlock === null || newBlock === undefined) {
-    newBlock = player;
+  while (newBlock === undefined) {
+    if (player === "playerOneBlock") {
+      return (newBlock = playerOneBlock());
+    }
+    if (player === "playerTwoBlock") {
+      return (newBlock = playerTwoBlock());
+    }
   }
-  return newBlock;
 }
 
 function checkPlayer(object) {
