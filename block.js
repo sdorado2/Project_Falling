@@ -90,20 +90,19 @@ function moveBlock() {
   displayBoardOne.appendChild(oneBlock);
 }
 
-let tempPlayer;
-function reDrawBlock(object = userOne.block) {
+function reDrawBlock(object = "playerOne") {
   console.log(`🚀  file: block.js:66  block:`, userOne.block);
   console.log(`🚀  file: block.js:66  block:`, typeof userOne.block);
 
-  if (object === undefined || object === null) {
-    tempPlayer = checkPlayer(object);
+  let tempPlayer = checkPlayer(object);
+  if (tempPlayer.block === undefined || tempPlayer.block === null) {
     tempPlayer.player = createPlayerBlock(tempPlayer.playerName);
-    tempPlayer.display;
+    tempPlayer.playerBoard;
   }
 }
 
 function deletedDisplayBlock(assignCSS = ".createdBlockOne") {
-  let blockDisplay = Array.from(document.querySelectorAll(assignCSS));
+  let blockDisplay = Array.from(document.querySelectorAll(`.${assignCSS}`));
   blockDisplay[0].style.backgroundColor = "green";
   blockDisplay[0].classList.remove("createdBlockOne");
   blockDisplay[0].remove();
