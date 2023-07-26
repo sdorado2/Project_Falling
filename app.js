@@ -34,7 +34,7 @@ function startGame() {
   startButton.addEventListener("click", () => {
     console.log("🚀 start has been pressed!");
     timer = setInterval(() => {
-      moveBlock();
+      moveBlock("playerOne");
       collideWithPlayer(userOne, playerOne, ".createdBlockOne");
       collideWithFloor(userOne, ".createdBlockOne");
       gameOver(); // ❕ stop function from running is game over is true
@@ -101,7 +101,7 @@ function collideWithPlayer(object = userOne, player = playerOne, assignCSS) {
   scorePlayerOne += 10;
   scoreBoardOne.innerHTML = `${scorePlayerOne} pts`;
 
-  deletedDisplayBlock(".createdBlockOne");
+  deletedDisplayBlock(player);
   deleteObjectBlock(object);
 }
 
@@ -119,6 +119,11 @@ function collideWithFloor(object = userOne, assignCSS = "createdBlockOne") {
   deletedDisplayBlock(assignCSS);
   deleteObjectBlock(object);
 }
+
+startGame();
+
+resetGame();
+
 //Moving blocks in the player one screen
 /* function movingBlock() {
   let movingBlock = block;
@@ -139,7 +144,3 @@ function collideWithFloor(object = userOne, assignCSS = "createdBlockOne") {
   reDrawBlock();
 }
  */
-
-startGame();
-
-resetGame();

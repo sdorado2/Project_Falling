@@ -10,7 +10,6 @@ class makeBlock {
 
 let userOne = {};
 userOne.block = createPlayerBlock("playerOneBlock");
-console.log(userOne.block);
 let blockTwo = createPlayerBlock("playerTwoBlock");
 
 const playerOne = {
@@ -36,7 +35,7 @@ function createPlayerBlock(player) {
     return (newBlock = playerTwoBlock());
   }
 }
-//changing the comparison value
+
 function checkPlayer(object) {
   return object === "playerOne" ? playerOne : playerTwo;
 }
@@ -48,18 +47,11 @@ function playerOneBlock() {
 function playerTwoBlock() {
   return new makeBlock(Math.floor(Math.random() * 4 + 6) * 100 + 1050);
 }
-// 🧪 Testing new function for drawing block to DOM
+
 function displayPlayerBlock(player) {
   let draw = checkPlayer(player);
   drawBlock(draw.player, draw.playerBoard, draw.assignCSS);
 }
-
-// function displayPlayerOneBlock() {
-//   drawBlock(userOne.block, displayBoardOne, "createdBlockOne");
-// }
-// function displayPlayerTwoBlock() {
-//   drawBlock(blockTwo, displayBoardTwo, "createdBlockTwo");
-// }
 
 function drawBlock(object, board, assignCSS) {
   const startBlock = document.createElement("div");
@@ -82,11 +74,12 @@ function blockSpeed(object) {
   return object;
 }
 
-function moveBlock() {
-  let testBlock = blockSpeed(userOne.block);
+function moveBlock(player) {
+  let playerBlock = checkPlayer(player);
+  let tempBlock = blockSpeed(playerBlock.player);
 
   const oneBlock = document.querySelector(".createdBlockOne");
-  oneBlock.style.top = `${testBlock.y_axis}px`;
+  oneBlock.style.top = `${tempBlock.y_axis}px`;
   displayBoardOne.appendChild(oneBlock);
 }
 
@@ -95,14 +88,14 @@ function reDrawBlock(object = "playerOne") {
   console.log(`🚀  file: block.js:66  block:`, typeof userOne.block);
 
   let tempPlayer = checkPlayer(object);
-  if (tempPlayer.block === undefined || tempPlayer.block === null) {
+  if (tempPlayer.player === undefined || tempPlayer.player === null) {
     tempPlayer.player = createPlayerBlock(tempPlayer.playerName);
     tempPlayer.playerBoard;
   }
 }
 
 function deletedDisplayBlock(assignCSS = ".createdBlockOne") {
-  let blockDisplay = Array.from(document.querySelectorAll(`.${assignCSS}`));
+  let blockDisplay = Array.from(document.querySelectorAll(`${assignCSS}`));
   blockDisplay[0].style.backgroundColor = "green";
   blockDisplay[0].classList.remove("createdBlockOne");
   blockDisplay[0].remove();
