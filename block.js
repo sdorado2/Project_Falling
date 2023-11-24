@@ -8,13 +8,13 @@ class makeBlock {
   }
 }
 
-let userOne = {};
-userOne.block = createPlayerBlock("playerOneBlock");
+let playerBlock = [];
+playerBlock.blockOne = createPlayerBlock("playerOneBlock");
 let blockTwo = createPlayerBlock("playerTwoBlock");
 
 const playerOne = {
   assignCSS: "createdBlockOne",
-  player: userOne.block,
+  player: playerBlock.blockOne,
   playerBoard: displayBoardOne,
   playerName: "playerOneBlock",
 };
@@ -84,11 +84,16 @@ function moveBlock(player) {
 }
 
 function reDrawBlock(object = "playerOne") {
-  console.log(`🚀  file: block.js:66  block:`, userOne.block);
-  console.log(`🚀  file: block.js:66  block:`, typeof userOne.block);
+  console.log(`🚀  file: block.js:66  block:`, playerBlock.blockOne);
+  console.log(`🚀  file: block.js:66  block:`, typeof playerBlock.blockOne);
 
   let tempPlayer = checkPlayer(object);
-  if (tempPlayer.player === undefined || tempPlayer.player === null) {
+
+  console.log(`🚀  file: block.js:91  tempPlayer:`, tempPlayer);
+  console.log("userOne : " + playerBlock, "block : " + playerBlock.blockOne);
+  console.log(tempPlayer.player === "makeBlock" ? true : false);
+
+  if (!tempPlayer.player) {
     tempPlayer.player = createPlayerBlock(tempPlayer.playerName);
     tempPlayer.playerBoard;
   }
@@ -110,7 +115,7 @@ function deleteObjectBlock(object) {
 }
 
 export {
-  userOne,
+  playerBlock as userOne,
   blockTwo,
   displayPlayerBlock,
   moveBlock,
