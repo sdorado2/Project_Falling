@@ -1,7 +1,7 @@
 import { playerOne, playerTwo } from "/player.js";
 import { displayBoardOne, displayBoardTwo } from "/board.js";
 import {
-  userOne,
+  playerBlock,
   blockTwo,
   displayPlayerBlock,
   moveBlock,
@@ -35,8 +35,8 @@ function startGame() {
     console.log("🚀 start has been pressed!");
     timer = setInterval(() => {
       moveBlock("playerOne");
-      collideWithPlayer(userOne, playerOne, ".createdBlockOne");
-      collideWithFloor(userOne, ".createdBlockOne");
+      collideWithPlayer(playerBlock, playerOne, ".createdBlockOne");
+      collideWithFloor(playerBlock, ".createdBlockOne");
       gameOver(); // ❕ stop function from running is game over is true
       reDrawBlock("playerOne");
       // moveBlock(blockTwo, displayBoardTwo, ".createdBlockTwo");
@@ -69,15 +69,8 @@ function gameOver() {
   }
 }
 
-function checkDetection(objA, ObjB) {
-  let response;
-  if (collisionDetect(objA, ObjB)) {
-    response = false;
-    return response;
-  }
-  response = true;
-  console.log(`🚀  file: app.js:27  response:`, response);
-  return response;
+function checkDetection(objA, objB) {
+  return collisionDetect(objA, objB) ? false : true;
 }
 
 //If there is not collision return true
@@ -91,8 +84,8 @@ let collisionDetect = (objA, ObjB) => {
 };
 
 //Collision detection between falling block and player One
-function collideWithPlayer(object = userOne, player = playerOne, assignCSS) {
-  let contact = checkDetection(object.block, player);
+function collideWithPlayer(object = playerBlock, player = playerOne) {
+  let contact = checkDetection(object.blockOne, player);
   if (!contact) {
     console.log("No Collision Detected To Player!");
     return;
@@ -106,8 +99,8 @@ function collideWithPlayer(object = userOne, player = playerOne, assignCSS) {
 }
 
 //Collision detection between falling block and floor for Player One
-function collideWithFloor(object = userOne, assignCSS = "createdBlockOne") {
-  if (object.block === undefined || object.block.y_axis <= 720) {
+function collideWithFloor(object = playerBlock, assignCSS = "createdBlockOne") {
+  if (!object.blockOne || object.blockOne.y_axis <= 720) {
     console.log("No Collision Detected To Floor!");
     return;
   }

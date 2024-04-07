@@ -27,13 +27,9 @@ const playerTwo = {
 };
 // ⛑ removing while loop
 function createPlayerBlock(player) {
-  let newBlock;
-  if (player === "playerOneBlock") {
-    return (newBlock = playerOneBlock());
-  }
-  if (player === "playerTwoBlock") {
-    return (newBlock = playerTwoBlock());
-  }
+  // if (player === "playerOneBlock") return playerOneBlock();
+  // if (player === "playerTwoBlock") return playerTwoBlock();
+  return player === "playerOneBlock" ? playerOneBlock() : playerTwoBlock();
 }
 
 function checkPlayer(object) {
@@ -70,7 +66,6 @@ function drawBlock(object, board, assignCSS) {
 function blockSpeed(object) {
   let speed = Math.floor(Math.random() * 5 + 1) * 10;
   object.y_axis += speed;
-  console.log(`🚀  file: block.js:74  object:`, object);
   return object;
 }
 
@@ -84,16 +79,10 @@ function moveBlock(player) {
 }
 
 function reDrawBlock(object = "playerOne") {
-  console.log(`🚀  file: block.js:66  block:`, playerBlock.blockOne);
-  console.log(`🚀  file: block.js:66  block:`, typeof playerBlock.blockOne);
-
   let tempPlayer = checkPlayer(object);
-
-  console.log(`🚀  file: block.js:91  tempPlayer:`, tempPlayer);
-  console.log("userOne : " + playerBlock, "block : " + playerBlock.blockOne);
-  console.log(tempPlayer.player === "makeBlock" ? true : false);
-
-  if (!tempPlayer.player) {
+  console.log(`🚀  file: block.js:83  tempPlayer:`, tempPlayer);
+  const PLAYER = tempPlayer?.["player"];
+  if (!PLAYER) {
     tempPlayer.player = createPlayerBlock(tempPlayer.playerName);
     tempPlayer.playerBoard;
   }
@@ -107,15 +96,17 @@ function deletedDisplayBlock(assignCSS = ".createdBlockOne") {
 }
 
 function deleteObjectBlock(object) {
-  delete object.block.x_axis;
-  delete object.block.y_axis;
-  delete object.block.width;
-  delete object.block.height;
-  delete object.block;
+  console.log(`🚀  file: block.js:97  object:`, object);
+  delete object.blockOne.x_axis;
+  delete object.blockOne.y_axis;
+  delete object.blockOne.width;
+  delete object.blockOne.height;
+  delete object.blockOne;
+  console.log(`🚀  file: block.js:106  object:`, object);
 }
 
 export {
-  playerBlock as userOne,
+  playerBlock,
   blockTwo,
   displayPlayerBlock,
   moveBlock,
